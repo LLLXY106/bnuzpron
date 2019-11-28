@@ -14,7 +14,7 @@
         </ul>
     </div>
 </template>
-<style type="text/css">
+<style lang="stylus" scoped>
     .title{
         width: 100%;
         height: 50px;

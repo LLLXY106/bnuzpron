@@ -6,8 +6,15 @@
             <!--<li id="img3"><img src="../../public/img/PersonalCenter/3.jpg"></li>-->
         <!--</ul>-->
     <!--</div>-->
+    <div></div>
 </template>
-<style>
+
+<script>
+export default {
+    
+}
+</script>
+<style lang="stylus" scoped>
     .show{
         width: 100%;
     }
@@ -16,11 +23,6 @@
         height:200px;
     }
 </style>
-<script>
-    $(document).ready(function(){
-
-    });
-</script>
 
 
 
