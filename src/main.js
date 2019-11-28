@@ -7,10 +7,11 @@ require('vue-video-player/src/custom-theme.css');
 import 'videojs-flash'
 import 'videojs-contrib-hls'
 import $ from 'jquery'
-Vue.use(VueVideoPlayer);
+import '@/assets/css/public.css'
+
 Vue.config.productionTip = false;
 
 new Vue({
   router,
   render: h => h(App)
-}).$mount('#app');
+}).$mount('#app')

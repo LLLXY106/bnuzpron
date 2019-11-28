@@ -8,7 +8,12 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'personalcenter',
+    name: 'Home',
+    component: Home,
+  },
+  {
+    path: '/',
+    name: 'PersonalCenter',
     component: PersonalCenter,
   },
   {
