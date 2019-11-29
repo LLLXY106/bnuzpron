@@ -1,18 +1,22 @@
 <template>
-    <div class="detail">
-        <img src="/img/PersonalCenter/1.jpg" alt=""/>
-        <videoPlayer
-                class="video-player vjs-custom-skin"
-                ref="videoPlayer"
-                :playsinline="true"
-                :options="playerOptions"
-        >
-        </videoPlayer>
+    <div>
+        <TopContainer></TopContainer>
+        <div class="detail">
+<!--            <img src="/img/PersonalCenter/1.jpg" alt=""/>-->
+            <videoPlayer
+                    class="video-player vjs-custom-skin"
+                    ref="videoPlayer"
+                    :playsinline="true"
+                    :options="playerOptions"
+            >
+            </videoPlayer>
+        </div>
     </div>
+
 </template>
 
 <script>
-
+    import TopContainer from '../common/TopContainer'
     import {videoPlayer} from 'vue-video-player'
 
     export default {
@@ -44,8 +48,8 @@
 
 
         components: {
-
-            videoPlayer,
+            TopContainer,
+            videoPlayer
         }
     }
 </script>
