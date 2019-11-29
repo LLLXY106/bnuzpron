@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import PersonalCenter from '../views/PersonalCenter'
 import VideoPage from '../components/VedioPage/Video'
 import Test from '../components/VedioPage/Test'
+import Home from '../views/Home'
 Vue.use(VueRouter);
 
 const routes = [
@@ -12,12 +13,12 @@ const routes = [
     component: Home,
   },
   {
-    path: '/',
+    path: '/PersonalCenter',
     name: 'PersonalCenter',
     component: PersonalCenter,
   },
   {
-    path: '/Video',
+    path: '/VideoPage',
     name: 'VideoPage',
     component: VideoPage,
   },
