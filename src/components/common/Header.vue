@@ -1,11 +1,10 @@
 <template>
-  <div class="header"> <!--style="background-image:url(assets/images/HeaderBG.png);"-->
+  <div class="header">
   	<div class="header-layer"></div>
   	<a class="header-link" target="_blank" href="http://www.bilibili.com" data-loc-id="142"></a>
   	<div class="h-center">
-  		<a href="#" class="logo"></a> <!--  style="background-image:url(../../assets/images/bili-logo.png);" -->
+  		<!-- <a href="#" class="logo"></a> -->
       <search class="msearch"></search>
-
   	</div>
     <Menu></Menu>
   </div>
@@ -47,14 +46,14 @@ export default {
     	position relative
     	height 170px
     	transition .2s height
-    	.logo
-    		position absolute
-    		width 220px
-    		height 105px
-    		left 24px
-    		top 55px
-    		background url(../../assets/images/bili-logo.png) transparent no-repeat left center
-    		z-index 100
+    	// .logo
+    	// 	position absolute
+    	// 	width 220px
+    	// 	height 105px
+    	// 	left 24px
+    	// 	top 55px
+    	// 	background url(../../assets/images/bili-logo.png) transparent no-repeat left center
+    	// 	z-index 100
     	.banner-title
     		position absolute
     		top 114px

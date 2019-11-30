@@ -5,15 +5,7 @@
 				<MenuItem  v-for="i in classify" :item="i" :key="i"></MenuItem>
 			</ul>
 			<div class="menu-r">
-				<a id="mobile_p" class="mobile-p" href="//app.bilibili.com" target="_blank" @mouseover="showMobileLink=true" @mouseout="showMobileLink=false">
-					<transition name="fade">
-						<div class="mobile-p-box" v-show="showMobileLink">
-							<div class="mobile-p-qrcode">
-							</div>
-						</div>					
-					</transition>
-
-				</a>
+				<a href="#"><div class="jump-gif"></div></a>
 			</div>
 		</div>
 	</div>
@@ -78,15 +70,18 @@ export default {
 				{
 					title: '影视',
 					num: 333
+				}, {
+					title: '影视',
+					num: 444
 				}, 
 				{
 					title: '直播',
-					num: 444,
+					num: 555,
 					sequare: true
 				},
 				{
 					title: '广场',
-					num: 555,
+					num: 666,
 					live: true
 				}
 			]
@@ -131,34 +126,13 @@ export default {
 						max-width 100%
 						height 100%
 						margin 0 auto
-				.mobile-p
+				.jump-gif
 					display inline-block
 					vertical-align top
 					margin 3px 0
 					width 58px
 					height 44px
-					background url(../../assets/images/app-link.png) center center no-repeat
+					background url(../../assets/images/jump.gif) center center no-repeat
 					position relative
 					overflow visible
-					.mobile-p-box
-						position absolute
-						overflow hidden
-						top 44px
-						width 259px
-						height 174px
-						right -20px
-						background url(../../assets/images/app-box.png) center center no-repeat
-						transition .2s
-						transition-property opacity
-						&.fade-enter-active, &.fade-leave
-							opacity 1
-						&.fade-enter, &.fade-leave-active
-							opacity 0
-						.mobile-p-qrcode
-							position absolute
-							top 30px
-							width 100px
-							height 100px
-							left 80px
-							background url(../../assets/images/app-qrcode.png) center center no-repeat
 </style>
