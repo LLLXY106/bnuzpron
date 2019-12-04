@@ -89,7 +89,7 @@ export default {
 				font-weight normal
 				display inline-block
 				vertical-align middle
-				margin 0 11px
+				margin 0 16px
 				height 42px
 				padding-top 8px
 		.v-num
