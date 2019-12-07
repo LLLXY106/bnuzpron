@@ -142,8 +142,8 @@
 </style>
 <script type="text/javascript">
     import TopContainer from '../components/common/TopContainer'
-    import Tabs from '../components/Tabs'
-    import Middle from '../components/Middle'
+    import Tabs from '../components/PersonalCenterPage/Tabs'
+    import Middle from '../components/PersonalCenterPage/Middle'
 
     export default {
         components: {

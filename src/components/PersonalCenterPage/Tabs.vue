@@ -18,7 +18,7 @@
     .title{
         width: 100%;
         height: 50px;
-        background-color: gainsboro;
+        background-color: #bcd4dc;
         line-height: 50px;
     }
     ul{

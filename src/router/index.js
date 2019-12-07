@@ -4,6 +4,7 @@ import PersonalCenter from '../views/PersonalCenter'
 import VideoPage from '../components/VedioPage/Video'
 import Test from '../components/VedioPage/Test'
 import Home from '../views/Home'
+import LoginPage from '../components/LoginPage/LoginPage'
 Vue.use(VueRouter);
 
 const routes = [
@@ -12,6 +13,11 @@ const routes = [
     name: 'Home',
     component: Home,
   },
+    {
+        path: '/LoginPage',
+        name: 'LoginPage',
+        component: LoginPage,
+    },
   {
     path: '/PersonalCenter',
     name: 'PersonalCenter',

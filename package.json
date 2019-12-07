@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "core-js": "^3.3.2",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",

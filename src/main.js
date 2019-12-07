@@ -8,6 +8,7 @@ import 'videojs-flash'
 import 'videojs-contrib-hls'
 import $ from 'jquery'
 import '@/assets/css/public.css'
+import 'font-awesome/css/font-awesome.css'
 
 Vue.config.productionTip = false;
 
