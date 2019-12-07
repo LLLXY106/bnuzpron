@@ -70,18 +70,15 @@ export default {
 				{
 					title: '影视',
 					num: 333
-				}, {
-					title: '影视',
-					num: 444
-				}, 
+				},  
 				{
 					title: '直播',
-					num: 555,
+					num: 444,
 					sequare: true
 				},
 				{
 					title: '广场',
-					num: 666,
+					num: 555,
 					live: true
 				}
 			]
@@ -108,6 +105,7 @@ export default {
 				display inline-block
 				vertical-align top
 				height 50px
+				padding-right 60px
 			.menu-r
 				position absolute
 				right 0px
