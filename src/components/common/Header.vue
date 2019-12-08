@@ -1,9 +1,8 @@
 <template>
   <div class="header">
   	<div class="header-layer"></div>
-  	<a class="header-link" target="_blank" href="http://www.bilibili.com" data-loc-id="142"></a>
+  	<a class="header-link" target="_blank" href="http://localhost:8080/" data-loc-id="142"></a>
   	<div class="h-center">
-  		<!-- <a href="#" class="logo"></a> -->
       <search class="msearch"></search>
   	</div>
     <Menu></Menu>
@@ -26,7 +25,7 @@ export default {
     background url(../../assets/images/HeaderBG.png) transparent no-repeat center -10px
     position relative
     margin -42px auto 0
-    .header-layer
+    .header-layer	
     	height 170px
       position absolute
       top 0px
@@ -46,14 +45,6 @@ export default {
     	position relative
     	height 170px
     	transition .2s height
-    	// .logo
-    	// 	position absolute
-    	// 	width 220px
-    	// 	height 105px
-    	// 	left 24px
-    	// 	top 55px
-    	// 	background url(../../assets/images/bili-logo.png) transparent no-repeat left center
-    	// 	z-index 100
     	.banner-title
     		position absolute
     		top 114px
