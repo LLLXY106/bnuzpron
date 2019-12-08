@@ -5,6 +5,7 @@ import VideoPage from '../components/VedioPage/Video'
 import Test from '../components/VedioPage/Test'
 import Home from '../views/Home'
 import LoginPage from '../components/LoginPage/LoginPage'
+import registerPage from '../views/registerPage'
 Vue.use(VueRouter);
 
 const routes = [
@@ -34,12 +35,9 @@ const routes = [
     component: Test,
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/registerPage',
+    name: 'registerPage',
+    component: registerPage,
   }
 ];
 

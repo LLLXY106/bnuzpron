@@ -9,7 +9,7 @@
         <div class="z_top_nav">
           <ul>
             <li class="home">
-              <a class="i-link" href="//www.bilibili.com/">
+              <a class="i-link" href="http://localhost:8080/">
                 <span>主站</span>
               </a>
             </li>
@@ -40,7 +40,7 @@
                 <span>登录</span>
               </a>
               <i class="s-line"></i>
-              <a id="i_menu_register_btn" class="i-link reg" href="https://www.bilibili.com/register">
+              <a id="i_menu_register_btn" class="i-link reg" href="http://localhost:8080/registerPage">
                 <span>注册</span>
               </a>
             </li>

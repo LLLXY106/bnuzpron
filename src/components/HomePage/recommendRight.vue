@@ -4,7 +4,7 @@
       <a href="#">
         <img title="星之声" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575472262381&di=226fb6a8943a4b65665bc12adf9d110d&imgtype=0&src=http%3A%2F%2Fwww.005.tv%2Fuploads%2Fallimg%2F160704%2F16-160F41A246208.png" width="208" height="130">
         <div class="mark">
-          <p class="title">星星星星星星星星星之声</p>
+          <p title="星星星星星星星星星之声" class="title">星星星星星星星星星之声</p>
         </div>
       </a>
     </div>
