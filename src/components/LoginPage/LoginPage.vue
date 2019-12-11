@@ -1,5 +1,6 @@
 <template>
     <div class="main_body">
+        <TopContainer></TopContainer>
         <div class="bg"></div>
         <div class="login_body">
             <div class="login_form">
@@ -28,7 +29,11 @@
 </template>
 
 <script>
+    import TopContainer from '../common/TopContainer'
     export default {
+        components: {
+            TopContainer
+        },
         data() {
             return {
                 userName: '',

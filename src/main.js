@@ -10,6 +10,7 @@ import 'videojs-contrib-hls'
 import $ from 'jquery'
 import '@/assets/css/public.css'
 import 'swiper/dist/css/swiper.css'
+import 'font-awesome/css/font-awesome.min.css'
 
 Vue.config.productionTip = false;
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
