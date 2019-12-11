@@ -10,14 +10,13 @@
                 <!--<span>{{password}}</span>-->
                 <span class="forget">忘记密码?</span>
                 <button class="login_btn" v-on:click="login" round :loading="isBtnLoading">登录</button>
-
                 <div class="icon">
                         <i class="fa fa-wechat" style="color: #00ad19;font-size: 24px;margin-top: 30px;margin-right: 30px"></i>
                         <i class="fa fa-qq" style="color: #0078d7;font-size: 24px;margin-right: 30px"></i>
                         <i class="fa fa-weibo" style="color: #ea4335;font-size: 24px"></i>
                 </div>
                 <div class="hint" style="font-size: 14px;color: #979797;margin-top: 15px;margin-bottom: 10px">- 第三方登录 -</div>
-                <div class="registered"><a href="#" style="font-size: 14px;color:palevioletred;margin-left:260px">还没有账号?立即注册</a></div>
+                <div class="registered"><a href="/registerPage" style="font-size: 14px;color:palevioletred;margin-left:260px">还没有账号?立即注册</a></div>
             </div>
             <div class="QRcode_body">
                 <div class="QRcode_img">
@@ -42,7 +41,7 @@
             }
         },
         created () {
-            if(JSON.parse( localStorage.getItem('user')) && JSON.parse( localStorage.getItem('user')).userName){
+            if(JSON.parse(localStorage.getItem('user')) && JSON.parse( localStorage.getItem('user')).userName){
                 this.userName = JSON.parse( localStorage.getItem('user')).userName;
                 this.password = JSON.parse( localStorage.getItem('user')).password;
             }
@@ -127,6 +126,7 @@
         border-radius: 7px
         background-color #59bde9
         font-size 16px
+        display inline-block
     }
     .QRcode_body{
         width 45%

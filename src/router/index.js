@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import PersonalCenter from '../views/PersonalCenter'
-import VideoPage from '../components/VedioPage/Video'
-import Test from '../components/VedioPage/Test'
+import VideoPage from '../views/VideoPage'
 import Home from '../views/Home'
 import LoginPage from '../components/LoginPage/LoginPage'
 import registerPage from '../views/registerPage'
@@ -12,6 +11,10 @@ import HotPage from '../views/HotPage'
 import LatestPage from '../views/LatestPage'
 import WrapperPage from '../views/WrapperPage'
 Vue.use(VueRouter);
+import VueResource from 'vue-resource'
+
+Vue.use(VueResource)
+Vue.use(VueRouter)
 
 const routes = [
   {

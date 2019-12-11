@@ -17,7 +17,7 @@
               <a class="i-link" href="https://www.bilibili.com/anime/" title="番剧">番剧</a>
             </li>
             <li class="b-gc" hasframe="true">
-              <a class="i-link" href="http://localhost:8080/HotPage" title="游戏中心">最热动漫</a>
+              <a class="i-link" href="https://game.bilibili.com/" title="游戏中心">游戏中心</a>
             </li>
             <li class="live" hasframe="true">
               <a class="i-link" target="_blank" href="//live.bilibili.com/" title="直播">直播</a>
@@ -36,7 +36,7 @@
         <div class="uns_box">
           <ul class="menu">
             <li id="i_menu_login_reg" guest="yes" class="u-i" style="display: list-item">
-              <a id="i_menu_login_btn" class="i-link login" href="http://localhost:8080/LoginPage">
+              <a id="i_menu_login_btn" class="i-link login" href="/LoginPage">
                 <span>登录</span>
               </a>
               <i class="s-line"></i>

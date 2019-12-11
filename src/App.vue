@@ -6,7 +6,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  // mounted() {
+  //   this.axios.get("api/list").then((res)=>{
+  //     console.log(res);
+  //   })
+  // }
 }
 </script>
 

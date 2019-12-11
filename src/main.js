@@ -5,15 +5,17 @@ import VueVideoPlayer from "vue-video-player/src";
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 require('video.js/dist/video-js.css');
 require('vue-video-player/src/custom-theme.css');
-import 'videojs-flash'
-import 'videojs-contrib-hls'
+import 'videojs-flash'// 引入才能播放rtmp视频
+import 'videojs-contrib-hls' // 引入才能播放m3u8文件
 import $ from 'jquery'
 import '@/assets/css/public.css'
 import 'swiper/dist/css/swiper.css'
 import 'font-awesome/css/font-awesome.min.css'
+import axios from 'axios'
 
 Vue.config.productionTip = false;
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
+Vue.prototype.axios = axios;
 
 new Vue({
   router,
