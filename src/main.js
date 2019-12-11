@@ -10,9 +10,11 @@ import 'videojs-contrib-hls' // 引入才能播放m3u8文件
 import $ from 'jquery'
 import '@/assets/css/public.css'
 import 'swiper/dist/css/swiper.css'
+import axios from 'axios'
 
 Vue.config.productionTip = false;
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
+Vue.prototype.axios = axios;
 
 new Vue({
   router,

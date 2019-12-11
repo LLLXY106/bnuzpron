@@ -9,7 +9,7 @@
         <div class="z_top_nav">
           <ul>
             <li class="home">
-              <a class="i-link" href="http://localhost:8080/">
+              <a class="i-link" href="/">
                 <span>主站</span>
               </a>
             </li>
@@ -36,11 +36,11 @@
         <div class="uns_box">
           <ul class="menu">
             <li id="i_menu_login_reg" guest="yes" class="u-i" style="display: list-item">
-              <a id="i_menu_login_btn" class="i-link login" href="https://account.bilibili.com/login">
+              <a id="i_menu_login_btn" class="i-link login" href="/LoginPage">
                 <span>登录</span>
               </a>
               <i class="s-line"></i>
-              <a id="i_menu_register_btn" class="i-link reg" href="http://localhost:8080/registerPage">
+              <a id="i_menu_register_btn" class="i-link reg" href="/registerPage">
                 <span>注册</span>
               </a>
             </li>

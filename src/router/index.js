@@ -5,41 +5,42 @@ import VideoPage from '../views/VideoPage'
 import Home from '../views/Home'
 import LoginPage from '../components/LoginPage/LoginPage'
 import registerPage from '../views/registerPage'
-import Test from '../components/VideoPage/Test'
+import VueResource from 'vue-resource'
 
-Vue.use(VueRouter);
+Vue.use(VueResource)
+Vue.use(VueRouter)
 
 const routes = [
-    {
-        path: '/',
-        name: 'Home',
-        component: Home,
-    },
-    {
-        path: '/LoginPage',
-        name: 'LoginPage',
-        component: LoginPage,
-    },
-    {
-        path: '/PersonalCenter',
-        name: 'PersonalCenter',
-        component: PersonalCenter,
-    },
-    {
-        path: '/VideoPage',
-        name: 'VideoPage',
-        component: VideoPage,
-    },
-    {
-        path: '/registerPage',
-        name: 'registerPage',
-        component: registerPage,
-    },
-    {
-        path: '/Test',
-        name: 'Test',
-        components: Test,
-    }
+  {
+    path: '/',
+    name: 'Home',
+    component: Home,
+  },
+  {
+    path: '/LoginPage',
+    name: 'LoginPage',
+    component: LoginPage,
+  },
+  {
+    path: '/PersonalCenter',
+    name: 'PersonalCenter',
+    component: PersonalCenter,
+  },
+  {
+    path: '/VideoPage',
+    name: 'VideoPage',
+    component: VideoPage,
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: Test,
+  },
+  {
+    path: '/registerPage',
+    name: 'registerPage',
+    component: registerPage,
+  }
 ];
 
 const router = new VueRouter({
