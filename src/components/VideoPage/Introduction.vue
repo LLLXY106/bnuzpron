@@ -5,7 +5,7 @@
     </div>
 </template>
 
-<style>
+<style lang="stylus" scoped>
 
     .v_title{
         height: 30px;

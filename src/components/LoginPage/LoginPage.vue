@@ -1,26 +1,28 @@
 <template>
-    <div class="main_body">
-        <TopContainer></TopContainer>
-        <div class="bg"></div>
-        <div class="login_body">
-            <div class="login_form">
-                <div class="name">手机/昵称/邮箱<input type="text"  class="userName" id="userName" placeholder="用户名" v-model="userName"></div>
-                <!--<span>{{userName}}</span>-->
-                <div class="pwd">请输入密码<input type="password"  class="passWord" id="passWord" placeholder="密码" v-model="password"></div>
-                <!--<span>{{password}}</span>-->
-                <span class="forget">忘记密码?</span>
-                <button class="login_btn" v-on:click="login" round :loading="isBtnLoading">登录</button>
-                <div class="icon">
-                        <i class="fa fa-wechat" style="color: #00ad19;font-size: 24px;margin-top: 30px;margin-right: 30px"></i>
-                        <i class="fa fa-qq" style="color: #0078d7;font-size: 24px;margin-right: 30px"></i>
-                        <i class="fa fa-weibo" style="color: #ea4335;font-size: 24px"></i>
+    <div>
+        <swiper></swiper>
+        <div class="main_body">
+            <div class="bg"></div>
+            <div class="login_body">
+                <div class="login_form" >
+                    <div class="name">手机/昵称/邮箱<input type="text"  class="userName" id="userName" placeholder="用户名" v-model="userName"></div>
+                    <!--<span>{{userName}}</span>-->
+                    <div class="pwd">请输入密码<input type="password"  class="passWord" id="passWord" placeholder="密码" v-model="password"></div>
+                    <!--<span>{{password}}</span>-->
+                    <span class="forget">忘记密码?</span>
+                    <input type="button" class="login_btn" @click="login" round :loading="isBtnLoading" value="登录 ">
+                    <div class="icon">
+                            <i class="fa fa-wechat" style="color: #00ad19;font-size: 24px;margin-top: 30px;margin-right: 30px"></i>
+                            <i class="fa fa-qq" style="color: #0078d7;font-size: 24px;margin-right: 30px"></i>
+                            <i class="fa fa-weibo" style="color: #ea4335;font-size: 24px"></i>
+                    </div>
+                    <div class="hint" style="font-size: 14px;color: #979797;margin-top: 15px;margin-bottom: 10px">- 第三方登录 -</div>
+                    <div class="registered"><a href="/registerPage" style="font-size: 14px;color:palevioletred;margin-left:260px">还没有账号?立即注册</a></div>
                 </div>
-                <div class="hint" style="font-size: 14px;color: #979797;margin-top: 15px;margin-bottom: 10px">- 第三方登录 -</div>
-                <div class="registered"><a href="/registerPage" style="font-size: 14px;color:palevioletred;margin-left:260px">还没有账号?立即注册</a></div>
-            </div>
-            <div class="QRcode_body">
-                <div class="QRcode_img">
-                    <img src="../../assets/images/QRcode.png"/>
+                <div class="QRcode_body">
+                    <div class="QRcode_img">
+                        <img src="../../assets/images/QRcode.png"/>
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,24 +30,25 @@
 </template>
 
 <script>
-    import TopContainer from '../common/TopContainer'
+    import swiper from '../common/TopContainer'
     export default {
         components: {
-            TopContainer
+            swiper
         },
         data() {
             return {
                 userName: '',
                 password: '',
-                isBtnLoading: false
+                isBtnLoading: false,
+                userInfo:{},
             }
         },
-        created () {
-            if(JSON.parse(localStorage.getItem('user')) && JSON.parse( localStorage.getItem('user')).userName){
-                this.userName = JSON.parse( localStorage.getItem('user')).userName;
-                this.password = JSON.parse( localStorage.getItem('user')).password;
-            }
-        },
+        // created () {
+        //     if(JSON.parse(localStorage.getItem('user')) && JSON.parse( localStorage.getItem('user')).userName){
+        //         this.userName = JSON.parse( localStorage.getItem('user')).userName;
+        //         this.password = JSON.parse( localStorage.getItem('user')).password;
+        //     }
+        // },
         computed: {
             btnText() {
                 if (this.isBtnLoading) return '登录中...';
@@ -53,12 +56,31 @@
             }
         },
         methods: {
-            login() {
-                if(this.userName!="" && this.password!=""){
-                    return;
+            //登录
+            login:function() {
+                var username = this.userName;
+                var password = this.password;
+                console.log(username, password);
+                if(username == "" || password == ""){
+                    alert("未输入用户名或密码");
+                    this.userName = "";
+                    this.password = "";
                 }else{
-                    alert("用户名或密码不能为空！");
-                    return;
+                    var url = "/api/login";
+                    this.$http.post(url,{
+                        username: this.userName,
+                        password: this.password
+                    },{}).then(function(data) {
+                        var content = data.body[0].password;
+                        console.log(content);
+                        if(content == password){
+                            return window.location.href = "/";
+                        } else {
+                            alert("帐号或密码错误");
+                        }
+                    }, function(response){
+                        console.log(response);
+                    })
                 }
             }
         }

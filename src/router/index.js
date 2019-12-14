@@ -5,12 +5,6 @@ import VideoPage from '../views/VideoPage'
 import Home from '../views/Home'
 import LoginPage from '../components/LoginPage/LoginPage'
 import registerPage from '../views/registerPage'
-import CollectPage from '../views/CollectPage'
-import HistoryPage from '../views/HistoryPage'
-import HotPage from '../views/HotPage'
-import LatestPage from '../views/LatestPage'
-import WrapperPage from '../views/WrapperPage'
-Vue.use(VueRouter);
 import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
@@ -22,11 +16,11 @@ const routes = [
     name: 'Home',
     component: Home,
   },
-    {
-        path: '/LoginPage',
-        name: 'LoginPage',
-        component: LoginPage,
-    },
+  {
+    path: '/LoginPage',
+    name: 'LoginPage',
+    component: LoginPage,
+  },
   {
     path: '/PersonalCenter',
     name: 'PersonalCenter',
@@ -37,47 +31,22 @@ const routes = [
     name: 'VideoPage',
     component: VideoPage,
   },
-  {
-    path: '/test',
-    name: 'test',
-    component: Test,
-  },
+  // {
+  //   path: '/test',
+  //   name: 'test',
+  //   component: Test,
+  // },
   {
     path: '/registerPage',
     name: 'registerPage',
     component: registerPage,
-  },
-    {
-        path: '/CollectPage',
-        name: 'CollectPage',
-        component: CollectPage,
-    },
-    {
-        path: '/HistoryPage',
-        name: 'HistoryPage',
-        component: HistoryPage,
-    },
-    {
-        path: '/HotPage',
-        name: 'HotPage',
-        component: HotPage,
-    },
-    {
-        path:'/LatestPage',
-        name: 'LatestPage',
-        component: LatestPage,
-    },
-    {
-        path:'/WrapperPage',
-        name: 'WrapperPage',
-        component: WrapperPage,
-    }
+  }
 ];
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
 });
 
 export default router
