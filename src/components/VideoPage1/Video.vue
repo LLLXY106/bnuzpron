@@ -98,10 +98,11 @@
     }
 </script>
 
-<style>
+<style lang="stylus" scoped>
     .v_video{
-        /*border: 1px red solid;*/
-        margin-left: 100px;
-        padding-top:90px;
+        width 100%
+        height 100%
+        border: 1px green solid
+        margin 0 auto
     }
 </style>

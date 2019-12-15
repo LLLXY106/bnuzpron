@@ -1,8 +1,9 @@
 <template>
-    <div>
+    <div class="all-item">
         <TopContainer></TopContainer>
         <div class="v_left">
-            <a>{{title}}({{area}}>{{type}})</a>
+            <a>{{title}}</a>
+            <a>({{area}}>{{type}})</a>
             <Video></Video>
         </div>
         <div class="v_right">
@@ -50,22 +51,26 @@
     }
 </script>
 
-<style type="text/css">
+<style lang="stylus" scoped>
     * {
         padding: 0;
         margin: 0;
     }
-
     .v_left{
+        display: flex;
+        flex-direction column
         width: 60%;
-        height: 100%;
+        /*height: 100%;*/
+        height 1200px
         float: left;
+
     }
 
     .v_left a{
-        float: left;
+        /*float: left;*/
         font-size: 20px;
-        margin-left: 100px;
+        /*margin-left: 100px;*/
+
         line-height: 130px;
         color: black;
         font-weight:bold;

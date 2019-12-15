@@ -17,10 +17,10 @@
               <a class="i-link" href="https://www.bilibili.com/anime/" title="番剧">番剧</a>
             </li>
             <li class="b-gc" hasframe="true">
-              <a class="i-link" href="https://game.bilibili.com/" title="游戏中心">游戏中心</a>
+              <a class="i-link" href="/HotPage" title="热门漫画">热门漫画</a>
             </li>
             <li class="live" hasframe="true">
-              <a class="i-link" target="_blank" href="//live.bilibili.com/" title="直播">直播</a>
+              <a class="i-link" target="_blank" href="/CollectPage" title="收藏">我的收藏</a>
             </li>
             <li class="b-zb">
               <a class="i-link" target="_blank" href="https://show.bilibili.com/platform/home.html" title="会员购">会员购</a>
