@@ -1,8 +1,9 @@
-//接口文件
 var express = require('express');
 var router = express.Router();
 var connection = require('../db/sql.js');
+var connection = require('../db/sql.js');
 
+//终端显示信息
 var jsonWrite = function(res, ret) {
   if(typeof ret === 'undefined') {
     res.json({
@@ -12,7 +13,7 @@ var jsonWrite = function(res, ret) {
   }else{
     res.json(ret);
   }
-}
+};
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -66,6 +67,27 @@ router.get('/collect', function(req, res, next) {
   //       console.log(results);
   //       res.end(results);
   //   });
+});
+
+
+//登录接口
+router.post('/login', function(req, res, next) {
+  var params = req.body;
+  console.log(params);
+  connection.query("SELECT password FROM bnuzpron_usermsg WHERE username=?",[params.username], function(error, results) {
+    if(error){
+      return;
+    }
+    if(results){
+      jsonWrite(res, results);
+      for(var i = 0;i < results.length;i++){
+        if(results[i].password == params.password){
+          return res.end("返回成功");
+        }
+      }
+      return res.end("is over");
+    }
+  });
 });
 
 

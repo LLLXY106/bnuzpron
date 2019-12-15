@@ -23,11 +23,11 @@ const routes = [
     name: 'Home',
     component: Home,
   },
-    {
-        path: '/LoginPage',
-        name: 'LoginPage',
-        component: LoginPage,
-    },
+  {
+    path: '/LoginPage',
+    name: 'LoginPage',
+    component: LoginPage,
+  },
   {
     path: '/PersonalCenter',
     name: 'PersonalCenter',
@@ -81,9 +81,9 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
 });
 
 export default router

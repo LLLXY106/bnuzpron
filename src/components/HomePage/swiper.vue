@@ -47,9 +47,9 @@ export default {
   //     return this.$refs.mySwiper.swiper
   //   }
   // },
-  mounted() {
-    this.swiper.slideTo(1, 1000, true);
-  }
+  // mounted() {
+  //   this.swiper.slideTo(1, 1000, true);
+  // }
 }
 </script>
 

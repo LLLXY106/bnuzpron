@@ -98,7 +98,7 @@
     }
 </script>
 
-<style>
+<style lang="stylus" scoped>
     .v_video{
         /*border: 1px red solid;*/
         margin-left: 100px;
