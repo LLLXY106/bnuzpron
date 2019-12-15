@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import PersonalCenter from '../views/PersonalCenter'
-import VideoPage from '../views/VideoPage'
+import VideoPage from "../views/VideoPage";
 import Home from '../views/Home'
 import LoginPage from '../components/LoginPage/LoginPage'
 import registerPage from '../views/registerPage'
@@ -10,7 +10,6 @@ import HistoryPage from '../views/HistoryPage'
 import HotPage from '../views/HotPage'
 import LatestPage from '../views/LatestPage'
 import WrapperPage from '../views/WrapperPage'
-import VideoPage1 from '../views/VideoPage1'
 Vue.use(VueRouter);
 import VueResource from 'vue-resource'
 
@@ -38,11 +37,6 @@ const routes = [
     name: 'VideoPage',
     component: VideoPage,
   },
-  // {
-  //   path: '/test',
-  //   name: 'test',
-  //   component: Test,
-  // },
   {
     path: '/registerPage',
     name: 'registerPage',
@@ -73,11 +67,6 @@ const routes = [
         name: 'WrapperPage',
         component: WrapperPage,
     },
-    {
-        path:'/VideoPage1',
-        name: 'VideoPage1',
-        component: VideoPage1,
-    }
 ];
 
 const router = new VueRouter({
