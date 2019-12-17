@@ -19,6 +19,19 @@
                 </div>
                 <div class="other">
                     <div class="comment">
+                        <div ><button @click="getComment">test</button>展开评论</div>
+                        <div class="comment_top">
+                            <div class="head_img" style="width:20%">
+                                <img src="/img/PersonalCenter/head.jpg" style="width: 50px;height: 50px"/>
+
+                            </div><div style="width: 20%">用户名</div>
+                        </div>
+                        <div class="comment_mid">
+                            <div class="username"></div>
+                        </div>
+                        <div class="comment_buttom">
+                            <div class="comment_content"></div>
+                        </div>
 
                     </div>
                     <div class="recommend">
@@ -58,6 +71,18 @@
       Video
     },
     methods: {
+      getComment() {
+        var url = "/api/getVideoComment";
+        this.$http.get(url, {
+          params: {
+            id: this.id
+          }
+        }, {}).then(function (data) {
+          console.log(data.body);
+        }, function (response) {
+          console.log(response);
+        })
+      }
       // //被遗弃的事件总线hhh
       // video1:function () {
       //     msg.$emit("id","1");
@@ -152,6 +177,10 @@
 
     .menu li {
         margin-bottom 10px
+    }
+
+    .comment{
+        width:100%;
     }
 </style>
 

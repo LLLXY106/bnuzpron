@@ -91,7 +91,7 @@ router.post('/login', function(req, res, next) {
 
 router.get('/getVideo', function (req, res, next) {
   var id = req.query.id;
-  var sql = "SELECT * from videomsg where id=" + id;
+  var sql = "SELECT * from videomsg where vid=" + id;
   connection.query(sql, function (error, results) {
     if (error) {
       console.log('[SELECT ERROR] - ', error.message);
@@ -102,5 +102,20 @@ router.get('/getVideo', function (req, res, next) {
   });
   // res.end("1");
 });
+
+router.get('/getVideoComment', function (req, res, next) {
+  var id = req.query.id;
+  var sql = "SELECT * from videocomment where vid=" + id;
+  connection.query(sql, function (error, results) {
+    if (error) {
+      console.log('[SELECT ERROR] - ', error.message);
+      return;
+    }
+    console.log(JSON.stringify(results));
+    return res.end(JSON.stringify(results));
+  });
+  // res.end("1");
+});
+
 
 module.exports = router;
