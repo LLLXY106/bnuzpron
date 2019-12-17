@@ -159,10 +159,11 @@
         /*border 1px blue solid*/
     }
     .QRcode_img{
-        width 500px
-        height 400px
+        width 400px
+        height 300px
         /*border 1px blue solid*/
-        margin-top 40px
+        /*margin-top 40px*/
+        margin 80px auto
     }
     .QRcode_img img{
         width: auto;

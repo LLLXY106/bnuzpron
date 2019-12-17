@@ -2,10 +2,20 @@
     <div class="nav">
         <ul class="item">
             <li>首页</li>
-            <li>热门动漫</li>
+            <!--<li>热门动漫</li>-->
+            <li>{{title}}</li>
         </ul>
     </div>
 </template>
+<script type="text/javascript">
+    export default {
+        data(){
+            return{
+                title:'热门动漫'
+            }
+        }
+    }
+</script>
 <style lang="stylus" scoped>
     .nav{
         width 100%

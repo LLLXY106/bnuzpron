@@ -23,12 +23,16 @@
         height: 50px;
         line-height: 50px;
         color #979797
+        font-size 20px
+        text-align center
+        /*border: 1px solid orange*/
+        margin 0 auto
     }
-    .itemlist{
+    .itemlist li{
         list-style: none;
         width: 100%;
         height: 50px;
-        /*border: 1px solid orange;*/
+        border-bottom: 1px solid #f6f6f6;
         margin-bottom: 2px;
         line-height: 50px;
         cursor:pointer;
