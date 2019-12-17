@@ -62,11 +62,15 @@ router.get('/list1', function(req, res, next) {
 router.get('/collect', function(req, res, next) {
   // res.end(1);
   console.log("111");
-  res.end("1");
-  //   connection.query("SELECT id FROM bili_usercollect where username = 'lxy'", function(error, results, field) {
-  //       console.log(results);
-  //       res.end(results);
-  //   });
+  // res.end("1");
+    connection.query("SELECT vname,username,type FROM bili_usercollect where username = 'lxy'", function(error, results, field) {
+        if (error) {
+            console.log('[SELECT ERROR] - ', error.message);
+            return;
+        }
+        console.log(JSON.stringify(results));
+        return res.end(JSON.stringify(results));
+    });
 });
 
 

@@ -23,6 +23,7 @@
         }
     }
 </script>
+
 <style lang="stylus" scoped>
     .head{
         width 1100px

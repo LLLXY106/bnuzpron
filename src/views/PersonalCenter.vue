@@ -27,7 +27,7 @@
     </div>
 
 </template>
-<style type="text/css">
+<style lang="stylus" scoped>
     .main {
         margin: 30px auto 0;
         width: 70%;

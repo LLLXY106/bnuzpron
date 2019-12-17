@@ -1,15 +1,16 @@
 <template>
     <div>
-        <button @click="fun">test</button>
+        <!--<button @click="collectlist">test</button>-->
         <div class="itemlist">
-            <div class="item" v-for="item in collect" :key="item">
+            <!--<div class="item" v-for="item in collect" :key="item">-->
+            <div class="item" v-for="(items,i) in collect" :key="i">
                 <div class="img">
-                    <img :src="item.vimg" style="width: 188px;height: 119px"/>
+                    <!--<img :src="item.vimg" style="width: 188px;height: 119px"/>-->
                 </div>
                 <div class="intro">
-                    <div class="vname">{{item.vname}}</div>
-                    <div class="author">创建者：LL_XY106</div>
-                    <div class="detail">{{item.type}}</div>
+                    <div class="vname">{{items.vname}}</div>
+                    <div class="author">创建者：{{items.username}}</div>
+                    <div class="detail">{{items.type}}</div>
                     <button>点我</button>
                 </div>
             </div>
@@ -20,38 +21,27 @@
     export default {
         data() {
             return {
-                collect: [
-                    {
-                        id: "001",
-                        vimg: require("../../assets/images/jzy.png"),
-                        vname: "电影《姜子牙》预告",
-                        type: "公开"
-                    },
-                    {
-                        id: "002",
-                        vimg: require("../../assets/images/bg2.jpg"),
-                        vname: "新海诚《天气之子》",
-                        type: "公开"
-                    },
-                    {
-                        id: "003",
-                        vimg: require("../../assets/images/neko.jpg"),
-                        vname: "neko neko！",
-                        type: "仅我可见"
-                    }
-                ]
+                collect:[],
             }
         },
+        created(){
+          this.collectlist();
+        },
         mounted() {
-
         },
         methods: {
-            fun() {
+            collectlist(){
                 var url = "/api/collect";
                 this.$http.get(url, {
                 }, {}).then(function (data) {
-                    alert(data.body);
-                    console.log(data);
+                    // this.vname = data.body[0].vname;
+                    // this.username = data.body[0].username;
+                    // this.type = data.body[0].type;
+                    this.collect=data.body;
+                    // alert(data.body[0].type);
+                    // alert(data.body[0].vname);
+                    // alert(data.body[0].username);
+                    console.log(data.body);
                 }, function (response) {
                     console.log(response);
                 })
