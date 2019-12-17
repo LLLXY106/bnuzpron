@@ -10,7 +10,7 @@
             <div class="common-video" id="test">
                 <a href="#">
                     <div class="video-pic">
-                        <img src="../../assets/images/test-pic.jpeg" width="200px" height="130px" alt="test-video">
+                        <img src="../../assets/images/test-pic.jpeg" width="200px" height="130px" alt="test-video" @click="toVideo(2)">
                     </div>
                     <p title="这是一个测测测测测测测测测测测试视频" class="video-title">这是一个测测测测测测测测测测测试</p>
                 </a>
@@ -23,7 +23,7 @@
                 Made by 群聊(3)
             </div>
             <div class="bottom">
-                <img src="../../assets/images/natsume.gif" width="260px" height="150px" >
+                <img src="../../assets/images/natsume.gif" width="260px" height="150px">
             </div>
         </div>
     </div>
@@ -31,11 +31,18 @@
 
 <script>
 
-    export default {
-        name: 'AnimateVideo',
-        data() {
-        }
+  export default {
+    name: 'AnimateVideo',
+    data() {
+    },
+    methods: {
+      toVideo(num) {
+        window.location.href = 'VideoPage?id=' + num;
+        // this.$router.push({name:'VideoPage',query: {id:'1'}})
+      }
     }
+
+  }
 </script>
 
 <style lang="stylus" scoped>

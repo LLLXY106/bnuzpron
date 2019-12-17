@@ -1,139 +1,186 @@
 <template>
-    <div class="all-item">
+    <div>
         <TopContainer></TopContainer>
-        <div class="v_left">
-            <a>{{title}}</a>
-            <a>({{area}}>{{type}})</a>
-            <Video></Video>
+        <div class="bg">
+            <div class="dim"><p STYLE="font-size:44px;font-weight: bolder;line-height: 110px;letter-spacing:10px;">
+                热门视频</p>
+                <p STYLE="font-size:16px;letter-spacing:4px;">POPULAR VIDEO</p></div>
         </div>
-        <div class="v_right">
-            <a>相关推荐</a><br>
-            <img src="/img/PersonalCenter/1.jpg" style="width: 200px;height: 100px" @click="video1()"><br>
-            <img src="/img/PersonalCenter/2.jpg" style="width: 200px;height: 100px" @click="video2()"><br>
-            <img src="/img/PersonalCenter/3.jpg" style="width: 200px;height: 100px">
+        <Navbar></Navbar>
+        <div class="main">
+            <div class="content">
+                <div class="video">
+                    <a>{{title}}</a>
+                    <a>{{area}}>{{type}}</a>
+                    <Video></Video>
+                </div>
+                <div class="intro">
+
+                </div>
+                <div class="other">
+                    <div class="comment">
+                        <div ><button @click="getComment">test</button>展开评论</div>
+                        <div class="comment_top">
+                            <div class="head_img" style="width:20%">
+                                <img src="/img/PersonalCenter/head.jpg" style="width: 50px;height: 50px"/>
+
+                            </div><div style="width: 20%">用户名</div>
+                        </div>
+                        <div class="comment_mid">
+                            <div class="username"></div>
+                        </div>
+                        <div class="comment_buttom">
+                            <div class="comment_content"></div>
+                        </div>
+
+                    </div>
+                    <div class="recommend">
+                        <div style="margin:10px auto;font-size: 16px;font-weight: bolder">推荐视频</div>
+                        <div class="item">
+                            <ul class="menu">
+                                <li><img src="/img/PersonalCenter/1.jpg" style="width: 240px;height: 150px"></li>
+                                <li><img src="/img/PersonalCenter/2.jpg" style="width: 240px;height: 150px"></li>
+                                <li><img src="/img/PersonalCenter/3.jpg" style="width: 240px;height: 150px"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
+<script type="text/javascript">
+  import TopContainer from '../components/common/TopContainer'
+  import Navbar from '../components/HotPage/Navbar'
+  // import Video from '../components/VideoPage1/Video'
+  import Video from '../components/VideoPage/Video'
 
-
-
-<script>
-    import TopContainer from '../components/common/TopContainer'
-    import Video from '../components/VideoPage/Video'
-    import Introduction from '../components/VideoPage/Introduction'
-    import msg from '../components/VideoPage/msg';
-
-    export default {
-        name: "VideoPage",
-        data() {
-            return {
-                title:'【猛男版】新 宝 岛',
-                area:'舞蹈',
-                type:'宅舞',
-            }
-        },
-
-        components: {
-            TopContainer,
-            Video,
-            Introduction
-        },
-
-        methods:{
-            video1:function () {
-                msg.$emit("id","1");
-            },
-            video2:function () {
-                msg.$emit("id","2");
-            }
+  export default {
+    name: "VideoPage",
+    data() {
+      return {
+        id: this.$route.query.id,
+        title: '',
+        area: '',
+        type: '',
+      }
+    },
+    components: {
+      TopContainer,
+      Navbar,
+      Video
+    },
+    methods: {
+      getComment() {
+        var url = "/api/getVideoComment";
+        this.$http.get(url, {
+          params: {
+            id: this.id
+          }
+        }, {}).then(function (data) {
+          console.log(data.body);
+        }, function (response) {
+          console.log(response);
+        })
+      }
+      // //被遗弃的事件总线hhh
+      // video1:function () {
+      //     msg.$emit("id","1");
+      // },
+      // video2:function () {
+      //     msg.$emit("id","2");
+      // }
+    },
+    mounted() {
+      // 跳转到此页面时根据id加载页面内容
+      var url = "/api/getVideo";
+      this.$http.get(url, {
+        params: {
+          id: this.id
         }
-
+      }, {}).then(function (data) {
+        console.log(data);
+        this.title = data.body[0].title;
+        this.area = data.body[0].area;
+        this.type = data.body[0].type;
+      }, function (response) {
+        console.log(response);
+      })
     }
+  }
+
+
 </script>
-
 <style lang="stylus" scoped>
-    * {
-        padding: 0;
-        margin: 0;
+    .bg {
+        width 100%
+        height 170px
+        position: relative;
+        background: url("../assets/images/video_bg.jpg") no-repeat top
+
     }
-    .v_left{
-        display: flex;
+
+    .dim {
+        width 100%
+        height 170px
+        background-color: rgba(0, 0, 0, .6);
+        color white
+        font-family "微软雅黑", sans-serif
+        text-align center
+    }
+
+    .main {
+        width 100%
+        height 1500px
+    }
+
+    .content {
+        width 70%
+        height 1500px
+        margin 0 auto
+        border 1px blue solid
+        display flex
         flex-direction column
-        width: 60%;
-        /*height: 100%;*/
-        height 1200px
-        float: left;
-
     }
 
-    .v_left a{
-        /*float: left;*/
-        font-size: 20px;
-        /*margin-left: 100px;*/
-
-        line-height: 130px;
-        color: black;
-        font-weight:bold;
-        height: 50px;
+    .video {
+        width 100%
     }
 
-    .v_right{
-        width: 40%;
-        float: right;
-        height: 100%;
+    .intro {
+        width 100%
+        height 10%
+        border 1px blue solid
     }
 
-    .v_right a{
-        text-align: center;
-        /*float: right;*/
-        font-size: 18px;
-        line-height: 130px;
-        color: black;
-        font-weight:bold;
-        height: 50px;
+    .other {
+        width 100%
+        height 40%
+        border 1px blue solid
+        display flex
+        flex-direction row
+    }
+
+    .comment {
+        width 70%
+        height 100%
+        border 1px red solid
+    }
+
+    .recommend {
+        width 30%
+        height 100%
+        border 1px yellow solid
+        display flex
+        flex-direction column
+    }
+
+    .menu li {
+        margin-bottom 10px
+    }
+
+    .comment{
+        width:100%;
     }
 </style>
 
-<!--<template>-->
-<!--    <div>-->
-<!--        <ul>-->
-<!--            <li v-for = " (item,index) in list" v-text='`${item} - ${index} `'></li>-->
-<!--        </ul>-->
-<!--        <button @click="change3">改变数组第2个值,改成0</button>-->
-<!--        <button @click="change4">改变数组第2个值,改成5</button>-->
-<!--    </div>-->
-<!--</template>-->
-<!--<script>-->
-<!--    import Vue from 'vue'-->
-<!--    export default {-->
-<!--        data () {-->
-<!--            return {-->
-<!--                list : [ 1, 2, 3, 4],-->
-<!--                list2 : [ 7, 8, 9, 0 ]-->
-<!--            }-->
-<!--        },-->
-<!--        methods : {-->
-<!--            //通过下标来改变整个数组里的值也是行不通的-->
-<!--            changeList () {-->
-<!--                this.list[2] = 3-->
-<!--            },-->
-<!--            //通过数组长度改变改个数组里的值是行不通的-->
-<!--            changeList2 () {-->
-<!--                this.length = 1-->
-<!--            },-->
-<!--            //第一我们可以通过，vue.set实列方法来改变，但我们要在开头再引一入下vue包-->
-<!--            // 1 第一个值代表需要改变的数组-->
-<!--            // 2 第二个代表改变那一项-->
-<!--            // 3 第三个代表改成什么值-->
-<!--            //样式语法 Vue.set(example1.items, indexOfItem, newValue)-->
-<!--            change3 () {-->
-<!--                Vue.set(this.list,1,0)-->
-<!--            },-->
-<!--            //通过 Array.prototype.splice 数组原型上的方法来改变整个数组的长度或者内容-->
-<!--            //这个方法大家肯定常用，我就不细说了-->
-<!--            change4 () {-->
-<!--                this.list.splice(1,1,5)-->
-<!--            }-->
-<!--        }-->
-<!--    }-->
-<!--</script>-->

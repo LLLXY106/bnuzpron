@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var connection = require('../db/sql.js');
-var connection = require('../db/sql.js');
 
 //终端显示信息
 var jsonWrite = function(res, ret) {
@@ -92,6 +91,34 @@ router.post('/login', function(req, res, next) {
       return res.end("is over");
     }
   });
+});
+
+router.get('/getVideo', function (req, res, next) {
+  var id = req.query.id;
+  var sql = "SELECT * from videomsg where vid=" + id;
+  connection.query(sql, function (error, results) {
+    if (error) {
+      console.log('[SELECT ERROR] - ', error.message);
+      return;
+    }
+    console.log(JSON.stringify(results));
+    return res.end(JSON.stringify(results));
+  });
+  // res.end("1");
+});
+
+router.get('/getVideoComment', function (req, res, next) {
+  var id = req.query.id;
+  var sql = "SELECT * from videocomment where vid=" + id;
+  connection.query(sql, function (error, results) {
+    if (error) {
+      console.log('[SELECT ERROR] - ', error.message);
+      return;
+    }
+    console.log(JSON.stringify(results));
+    return res.end(JSON.stringify(results));
+  });
+  // res.end("1");
 });
 
 
