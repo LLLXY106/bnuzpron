@@ -67,6 +67,7 @@
                     this.password = "";
                 }else{
                     var url = "/api/login";
+                    // console.log(url);
                     this.$http.post(url,{
                         username: this.userName,
                         password: this.password
@@ -74,9 +75,11 @@
                         var content = data.body[0].password;
                         console.log(content);
                         if(content == password){
-                            return window.location.href = "/";
+                            this.$cookies.set("username",username);
+                            this.$cookies.set("password",password);
+                            window.location.href = "/";
                         } else {
-                            alert("帐号或密码错误");
+                            alert("用户名或密码错误");
                         }
                     }, function(response){
                         console.log(response);

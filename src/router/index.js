@@ -6,6 +6,9 @@ import Home from '../views/Home'
 import LoginPage from '../components/LoginPage/LoginPage'
 import registerPage from '../views/registerPage'
 import VueResource from 'vue-resource'
+// import Vuex from 'vuex'
+
+// Vue.use(Vuex)
 
 Vue.use(VueResource)
 Vue.use(VueRouter)
@@ -31,11 +34,6 @@ const routes = [
     name: 'VideoPage',
     component: VideoPage,
   },
-  // {
-  //   path: '/test',
-  //   name: 'test',
-  //   component: Test,
-  // },
   {
     path: '/registerPage',
     name: 'registerPage',
