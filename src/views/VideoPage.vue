@@ -35,8 +35,9 @@
                                     <p style="text-align: left;margin-left: 20px;margin-top: 15px;font-size: 14px;line-height: 18px">
                                         {{items.comment}}</p>
                                     <i class="fa fa-commenting-o" aria-hidden="true"
-                                       style="color:rgb(188,188,188);margin-right: 8px;cursor: pointer"></i><span
-                                        style="font-size: 14px;margin-right: 15px"></span>点击展开楼中楼
+                                       style="color:rgb(188,188,188);margin-right: 8px;cursor: pointer" :id="items.floor" @click="getInterlayer($event)"></i><span
+                                        style="font-size: 14px;margin-right: 15px" ></span>
+<!--                                    <div>{{items.reply}}</div>-->
                                 </div>
                             </div>
                         </div>
@@ -92,6 +93,22 @@
         }, function (response) {
           console.log(response);
         })
+      },
+      getInterlayer(event) {
+        var el = event.currentTarget;
+        console.log(el.id);
+        // var url = "/api/getInterlayer";
+        // this.$http.get(url, {
+        //   params: {
+        //     floor: event.currentTarget.id
+        //   }
+        // }, {}).then(function (data) {
+        //   console.log(data.body);
+        //   this.comment = data.body;
+        // }, function (response) {
+        //   console.log(response);
+        // })
+
       }
       // //被遗弃的事件总线hhh
       // video1:function () {
