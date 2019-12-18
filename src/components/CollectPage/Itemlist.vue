@@ -5,7 +5,7 @@
             <!--<div class="item" v-for="item in collect" :key="item">-->
             <div class="item" v-for="(items,i) in collect" :key="i">
                 <div class="img">
-                    <!--<img :src="item.vimg" style="width: 188px;height: 119px"/>-->
+                    <img :src="items.v_pic" style="width: 188px;height: 119px"/>
                 </div>
                 <div class="intro">
                     <div class="vname">{{items.vname}}</div>
@@ -13,6 +13,8 @@
                     <div class="detail">{{items.type}}</div>
                     <button>点我</button>
                 </div>
+                <!--<p class="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken-->
+                    <!--meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>-->
             </div>
         </div>
     </div>
@@ -72,6 +74,7 @@
         padding 20px
         /*border 1px red solid*/
         border-bottom 1px #E4E4E4 solid
+        padding:14px 18px;
     }
 
     .vname {
@@ -101,5 +104,19 @@
         font-size 12px
         color #979797
         margin-bottom 20px
+    }
+    .item:hover {
+        box-shadow:0px 10px 13px -17px rgba(0,0,0,0.64);
+        transform:scale(1.01);
+        /*background-color #fffcff*/
+        transform:translateX(0);
+
+    }
+    .item:hover:before {
+        opacity:0.5;
+    }
+    .item:before{
+        opacity:0;
+        transition:all 500ms cubic-bezier(0.47,0,0.745,0.715) 0s;
     }
 </style>

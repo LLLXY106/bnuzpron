@@ -15,22 +15,42 @@
                     <Video></Video>
                 </div>
                 <div class="intro">
-
                 </div>
                 <div class="other">
                     <div class="comment">
-                        <div ><button @click="getComment">test</button>展开评论</div>
-                        <div class="comment_top">
-                            <div class="head_img" style="width:20%">
-                                <img src="/img/PersonalCenter/head.jpg" style="width: 50px;height: 50px"/>
-
-                            </div><div style="width: 20%">用户名</div>
+                        <div class="comment_head">
+                            <p style="margin: 20px 0px">56 评论</p>
+                            <p>全部评论</p>
                         </div>
-                        <div class="comment_mid">
-                            <div class="username"></div>
-                        </div>
-                        <div class="comment_buttom">
-                            <div class="comment_content"></div>
+                        <!--<div ><button @click="getComment">test</button>展开评论</div>-->
+                        <div class="comment_body">
+                            <div class="left">
+                                <div class="head_img" style="margin: 10px 0">
+                                    <img src="/img/PersonalCenter/head.jpg" style="width: 50px;height: 50px"/>
+                                </div>
+                                <div style="margin-bottom: 10px">用户名</div>
+                            </div>
+                            <div class="right">
+                                <div class="comment_content">
+                                    <p style="text-align: left;margin-left: 20px;margin-top: 15px;font-size: 14px;line-height: 18px">
+                                        其他英雄可以看近期投稿。小丑触发致命节奏才R的，看样子分身攻速上不了2.5.
+                                        不用推荐英雄了，已经修复了，这些都是前几天录的hhhhh还剩20个左右的，有暴击脚踢的。 其他英雄可以看近期投稿。小丑触发致命节奏才R的，看样子分身攻速上不了2.5.
+                                        不用推荐英雄了，已经修复了，这些都是前几天录的hhhhh还剩20个左右的，有暴击脚踢的。 其他英雄可以看近期投稿。小丑触发致命节奏才R的，看样子分身攻速上不了2.5.
+                                        不用推荐英雄了，已经修复了，这些都是前几天录的hhhhh还剩20个左右的，有暴击脚踢的。 其他英雄可以看近期投稿。小丑触发致命节奏才R的，看样子分身攻速上不了2.5.
+                                        不用推荐英雄了，已经修复了，这些都是前几天录的hhhhh还剩20个左右的，有暴击脚踢的。</p>
+                                    <div class="icon">
+                                        <i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:rgb(188,188,188);margin-right: 8px;cursor: pointer"></i><span style="font-size: 14px;margin-right: 15px">12</span>
+                                        <i class="fa fa-thumbs-o-down" aria-hidden="true" style="color:rgb(188,188,188);margin-right: 8px;cursor: pointer"></i><span style="font-size: 14px;margin-right: 15px">12</span>
+                                        <i class="fa fa-commenting-o" aria-hidden="true" style="color:rgb(188,188,188);margin-right: 8px;cursor: pointer"></i><span style="font-size: 14px;margin-right: 15px">12</span>
+                                    </div>
+                                </div>
+                            </div>
+                        <!--</div>-->
+                        <!--<div class="comment_mid">-->
+                            <!--<div class="username"></div>-->
+                        <!--</div>-->
+                        <!--<div class="comment_buttom">-->
+                            <!--<div class="comment_content"></div>-->
                         </div>
 
                     </div>
@@ -38,9 +58,9 @@
                         <div style="margin:10px auto;font-size: 16px;font-weight: bolder">推荐视频</div>
                         <div class="item">
                             <ul class="menu">
-                                <li><img src="/img/PersonalCenter/1.jpg" style="width: 240px;height: 150px"></li>
-                                <li><img src="/img/PersonalCenter/2.jpg" style="width: 240px;height: 150px"></li>
-                                <li><img src="/img/PersonalCenter/3.jpg" style="width: 240px;height: 150px"></li>
+                                <li><img src="/img/PersonalCenter/1.jpg" style="width: 90%;height: 20%"></li>
+                                <li><img src="/img/PersonalCenter/2.jpg" style="width: 90%;height: 20%"></li>
+                                <li><img src="/img/PersonalCenter/3.jpg" style="width: 90%;height: 20%"></li>
                             </ul>
                         </div>
                     </div>
@@ -170,7 +190,7 @@
     .recommend {
         width 30%
         height 100%
-        border 1px yellow solid
+        /*border 1px yellow solid*/
         display flex
         flex-direction column
     }
@@ -178,9 +198,38 @@
     .menu li {
         margin-bottom 10px
     }
-
-    .comment{
-        width:100%;
+    .comment_head{
+        width 90%
+        height 80px
+        border-bottom  1px #979797 solid
+        font-size 18px
+        text-align left
+        padding-left 20px
+        margin 0 auto
+    }
+    .comment_body{
+        width 95%
+        display flex
+        flex-direction row
+        border-bottom  1px rgba(126, 140, 141, 0.25) solid
+        margin 0 auto
+    }
+    .left{
+        display flex
+        flex-direction column
+        width 20%
+        padding-left 20px
+        /*border 1px red solid*/
+    }
+    .comment_content{
+        display flex
+        flex-direction column
+    }
+    .icon{
+        text-align left
+        padding-top 5px
+        padding-left 20px
+        margin-bottom 10px
     }
 </style>
 

@@ -10,7 +10,7 @@
                     <div class="pwd">请输入密码<input type="password"  class="passWord" id="passWord" placeholder="密码" v-model="password"></div>
                     <!--<span>{{password}}</span>-->
                     <span class="forget">忘记密码?</span>
-                    <input type="button" class="login_btn" @click="login" round :loading="isBtnLoading" value="登录 ">
+                    <div class="btn"><input type="button" class="login_btn" @click="login" round :loading="isBtnLoading" value="登录 "></div>
                     <div class="icon">
                             <i class="fa fa-wechat" style="color: #00ad19;font-size: 24px;margin-top: 30px;margin-right: 30px"></i>
                             <i class="fa fa-qq" style="color: #0078d7;font-size: 24px;margin-right: 30px"></i>
@@ -141,7 +141,7 @@
     .login_btn{
         width 300px
         height 30px
-        margin-left 180px
+        margin-left 0 auto
         cursor pointer
         color #fff
         border none
@@ -173,5 +173,8 @@
         border-bottom  1px #f6f6f6 solid
         padding-bottom 20px
         margin 0 auto
+    }
+    .btn{
+        margin-left 0 auto
     }
 </style>

@@ -10,6 +10,7 @@ import 'videojs-contrib-hls' // 引入才能播放m3u8文件
 import $ from 'jquery'
 import '@/assets/css/public.css'
 import 'swiper/dist/css/swiper.css'
+import 'font-awesome/css/font-awesome.min.css'
 import axios from 'axios'
 
 Vue.config.productionTip = false;

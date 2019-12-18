@@ -62,7 +62,7 @@ router.get('/collect', function(req, res, next) {
   // res.end(1);
   console.log("111");
   // res.end("1");
-    connection.query("SELECT vname,username,type FROM bili_usercollect where username = 'lxy'", function(error, results, field) {
+    connection.query("SELECT vname,username,type,v_pic FROM bili_usercollect where username = 'lxy'", function(error, results, field) {
         if (error) {
             console.log('[SELECT ERROR] - ', error.message);
             return;
