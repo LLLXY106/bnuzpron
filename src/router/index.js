@@ -12,6 +12,9 @@ import LatestPage from '../views/LatestPage'
 import WrapperPage from '../views/WrapperPage'
 Vue.use(VueRouter);
 import VueResource from 'vue-resource'
+// import Vuex from 'vuex'
+
+// Vue.use(Vuex)
 
 Vue.use(VueResource)
 Vue.use(VueRouter)
