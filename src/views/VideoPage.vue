@@ -19,7 +19,9 @@
                 <div class="other">
                     <div class="comment">
                         <div class="comment_head">
-                            <p style="margin: 20px 0px">56 评论</p>
+                            <p style="margin: 20px 0px">{{this.comment.length}}评论</p>
+                            评论：<input type="text" style="border: 1px solid black">
+                            <button>提交评论</button>
                             <p>全部评论</p>
                         </div>
                         <!--<div ><button @click="getComment">test</button>展开评论</div>-->
