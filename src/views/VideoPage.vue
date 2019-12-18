@@ -23,7 +23,7 @@
                             <p>全部评论</p>
                         </div>
                         <!--<div ><button @click="getComment">test</button>展开评论</div>-->
-                        <div class="comment_body" v-for="items in comment" v-if="items.fatherfloor!=1">
+                        <div class="comment_body" v-for="(items,index) in comment" :key="items" v-if="items.fatherfloor==0">
                             <div class="left">
                                 <div class="head_img" style="margin: 10px 0">
                                     <img src="/img/PersonalCenter/head.jpg" style="width: 50px;height: 50px"/>
@@ -35,28 +35,32 @@
                                     <p style="text-align: left;margin-left: 20px;margin-top: 15px;font-size: 14px;line-height: 18px">
                                         {{items.comment}}</p>
                                     <i class="fa fa-commenting-o" aria-hidden="true"
-                                       style="color:rgb(188,188,188);margin-right: 8px;cursor: pointer" :id="items.floor" @click="getInterlayer($event)"></i><span
-                                        style="font-size: 14px;margin-right: 15px" ></span>
-<!--                                    <div>{{items.reply}}</div>-->
+                                       style="color:rgb(188,188,188);margin-right: 8px;cursor: pointer"
+                                       @click="toggle(index)"></i><span
+                                        style="font-size: 14px;margin-right: 15px"></span>
+                                    <div v-show="items.isshow">
+                                        <div v-for="i in comment" v-if="i.fatherfloor==1&&i.floor==items.floor">
+                                            {{i.username}}:{{i.comment}}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="recommend">
-                    <div style="margin:10px auto;font-size: 16px;font-weight: bolder">推荐视频</div>
-                    <div class="item">
-                        <ul class="menu">
-                            <li><img src="/img/PersonalCenter/1.jpg" style="width: 90%;height: 20%"></li>
-                            <li><img src="/img/PersonalCenter/2.jpg" style="width: 90%;height: 20%"></li>
-                            <li><img src="/img/PersonalCenter/3.jpg" style="width: 90%;height: 20%"></li>
-                        </ul>
+                    <div class="recommend">
+                        <div style="margin:10px auto;font-size: 16px;font-weight: bolder">推荐视频</div>
+                        <div class="item">
+                            <ul class="menu">
+                                <li><img src="/img/PersonalCenter/1.jpg" style="width: 90%;height: 20%"></li>
+                                <li><img src="/img/PersonalCenter/2.jpg" style="width: 90%;height: 20%"></li>
+                                <li><img src="/img/PersonalCenter/3.jpg" style="width: 90%;height: 20%"></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
-    </div>
     </div>
 </template>
 <script type="text/javascript">
@@ -94,21 +98,27 @@
           console.log(response);
         })
       },
-      getInterlayer(event) {
-        var el = event.currentTarget;
-        console.log(el.id);
-        // var url = "/api/getInterlayer";
-        // this.$http.get(url, {
-        //   params: {
-        //     floor: event.currentTarget.id
-        //   }
-        // }, {}).then(function (data) {
-        //   console.log(data.body);
-        //   this.comment = data.body;
-        // }, function (response) {
-        //   console.log(response);
-        // })
 
+      getVideo() {
+        var url = "/api/getVideo";
+        this.$http.get(url, {
+          params: {
+            id: this.id
+          }
+        }, {}).then(function (data) {
+          console.log(data);
+          this.title = data.body[0].title;
+          this.area = data.body[0].area;
+          this.type = data.body[0].type;
+        }, function (response) {
+          console.log(response);
+        })
+      },
+
+      toggle(index) {
+        let newComment = this.comment[index];
+        newComment.isshow = !this.comment[index].isshow;
+        Vue.set(this.comment, index, newComment);
       }
       // //被遗弃的事件总线hhh
       // video1:function () {
@@ -121,19 +131,7 @@
     mounted() {
       // 跳转到此页面时根据id加载页面内容
       this.getComment();
-      var url = "/api/getVideo";
-      this.$http.get(url, {
-        params: {
-          id: this.id
-        }
-      }, {}).then(function (data) {
-        console.log(data);
-        this.title = data.body[0].title;
-        this.area = data.body[0].area;
-        this.type = data.body[0].type;
-      }, function (response) {
-        console.log(response);
-      })
+      this.getVideo();
     }
   }
 
