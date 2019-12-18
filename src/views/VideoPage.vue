@@ -23,56 +23,44 @@
                             <p>全部评论</p>
                         </div>
                         <!--<div ><button @click="getComment">test</button>展开评论</div>-->
-                        <div class="comment_body">
+                        <div class="comment_body" v-for="items in comment" v-if="items.fatherfloor!=1">
                             <div class="left">
                                 <div class="head_img" style="margin: 10px 0">
                                     <img src="/img/PersonalCenter/head.jpg" style="width: 50px;height: 50px"/>
                                 </div>
-                                <div style="margin-bottom: 10px">用户名</div>
+                                <div style="margin-bottom: 10px">{{items.username}}</div>
                             </div>
                             <div class="right">
                                 <div class="comment_content">
                                     <p style="text-align: left;margin-left: 20px;margin-top: 15px;font-size: 14px;line-height: 18px">
-                                        其他英雄可以看近期投稿。小丑触发致命节奏才R的，看样子分身攻速上不了2.5.
-                                        不用推荐英雄了，已经修复了，这些都是前几天录的hhhhh还剩20个左右的，有暴击脚踢的。 其他英雄可以看近期投稿。小丑触发致命节奏才R的，看样子分身攻速上不了2.5.
-                                        不用推荐英雄了，已经修复了，这些都是前几天录的hhhhh还剩20个左右的，有暴击脚踢的。 其他英雄可以看近期投稿。小丑触发致命节奏才R的，看样子分身攻速上不了2.5.
-                                        不用推荐英雄了，已经修复了，这些都是前几天录的hhhhh还剩20个左右的，有暴击脚踢的。 其他英雄可以看近期投稿。小丑触发致命节奏才R的，看样子分身攻速上不了2.5.
-                                        不用推荐英雄了，已经修复了，这些都是前几天录的hhhhh还剩20个左右的，有暴击脚踢的。</p>
-                                    <div class="icon">
-                                        <i class="fa fa-thumbs-o-up" aria-hidden="true" style="color:rgb(188,188,188);margin-right: 8px;cursor: pointer"></i><span style="font-size: 14px;margin-right: 15px">12</span>
-                                        <i class="fa fa-thumbs-o-down" aria-hidden="true" style="color:rgb(188,188,188);margin-right: 8px;cursor: pointer"></i><span style="font-size: 14px;margin-right: 15px">12</span>
-                                        <i class="fa fa-commenting-o" aria-hidden="true" style="color:rgb(188,188,188);margin-right: 8px;cursor: pointer"></i><span style="font-size: 14px;margin-right: 15px">12</span>
-                                    </div>
+                                        {{items.comment}}</p>
+                                    <i class="fa fa-commenting-o" aria-hidden="true"
+                                       style="color:rgb(188,188,188);margin-right: 8px;cursor: pointer"></i><span
+                                        style="font-size: 14px;margin-right: 15px"></span>点击展开楼中楼
                                 </div>
                             </div>
-                        <!--</div>-->
-                        <!--<div class="comment_mid">-->
-                            <!--<div class="username"></div>-->
-                        <!--</div>-->
-                        <!--<div class="comment_buttom">-->
-                            <!--<div class="comment_content"></div>-->
                         </div>
-
                     </div>
-                    <div class="recommend">
-                        <div style="margin:10px auto;font-size: 16px;font-weight: bolder">推荐视频</div>
-                        <div class="item">
-                            <ul class="menu">
-                                <li><img src="/img/PersonalCenter/1.jpg" style="width: 90%;height: 20%"></li>
-                                <li><img src="/img/PersonalCenter/2.jpg" style="width: 90%;height: 20%"></li>
-                                <li><img src="/img/PersonalCenter/3.jpg" style="width: 90%;height: 20%"></li>
-                            </ul>
-                        </div>
+
+                </div>
+                <div class="recommend">
+                    <div style="margin:10px auto;font-size: 16px;font-weight: bolder">推荐视频</div>
+                    <div class="item">
+                        <ul class="menu">
+                            <li><img src="/img/PersonalCenter/1.jpg" style="width: 90%;height: 20%"></li>
+                            <li><img src="/img/PersonalCenter/2.jpg" style="width: 90%;height: 20%"></li>
+                            <li><img src="/img/PersonalCenter/3.jpg" style="width: 90%;height: 20%"></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 </template>
 <script type="text/javascript">
   import TopContainer from '../components/common/TopContainer'
   import Navbar from '../components/HotPage/Navbar'
-  // import Video from '../components/VideoPage1/Video'
   import Video from '../components/VideoPage/Video'
 
   export default {
@@ -83,6 +71,7 @@
         title: '',
         area: '',
         type: '',
+        comment: []
       }
     },
     components: {
@@ -99,6 +88,7 @@
           }
         }, {}).then(function (data) {
           console.log(data.body);
+          this.comment = data.body;
         }, function (response) {
           console.log(response);
         })
@@ -113,6 +103,7 @@
     },
     mounted() {
       // 跳转到此页面时根据id加载页面内容
+      this.getComment();
       var url = "/api/getVideo";
       this.$http.get(url, {
         params: {
@@ -198,34 +189,39 @@
     .menu li {
         margin-bottom 10px
     }
-    .comment_head{
+
+    .comment_head {
         width 90%
         height 80px
-        border-bottom  1px #979797 solid
+        border-bottom 1px #979797 solid
         font-size 18px
         text-align left
         padding-left 20px
         margin 0 auto
     }
-    .comment_body{
+
+    .comment_body {
         width 95%
         display flex
         flex-direction row
-        border-bottom  1px rgba(126, 140, 141, 0.25) solid
+        border-bottom 1px rgba(126, 140, 141, 0.25) solid
         margin 0 auto
     }
-    .left{
+
+    .left {
         display flex
         flex-direction column
         width 20%
         padding-left 20px
         /*border 1px red solid*/
     }
-    .comment_content{
+
+    .comment_content {
         display flex
         flex-direction column
     }
-    .icon{
+
+    .icon {
         text-align left
         padding-top 5px
         padding-left 20px
