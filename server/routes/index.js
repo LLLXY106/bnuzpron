@@ -19,8 +19,9 @@ router.get('/', function(req, res, next) {
 });
 //测试 显示数据
 router.get('/list', function(req, res, next) {
-  connection.query("SELECT * FROM bili_usermsg", function(error, results, field) {
+  connection.query("SELECT username,password,id FROM bili_usermsg", function(error, results, field) {
     console.log(results);
+    jsonWrite(res, results);
   });
 });
 //注册接口
@@ -79,16 +80,15 @@ router.post('/login', function(req, res, next) {
   console.log(params);
   connection.query("SELECT password FROM bnuzpron_usermsg WHERE username=?",[params.username], function(error, results) {
     if(error){
-      return;
-    }
-    if(results){
+      return callback(error);
+    }else{
       jsonWrite(res, results);
-      for(var i = 0;i < results.length;i++){
-        if(results[i].password == params.password){
-          return res.end("返回成功");
-        }
-      }
-      return res.end("is over");
+      // for(var i = 0;i < results.length;i++){
+      //   if(results[i].password == params.password){
+      //     return;
+      //   }
+      // }
+      res.end("over");
     }
   });
 });
