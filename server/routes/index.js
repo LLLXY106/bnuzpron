@@ -50,19 +50,19 @@ router.post('/checkUsername', function(req, res, next) {
   });
 });
 
-//collect test
+//收藏测试
 router.get('/list1', function(req, res, next) {
     connection.query("SELECT * FROM bili_usercollect", function(error, results, field) {
         console.log(results);
     });
 });
 
-//get user's collection
+//获取用户收藏内容
 router.get('/collect', function(req, res, next) {
   // res.end(1);
-  console.log("111");
+  // console.log("111");
   // res.end("1");
-    connection.query("SELECT vname,username,type,v_pic FROM bili_usercollect where username = 'lxy'", function(error, results, field) {
+    connection.query("SELECT * FROM bili_usercollect where username = 'lxy'", function(error, results, field) {
         if (error) {
             console.log('[SELECT ERROR] - ', error.message);
             return;
@@ -72,6 +72,18 @@ router.get('/collect', function(req, res, next) {
     });
 });
 
+//删除收藏内容
+router.get('/delcollect', function(req, res, next) {
+    var id = req.query.id;
+    var sql = "DELETE FROM bili_usercollect WHERE id="+id;
+    console.log(sql);
+    connection.query(sql,(err,result,firlds)=>{
+        if(err) throw err;
+        // console.log(result.changedRows)
+    })
+    connection.end();
+
+});
 
 //登录接口
 router.post('/login', function(req, res, next) {

@@ -8,8 +8,8 @@
             <li>设置</li>
         </ul>
         <ul class="data">
-            <li>关注数</li><span>0</span>
-            <li>粉丝数</li><span>0</span>
+            <li>关注数</li><span>48</span>
+            <li>粉丝数</li><span>3</span>
         </ul>
     </div>
 </template>

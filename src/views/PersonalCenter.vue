@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg">
         <TopContainer></TopContainer>
         <div class="main">
             <div class="tabs">
@@ -36,9 +36,10 @@
         display: flex;
         flex-direction: row;
         /*box-shadow:0 0 5px #000 inset;*/
-        -moz-box-shadow: 2px 2px 8px #909090;
-        -webkit-box-shadow: 2px 2px 8px #909090;
+         -moz-box-shadow: 2px 2px 8px #909090;
+         -webkit-box-shadow: 2px 2px 8px #909090;
         box-shadow: 2px 2px 8px #909090;
+        background-color rgba(255,255,255,.7)
     }
 
     .tabs {
@@ -101,7 +102,7 @@
 
     .intro span {
         font-size: 12px;
-        color: #99a2aa;
+        color: #000;
         line-height: 12px;
     }
 
@@ -138,6 +139,9 @@
         width: 95%;
         height: 30%;
         border: 1px solid pink;
+    }
+    .bg{
+        background url("../assets/images/p_bg.jpg")
     }
 </style>
 <script type="text/javascript">

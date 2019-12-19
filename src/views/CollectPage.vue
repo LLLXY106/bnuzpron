@@ -2,27 +2,32 @@
     <div>
         <TopContainer></TopContainer>
         <div class="head">
-            <div class="dim"><p STYLE="font-size:36px;font-weight: bolder;line-height: 110px;letter-spacing:10px;">我的收藏</p><p STYLE="font-size:16px;letter-spacing:4px;">MY FAVORITE</p></div>
+            <div class="dim">
+                <p STYLE="font-size:36px;font-weight: bolder;line-height: 110px;letter-spacing:10px;">我的收藏</p>
+                <p STYLE="font-size:16px;letter-spacing:4px;">MY FAVORITE</p></div>
         </div>
         <Navbar></Navbar>
         <div class="main">
-            <Menu></Menu>
-            <Itemlist></Itemlist>
+            <DefaultMenu></DefaultMenu>
+            <Itemlist v-if="true"></Itemlist>
+            <PicItemlist v-if="false"></PicItemlist>
         </div>
     </div>
 </template>
 <script type="text/javascript">
     import TopContainer from '../components/common/TopContainer'
-    import Menu from '../components/CollectPage/Menu'
+    import DefaultMenu from '../components/CollectPage/DefaultMenu'
     import Itemlist from '../components/CollectPage/Itemlist'
+    import PicItemlist from '../components/CollectPage/PicItemlist'
     import Navbar from '../components/CollectPage/Navbar'
     export default {
         components: {
             TopContainer,
-            Menu,
+            DefaultMenu,
             Itemlist,
+            PicItemlist,
             Navbar
-        }
+        },
     }
 </script>
 

@@ -1,4 +1,4 @@
-<template>
+<template id="default">
     <div>
         <!--<button @click="collectlist">test</button>-->
         <div class="itemlist">
@@ -12,11 +12,11 @@
                     <div class="intro">
                         <div class="author">创建者：{{items.username}}</div>
                         <div class="detail">{{items.type}}</div>
-                        <button>点我</button>
+                        <button>立即播放</button>
                     </div>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-trash-o" aria-hidden="true" style="font-size: 20px;cursor: pointer;color: #fa5a57"></i>
+                    <i :id="items.id" class="fa fa-trash-o" aria-hidden="true" style="font-size: 20px;cursor: pointer;color: #fa5a57" @click="del($event)"></i>
                 </div>
                 <!--<p class="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken-->
                     <!--meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>-->
@@ -52,6 +52,25 @@
                 }, function (response) {
                     console.log(response);
                 })
+            },
+            del(event){
+                var test = event.currentTarget.id;
+                // console.log(test);
+                if(confirm("确定要删除此收藏内容吗？")){
+                    var url = "/api/delcollect";
+                    this.$http.get(url, {
+                        params:{
+                            id: test
+                        }
+
+                    }, {}).then(function (data) {
+                        console.log(data);
+                    }, function (response) {
+                        console.log(response);
+                    })
+                }
+                else
+                    return;
             }
         }
 
@@ -73,7 +92,6 @@
         margin-right 20px
         /*border 1px red solid*/
     }
-
     .item {
         width 100%
         display flex
