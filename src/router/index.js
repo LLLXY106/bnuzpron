@@ -12,13 +12,10 @@ import LatestPage from '../views/LatestPage'
 import WrapperPage from '../views/WrapperPage'
 import Contribute from '../views/Contribute'
 import RankingList from '../views/RankingList'
+import VueResource from 'vue-resource'
+import adminPage from '../views/adminPage'
 
 Vue.use(VueRouter);
-import VueResource from 'vue-resource'
-// import Vuex from 'vuex'
-
-// Vue.use(Vuex)
-
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
@@ -83,6 +80,11 @@ const routes = [
     path: '/RankingList',
     name: 'RankingList',
     component: RankingList,
+  },
+  {
+    path: '/adminPage',
+    name: 'adminPage',
+    component: adminPage
   }
 ];
 

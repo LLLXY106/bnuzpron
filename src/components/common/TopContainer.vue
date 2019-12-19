@@ -59,9 +59,14 @@
                 <span>个人中心</span>
               </a>
             </li>
-            <li class="u-i" v-show="isLogin">
+            <li class="u-i" v-show="isUser">
               <a id="i_menu_myFavourite" class="i-link" href="#">
                 <span>收藏夹</span>
+              </a>
+            </li>
+            <li class="u-i" v-show="isAdmin">
+              <a id="i_menu_myFavourite" class="i-link" href="/adminPage">
+                <span>管理中心</span>
               </a>
             </li>
             <li class="u-i" v-show="isLogin">
@@ -87,6 +92,8 @@ export default {
     return {
       isShowPostMenu: false,
       isLogin: false,
+      isUser: false,
+      isAdmin: false,
       form: {
         username: "",
         password: "",
@@ -99,6 +106,12 @@ export default {
       console.log(this.$cookies.get("username"), this.$cookies.get("password"));
       //改变登录状态
       this.isLogin = true;
+      //判断是否是管理员
+      if(this.$cookies.get("username") == 'admin'){
+        this.isAdmin = true;
+      } else {
+        this.isUser = true;
+      }
     }
   },
   components: {
