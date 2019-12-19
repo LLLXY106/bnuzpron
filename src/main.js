@@ -12,7 +12,7 @@ import '@/assets/css/public.css'
 import 'swiper/dist/css/swiper.css'
 import 'font-awesome/css/font-awesome.min.css'
 import axios from 'axios'
-
+import './plugins/element'
 import VueCookies from 'vue-cookies'
 
 Vue.use(VueCookies);
