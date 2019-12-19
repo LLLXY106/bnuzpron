@@ -133,5 +133,21 @@ router.get('/getVideoComment', function (req, res, next) {
   // res.end("1");
 });
 
+router.get('/getInterlayer', function (req, res, next) {
+  var floor = req.query.floor;
+  var id = req.query.id;
+  var sql = "SELECT reply from videocomment where floor="+floor+" and vid="+id+" and fatherfloor=1";
+  // var sql='fxxk';
+  console.log(sql);
+  // connection.query(sql, function (error, results) {
+  //   if (error) {
+  //     console.log('[SELECT ERROR] - ', error.message);
+  //     return;
+  //   }
+  //   console.log(JSON.stringify(results));
+  //   return res.end(JSON.stringify(results));
+  // });
+  // res.end("1");
+});
 
 module.exports = router;
