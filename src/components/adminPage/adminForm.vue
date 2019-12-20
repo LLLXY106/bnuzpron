@@ -7,11 +7,23 @@
 						<span id="tit">BNUZPRON管理员端</span>
 					</div>
 					<span id="tit2">BNUZPRON!!</span>
+          <ul class="app-nav">
+            <li class="dropdown">
+              <a class="app-nav-item" title="首页" href="/">
+                <i class="fa fa-home"></i>
+              </a>
+            </li>
+            <li class="dropdown">
+              <a class="app-nav-item" title="退出" @click="exit">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
 				</div>
 				<div class="sidebar">
 					<!-- 头像、名字、职位 -->
 					<div class="sidebar_head">
-						<img class="head_icon" src="http://img.zcool.cn/community/015f1959df2638a80121ae0c8e21fe.jpg@1280w_1l_2o_100sh.png" width="70" height="70">
+						<img class="head_icon" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2513711717,3607386518&fm=26&gp=0.jpg" style="border-radius: 50%" width="70" height="70">
 						<div>
 								<p class="student_name">admin</p>
 								<p class="position">管理员</p>
@@ -20,7 +32,7 @@
 					<!-- 侧边栏菜单 -->
 					<ul class="sidebar_menu">
 							<li class="treeview">
-									<a class="menu_item" href="#" data-toggle="treeview">
+									<a class="menu_item" href="/adminPage" data-toggle="treeview">
 											<i class="menu_icon fa fa-users"></i>
 											<span class="menu_label">用户管理</span>
 											<i class="fa fa-angle-right"></i>
@@ -54,7 +66,14 @@ export default {
   name: 'adminForm',
   components: {
     userManage
-  }
+  },
+  methods: {
+    exit: function() {
+      this.$cookies.set("username", '', -1);
+      this.$cookies.set("password", '', -1);
+      window.location.href = "/";
+    }
+  },
 }
 </script>
 
@@ -94,7 +113,7 @@ body {
   width: 100%;
   padding-right: 30px;
   display: flex;
-  background-color: #1ab394;
+  background-color: #ffafc9;
   z-index: 1030;
 }
 
@@ -102,7 +121,7 @@ body {
   flex: 0 0 auto;
   display: block;
   width: 230px;
-  background-color: #009688;
+  background-color: #f45a8d;
 }
 
 #tit {
@@ -116,7 +135,7 @@ body {
   flex: 0 0 auto;
   display: block;
   width: 230px;
-  background-color: #009688;
+  background-color: #f45a8d;
 }
 
 #tit2 {
@@ -128,6 +147,33 @@ body {
   box-sizing: border-box;
   line-height: 1.5;
   padding-left: 70px;
+}
+
+.app-nav {
+  -webkit-box-flex: 1;
+  flex: 1 0 auto;
+  display: flex;
+  margin-bottom: 0;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  padding-left: 0;
+  list-style: none;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.app-nav-item {
+  display: block;
+  padding: 15px;
+  line-height: 20px;
+  color: #fff;
+  transition: background-color .3s ease;
+}
+
+.app-nav-item:hover {
+  background-color rgba(255,255,255,0.3)
 }
 
 .sidebar {
@@ -202,7 +248,7 @@ li {
   padding: 12px 15px;
   font-size: 1.08em;
   border-left: 3px;
-  color: #1ab394;
+  color: #f45a8d;
   overflow: hidden;
 }
 

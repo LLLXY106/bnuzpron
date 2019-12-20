@@ -4,7 +4,7 @@
             <img class="header-icon"
                  src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575301452607&di=fd956fa190bfc8fa711de3ae651a8fab&imgtype=0&src=http%3A%2F%2Fpic.baike.soso.com%2Fugc%2Fbaikepic2%2F27372%2F20160721072821-740776264.jpg%2F0"/>
             <div class="clear"></div>
-            <span class="header-title">番剧</span>
+            <span class="header-title">视频</span>
         </div>
         <div class="animate">
             <div class="common-video" id="test">

@@ -1,7 +1,7 @@
 <template>
   <!-- 轮播图 -->
   <div style="background: #eee">
-    <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
+    <swiper :options="swiperOption" ref="mySwiper" >
       <!-- slides -->
       <swiper-slide v-for="item of swiperList" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl" />
@@ -42,14 +42,6 @@ export default {
       }]
     }
   },
-  // computed: {
-  //   swiper() {
-  //     return this.$refs.mySwiper.swiper
-  //   }
-  // },
-  // mounted() {
-  //   this.swiper.slideTo(1, 1000, true);
-  // }
 }
 </script>
 
