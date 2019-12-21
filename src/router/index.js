@@ -10,6 +10,10 @@ import HistoryPage from '../views/HistoryPage'
 import HotPage from '../views/HotPage'
 import LatestPage from '../views/LatestPage'
 import WrapperPage from '../views/WrapperPage'
+import CompleteInfo from '../views/CompleteInfo'
+import ShowInfo from '../views/ShowInfo'
+import ModifyInfo from '../views/ModifyInfo'
+import ModifyPhoto from '../views/ModifyPhoto'
 Vue.use(VueRouter);
 import VueResource from 'vue-resource'
 // import Vuex from 'vuex'
@@ -70,6 +74,28 @@ const routes = [
         name: 'WrapperPage',
         component: WrapperPage,
     },
+    {
+        path:'/CompleteInfo',
+        name: 'CompleteInfo',
+        component: CompleteInfo,
+    },
+    {
+        path:'/ShowInfo',
+        name: 'ShowInfo',
+        component: ShowInfo,
+    },
+    {
+        path: '/ModifyInfo',
+        name: 'ModifyInfo',
+        component: ModifyInfo
+    },
+    {
+        path: '/ModifyPhoto',
+        name: 'ModifyPhoto',
+        component: ModifyPhoto
+    },
+
+
 ];
 
 const router = new VueRouter({

@@ -12,13 +12,15 @@ import '@/assets/css/public.css'
 import 'swiper/dist/css/swiper.css'
 import 'font-awesome/css/font-awesome.min.css'
 import axios from 'axios'
-
 import VueCookies from 'vue-cookies'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(VueCookies);
 Vue.config.productionTip = false;
 Vue.use(VueAwesomeSwiper, /* { default global options } */);
 Vue.prototype.axios = axios;
+Vue.use(ElementUI);
 
 new Vue({
   router,

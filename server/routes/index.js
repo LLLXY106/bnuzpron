@@ -60,9 +60,9 @@ router.get('/list1', function(req, res, next) {
 //获取用户收藏内容
 router.get('/collect', function(req, res, next) {
   // res.end(1);
-  // console.log("111");
+  console.log("111");
   // res.end("1");
-    connection.query("SELECT * FROM bili_usercollect where username = 'lxy'", function(error, results, field) {
+    connection.query("SELECT * FROM bili_usercollect where username = 'LL_XY106'", function(error, results, field) {
         if (error) {
             console.log('[SELECT ERROR] - ', error.message);
             return;
@@ -82,7 +82,47 @@ router.get('/delcollect', function(req, res, next) {
         // console.log(result.changedRows)
     })
     connection.end();
+});
 
+//用户填写资料卡
+router.post('/userinfo', function(req, res, next) {
+    var params = req.body;
+    var sql = "INSERT INTO bili_userinfo(username,birthday,hobby,phone,email) VALUES(?,?,?,?,?)";
+    // console.log(sql);
+    connection.query(sql,[params.username,params.birthday,params.hobby,params.phone,params.email],(err,result,firlds)=>{
+        if(err) throw err;
+        console.log("success");
+    });
+    connection.end();
+
+});
+
+//显示资料卡信息
+router.get('/showinfo', function(req, res, next) {
+    var sql = "SELECT * FROM bili_userinfo where username = 'bnuz1701030073'";
+    // console.log(sql);
+    connection.query(sql,(error,result,firlds)=>{
+        if (error) {
+            console.log('[SELECT ERROR] - ', error.message);
+            return;
+        }
+        console.log("success");
+        console.log(JSON.stringify(result));
+        return res.end(JSON.stringify(result));
+    });
+});
+
+//用户修改信息
+router.post('/modifyinfo', function(req, res, next) {
+    var params = req.body;
+    var sql = "UPDATE bili_userinfo SET phone = ?,email = ?,des = ? WHERE username = ?";
+    connection.query(sql,[params.phone,params.email,params.des,'bnuz1701030073'],(error,result)=>{
+        if (error) {
+            console.log('[UPDATE ERROR] - ', error.message);
+            return;
+        }
+        console.log("modify success");
+    });
 });
 
 //登录接口
