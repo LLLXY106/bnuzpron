@@ -14,6 +14,7 @@ import CompleteInfo from '../views/CompleteInfo'
 import ShowInfo from '../views/ShowInfo'
 import ModifyInfo from '../views/ModifyInfo'
 import ModifyPhoto from '../views/ModifyPhoto'
+
 Vue.use(VueRouter);
 import Contribute from '../views/Contribute'
 import RankingList from '../views/RankingList'
@@ -26,71 +27,31 @@ Vue.use(VueRouter)
 
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-  },
-  {
-    path: '/LoginPage',
-    name: 'LoginPage',
-    component: LoginPage,
-  },
-  {
-    path: '/PersonalCenter',
-    name: 'PersonalCenter',
-    component: PersonalCenter,
-  },
-  {
-    path: '/VideoPage',
-    name: 'VideoPage',
-    component: VideoPage,
-  },
-  {
-    path: '/registerPage',
-    name: 'registerPage',
-    component: registerPage,
-  },
-  {
-    path: '/CollectPage',
-    name: 'CollectPage',
-    component: CollectPage,
-  },
-  {
-    path: '/HistoryPage',
-    name: 'HistoryPage',
-    component: HistoryPage,
-  },
-  {
-    path: '/HotPage',
-    name: 'HotPage',
-    component: HotPage,
-  },
-  {
-    path: '/LatestPage',
-    name: 'LatestPage',
-    component: LatestPage,
-  },
-  {
-    path: '/WrapperPage',
-    name: 'WrapperPage',
-    component: WrapperPage,
-  },
-  {
-    path: '/Contribute',
-    name: 'Contribute',
-    component: Contribute,
-  },
-  {
-    path: '/RankingList',
-    name: 'RankingList',
-    component: RankingList,
-  },
-  {
-    path: '/adminPage',
-    name: 'adminPage',
-    component: adminPage
-  }
+    {
+        path: '/',
+        name: 'Home',
+        component: Home,
+    },
+    {
+        path: '/LoginPage',
+        name: 'LoginPage',
+        component: LoginPage,
+    },
+    {
+        path: '/PersonalCenter',
+        name: 'PersonalCenter',
+        component: PersonalCenter,
+    },
+    {
+        path: '/VideoPage',
+        name: 'VideoPage',
+        component: VideoPage,
+    },
+    {
+        path: '/registerPage',
+        name: 'registerPage',
+        component: registerPage,
+    },
     {
         path: '/CollectPage',
         name: 'CollectPage',
@@ -107,22 +68,37 @@ const routes = [
         component: HotPage,
     },
     {
-        path:'/LatestPage',
+        path: '/LatestPage',
         name: 'LatestPage',
         component: LatestPage,
     },
     {
-        path:'/WrapperPage',
+        path: '/WrapperPage',
         name: 'WrapperPage',
         component: WrapperPage,
     },
     {
-        path:'/CompleteInfo',
+        path: '/Contribute',
+        name: 'Contribute',
+        component: Contribute,
+    },
+    {
+        path: '/RankingList',
+        name: 'RankingList',
+        component: RankingList,
+    },
+    {
+        path: '/adminPage',
+        name: 'adminPage',
+        component: adminPage
+    },
+    {
+        path: '/CompleteInfo',
         name: 'CompleteInfo',
         component: CompleteInfo,
     },
     {
-        path:'/ShowInfo',
+        path: '/ShowInfo',
         name: 'ShowInfo',
         component: ShowInfo,
     },
@@ -141,9 +117,9 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
 });
 
 export default router
