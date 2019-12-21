@@ -17,16 +17,19 @@ var jsonWrite = function(res, ret) {
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
 //测试 显示数据
 router.get('/list', function(req, res, next) {
-  connection.query("SELECT * FROM bili_usermsg", function(error, results, field) {
+  connection.query("SELECT id,username,password FROM bnuzpron_usermsg", function(error, results, field) {
     console.log(results);
+    jsonWrite(res, results);
   });
 });
+
 //注册接口
 router.post('/register', function(req, res, next) {
   var params = req.body;
-  connection.query("INSERT INTO bili_usermsg(username, password) VALUES(?,?)", [params.username,params.password], function(error, results, field) {
+  connection.query("INSERT INTO bnuzpron_usermsg(username, password) VALUES(?,?)", [params.username,params.password], function(error, results, field) {
     if(error){
       console.log(error);
     }
@@ -37,10 +40,11 @@ router.post('/register', function(req, res, next) {
     console.log("success");
   });
 });
+
 //判断用户名是否被使用
 router.post('/checkUsername', function(req, res, next) {
   var params = req.body;
-  connection.query("SELECT * FROM bili_usermsg WHERE username='${username}'",[params.username], function(error, results) {
+  connection.query("SELECT * FROM bnuzpron_usermsg WHERE username='${username}'",[params.username], function(error, results) {
     if(error) throw error;
     if(!results.length){
       res.send({error_code: 1, reason: "用户名已存在"});
@@ -131,20 +135,20 @@ router.post('/login', function(req, res, next) {
   console.log(params);
   connection.query("SELECT password FROM bnuzpron_usermsg WHERE username=?",[params.username], function(error, results) {
     if(error){
-      return;
-    }
-    if(results){
+      return error;
+    }else{
       jsonWrite(res, results);
-      for(var i = 0;i < results.length;i++){
-        if(results[i].password == params.password){
-          return res.end("返回成功");
-        }
-      }
-      return res.end("is over");
+      // for(var i = 0;i < results.length;i++){
+      //   if(results[i].password == params.password){
+      //     return;
+      //   }
+      // }
+      res.end("over");
     }
   });
 });
 
+// VideoPage获取当前页面视频的接口
 router.get('/getVideo', function (req, res, next) {
   var id = req.query.id;
   var sql = "SELECT * from videomsg where vid=" + id;
@@ -159,6 +163,7 @@ router.get('/getVideo', function (req, res, next) {
   // res.end("1");
 });
 
+// VideoPage获取当前页面视频评论的接口
 router.get('/getVideoComment', function (req, res, next) {
   var id = req.query.id;
   var sql = "SELECT * from videocomment where vid=" + id;
@@ -173,21 +178,29 @@ router.get('/getVideoComment', function (req, res, next) {
   // res.end("1");
 });
 
-router.get('/getInterlayer', function (req, res, next) {
-  var floor = req.query.floor;
-  var id = req.query.id;
-  var sql = "SELECT reply from videocomment where floor="+floor+" and vid="+id+" and fatherfloor=1";
-  // var sql='fxxk';
-  console.log(sql);
-  // connection.query(sql, function (error, results) {
-  //   if (error) {
-  //     console.log('[SELECT ERROR] - ', error.message);
-  //     return;
-  //   }
-  //   console.log(JSON.stringify(results));
-  //   return res.end(JSON.stringify(results));
-  // });
-  // res.end("1");
+router.get('/getVideoList', function (req, res, next) {
+  var sql = "SELECT * from videomsg";
+  connection.query(sql, function (error, results) {
+    if (error) {
+      console.log('[SELECT ERROR] - ', error.message);
+      return;
+    }
+    console.log(JSON.stringify(results));
+    return res.end(JSON.stringify(results));
+  });
 });
 
 module.exports = router;
+
+//管理员端 删除用户
+router.post('/deleteUser', function(req, res, next) {
+  var params = req.body;
+  connection.query("DELETE FROM bnuzpron_userMsg WHERE id=?", [params.id],function(error, results) {
+    if(error) return error;
+    else{
+      jsonWrite(res, results);
+      alert("删除成功");
+      res.end("over");
+    }
+  })
+})

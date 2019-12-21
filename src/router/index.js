@@ -15,13 +15,15 @@ import ShowInfo from '../views/ShowInfo'
 import ModifyInfo from '../views/ModifyInfo'
 import ModifyPhoto from '../views/ModifyPhoto'
 Vue.use(VueRouter);
+import Contribute from '../views/Contribute'
+import RankingList from '../views/RankingList'
 import VueResource from 'vue-resource'
-// import Vuex from 'vuex'
+import adminPage from '../views/adminPage'
 
-// Vue.use(Vuex)
-
+Vue.use(VueRouter);
 Vue.use(VueResource)
 Vue.use(VueRouter)
+
 
 const routes = [
   {
@@ -49,6 +51,46 @@ const routes = [
     name: 'registerPage',
     component: registerPage,
   },
+  {
+    path: '/CollectPage',
+    name: 'CollectPage',
+    component: CollectPage,
+  },
+  {
+    path: '/HistoryPage',
+    name: 'HistoryPage',
+    component: HistoryPage,
+  },
+  {
+    path: '/HotPage',
+    name: 'HotPage',
+    component: HotPage,
+  },
+  {
+    path: '/LatestPage',
+    name: 'LatestPage',
+    component: LatestPage,
+  },
+  {
+    path: '/WrapperPage',
+    name: 'WrapperPage',
+    component: WrapperPage,
+  },
+  {
+    path: '/Contribute',
+    name: 'Contribute',
+    component: Contribute,
+  },
+  {
+    path: '/RankingList',
+    name: 'RankingList',
+    component: RankingList,
+  },
+  {
+    path: '/adminPage',
+    name: 'adminPage',
+    component: adminPage
+  }
     {
         path: '/CollectPage',
         name: 'CollectPage',
@@ -99,9 +141,9 @@ const routes = [
 ];
 
 const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
 });
 
 export default router
