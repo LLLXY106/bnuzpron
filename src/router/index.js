@@ -12,6 +12,7 @@ import LatestPage from '../views/LatestPage'
 import WrapperPage from '../views/WrapperPage'
 import Contribute from '../views/Contribute'
 import RankingList from '../views/RankingList'
+import Test from '../views/Test'
 
 Vue.use(VueRouter);
 import VueResource from 'vue-resource'
@@ -83,6 +84,11 @@ const routes = [
     path: '/RankingList',
     name: 'RankingList',
     component: RankingList,
+  },
+  {
+    path: '/Test',
+    name: 'Test',
+    component: Test,
   }
 ];
 
