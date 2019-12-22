@@ -18,6 +18,7 @@ import ModifyPhoto from '../views/ModifyPhoto'
 Vue.use(VueRouter);
 import Contribute from '../views/Contribute'
 import RankingList from '../views/RankingList'
+import Test from '../views/Test'
 import VueResource from 'vue-resource'
 import adminPage from '../views/adminPage'
 
@@ -117,9 +118,9 @@ const routes = [
 ];
 
 const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
 });
 
 export default router

@@ -15,6 +15,14 @@
                     <Video></Video>
                 </div>
                 <div class="intro">
+                  <el-rate
+                    v-model="value"
+                    disabled
+                    show-score
+                    text-color="#ff9900"
+                    score-template="{value}">
+                  </el-rate>
+
                 </div>
                 <div class="other">
                     <div class="comment">
@@ -25,7 +33,7 @@
                             <p>全部评论</p>
                         </div>
                         <!--<div ><button @click="getComment">test</button>展开评论</div>-->
-                        <div class="comment_body" v-for="(items,index) in comment" :key="items" v-if="items.fatherfloor==0">
+                        <div class="comment_body" v-for="(items,index) in comment" v-if="items.fatherfloor==0">
                             <div class="left">
                                 <div class="head_img" style="margin: 10px 0">
                                     <img src="/img/PersonalCenter/head.jpg" style="width: 50px;height: 50px"/>
@@ -40,11 +48,13 @@
                                        style="color:rgb(188,188,188);margin-right: 8px;cursor: pointer"
                                        @click="toggle(index)"></i><span
                                         style="font-size: 14px;margin-right: 15px"></span>
-                                    <div v-show="items.isshow">
-                                        <div v-for="i in comment" v-if="i.fatherfloor==1&&i.floor==items.floor">
-                                            {{i.username}}:{{i.comment}}
+                                    <transition name="fade">
+                                        <div v-show="items.isshow">
+                                            <div v-for="i in comment" v-if="i.fatherfloor==1&&i.floor==items.floor">
+                                                {{i.username}}:{{i.comment}}
+                                            </div>
                                         </div>
-                                    </div>
+                                    </transition>
                                 </div>
                             </div>
                         </div>
@@ -78,14 +88,17 @@
         title: '',
         area: '',
         type: '',
-        comment: []
+        comment: [],
+        value:3.4
       }
     },
+
     components: {
       TopContainer,
       Navbar,
       Video
     },
+
     methods: {
       getComment() {
         var url = "/api/getVideoComment";
@@ -140,6 +153,15 @@
 
 </script>
 <style lang="stylus" scoped>
+
+    .fade-enter-active {
+        transition: opacity 1s; //类名：隐藏到显示过程所需要的时间
+    }
+
+    .fade-enter { // 类名:初始化状态
+        opacity: 0;
+    }
+
     .bg {
         width 100%
         height 170px
@@ -210,7 +232,7 @@
     .comment_head {
         width 90%
         height 80px
-        border-bottom 1px #979797 solid
+        /*border-bottom 1px #979797 solid*/
         font-size 18px
         text-align left
         padding-left 20px
