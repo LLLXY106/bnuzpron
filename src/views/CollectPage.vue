@@ -1,26 +1,33 @@
 <template>
     <div>
         <TopContainer></TopContainer>
-        <div class="head"></div>
+        <div class="head">
+            <div class="dim">
+                <p STYLE="font-size:36px;font-weight: bolder;line-height: 110px;letter-spacing:10px;">我的收藏</p>
+                <p STYLE="font-size:16px;letter-spacing:4px;">MY FAVORITE</p></div>
+        </div>
         <Navbar></Navbar>
         <div class="main">
-            <Menu></Menu>
-            <Itemlist></Itemlist>
+            <DefaultMenu></DefaultMenu>
+            <Itemlist v-if="true"></Itemlist>
+            <PicItemlist v-if="false"></PicItemlist>
         </div>
     </div>
 </template>
 <script type="text/javascript">
     import TopContainer from '../components/common/TopContainer'
-    import Menu from '../components/CollectPage/Menu'
+    import DefaultMenu from '../components/CollectPage/DefaultMenu'
     import Itemlist from '../components/CollectPage/Itemlist'
+    import PicItemlist from '../components/CollectPage/PicItemlist'
     import Navbar from '../components/CollectPage/Navbar'
     export default {
         components: {
             TopContainer,
-            Menu,
+            DefaultMenu,
             Itemlist,
+            PicItemlist,
             Navbar
-        }
+        },
     }
 </script>
 
@@ -32,7 +39,15 @@
         margin 0 auto
         max-width: 100%;
         max-height: 100%;
-        background: url("../assets/images/collect_bg.png") no-repeat
+        background: url("../assets/images/c_bg.jpg") no-repeat top
+    }
+    .dim{
+        width 1100px
+        height 200px
+        background-color: rgba(0,0,0,.6);
+        color white
+        font-family "微软雅黑", sans-serif
+        text-align center
     }
     .main{
         display flex

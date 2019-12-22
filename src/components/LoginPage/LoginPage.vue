@@ -43,12 +43,6 @@
                 userInfo:{},
             }
         },
-        // created () {
-        //     if(JSON.parse(localStorage.getItem('user')) && JSON.parse( localStorage.getItem('user')).userName){
-        //         this.userName = JSON.parse( localStorage.getItem('user')).userName;
-        //         this.password = JSON.parse( localStorage.getItem('user')).password;
-        //     }
-        // },
         computed: {
             btnText() {
                 if (this.isBtnLoading) return '登录中...';

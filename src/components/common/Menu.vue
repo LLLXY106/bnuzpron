@@ -2,7 +2,7 @@
 	<div class="menu">
 		<div class="menu-wrapper">
 			<ul class="nav-menu">
-				<MenuItem  v-for="i in classify" :item="i" :key="i"></MenuItem>
+				<MenuItem  v-for="(i,index) in classify" :item="i" :key="index"></MenuItem>
 			</ul>
 			<div class="menu-r">
 				<a href="#"><div class="jump-gif"></div></a>
