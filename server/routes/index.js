@@ -163,6 +163,19 @@ router.get('/getVideo', function (req, res, next) {
   // res.end("1");
 });
 
+// VideoPage 播放量+1
+router.get('/addPlay',function (req, res, next) {
+  var id = req.query.id;
+  var sql = "update videomsg set play=play+1 where vid=" + id;
+  connection.query(sql, function (error, results) {
+    if (error) {
+      console.log('[SELECT ERROR] - ', error.message);
+      return;
+    }
+    console.log("播放量+1嗷");
+  });
+})
+
 // VideoPage获取当前页面视频评论的接口
 router.get('/getVideoComment', function (req, res, next) {
   var id = req.query.id;
