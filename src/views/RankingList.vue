@@ -7,9 +7,29 @@
         <div class="rank_body">
             <div class="rank_head">
                 <img src="../assets/images/rank.png" style="margin-right: 20px"/>
-                <p style="line-height: 32px">热门视频排行</p>
+                <p style="line-height: 32px">热门视频排行榜</p>
             </div>
-            <div class="item" v-for="items in sortVideo">
+            <div class="item">
+                <div class="num" style="width: 6%;height: 100%;text-align: center"><img src="../assets/images/gold.png"/></div>
+                <img :src="Video[0].headsrc" style="width: 188px;height: 119px;margin-right: 20px"/>
+                视频标题：{{Video[0].title}}
+                总播放次数:{{Video[0].play}}
+            </div>
+            <div class="item">
+                <div class="num" style="width: 6%;height: 100%;text-align: center"><img src="../assets/images/silver.png"/></div>
+                <img :src="Video[1].headsrc" style="width: 188px;height: 119px;margin-right: 20px"/>
+                视频标题：{{Video[1].title}}
+                总播放次数:{{Video[1].play}}
+            </div>
+            <div class="item">
+                <div class="num" style="width: 6%;height: 100%;text-align: center"><img src="../assets/images/copper.png"/></div>
+                <img :src="Video[2].headsrc" style="width: 188px;height: 119px;margin-right: 20px"/>
+                视频标题：{{Video[2].title}}
+                总播放次数:{{Video[2].play}}
+            </div>
+            <div class="item" v-for="(items,i) in sortVideo" v-if="i >= 3">
+                <div class="num" style="width: 6%;height: 100%;text-align: center;font-size: 16px;font-weight: bold">{{i+1}}</div>
+                <img :src="items.headsrc" style="width: 188px;height: 119px;margin-right: 20px"/>
                 视频标题：{{items.title}}
                 总播放次数:{{items.play}}
             </div>
@@ -87,6 +107,9 @@
         margin 0 auto
         border-bottom 1px #dfdfdf solid
         padding 20px
+        text-align left
+        display flex
+        flex-direction row
     }
     .item:hover {
         box-shadow:0px 2px 3px 2px rgba(205,205,205,0.64);
