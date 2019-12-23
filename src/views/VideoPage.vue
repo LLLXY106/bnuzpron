@@ -24,16 +24,17 @@
             text-color="#ff9900"
             score-template="{value}">
           </el-rate>
-
         </div>
         <div class="other">
           <div class="comment">
             <div class="comment_head" style="font-size: 14px">
               <p style="margin: 20px 0px;font-size: 14px;color: #fa5a57">{{this.comment.length}}评论</p>
               <span style="vertical-align: top">我的评论：</span>
-              <textarea type="text" style="font-size: 14px;border:0;border-radius:5px;background-color:rgba(242,242,242,0.98);width: 100%;height: 60px;padding: 10px;resize: none;"></textarea>
-              <button>提交评论</button>
-              <hr style="height:10px;border:none;border-top:10px groove skyblue; margin-top: 5px" />
+              <textarea type="text" v-model="textarea"
+                        style="font-size: 14px;border:0;border-radius:5px;background-color:rgba(242,242,242,0.98);width: 100%;height: 60px;padding: 10px;resize: none;">
+              </textarea>
+              <button @click="submit">提交评论</button>
+              <hr style="height:10px;border:none;border-top:10px groove skyblue; margin-top: 5px"/>
               <p style="font-size: 14px;margin:0px auto">全部评论：</p>
             </div>
             <!--<div ><button @click="getComment">test</button>展开评论</div>-->
@@ -97,7 +98,9 @@
         area: '',
         type: '',
         comment: [],
-        value: 3.4
+        value: 3.4,
+        textarea: '',
+        isLogin: false
       }
     },
 
@@ -108,6 +111,7 @@
     },
 
     methods: {
+      // 获取评论
       getComment() {
         var url = "/api/getVideoComment";
         this.$http.get(url, {
@@ -121,7 +125,7 @@
           console.log(response);
         })
       },
-
+      // 获取视频数据
       getVideo() {
         var url = "/api/getVideo";
         this.$http.get(url, {
@@ -139,17 +143,36 @@
 
         var url2 = "api/addPlay";
         this.$http.get(url2, {
-          params:{
-            id:this.id
+          params: {
+            id: this.id
           }
         })
       },
 
+      // 让隐藏的楼中楼显示
       toggle(index) {
         let newComment = this.comment[index];
         newComment.isshow = !this.comment[index].isshow;
         Vue.set(this.comment, index, newComment);
+      },
+
+      // 提交评论
+      submit() {
+        if (!this.isLogin) {
+          alert("你还没有登录不能发布评论噢~")
+        } else {
+          var url = "/api/addVideoComment";
+          this.$http.post(url, {
+            id: this.id,
+            username: this.$cookies.get("username"),
+            textarea: this.textarea
+          }, {}).then(function (data) {
+            alert(data.body);
+            window.location.reload();
+          })
+        }
       }
+
       // //被遗弃的事件总线hhh
       // video1:function () {
       //     msg.$emit("id","1");
@@ -158,10 +181,18 @@
       //     msg.$emit("id","2");
       // }
     },
+
     mounted() {
       // 跳转到此页面时根据id加载页面内容
       this.getComment();
       this.getVideo();
+
+      //通过Cookies判断登录状态
+      if (this.$cookies.get("username") != null && this.$cookies.get("password") != null) {
+        // console.log(this.$cookies.get("username"), this.$cookies.get("password"));
+        //改变登录状态
+        this.isLogin = true;
+      }
     }
   }
 
