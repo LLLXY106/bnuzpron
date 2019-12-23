@@ -46,7 +46,7 @@
             </li>
             <!-- 登录注册 -->
             <li id="i_menu_login_reg" guest="yes" class="u-i" style="display: list-item" v-show="!isLogin">
-              <a id="i_menu_login_btn" class="i-link login" href="/LoginPage">
+              <a id="i_menu_login_btn" class="i-link login" @click="Login">
                 <span>登录</span>
               </a>
               <i class="s-line"></i>
@@ -125,7 +125,12 @@ export default {
     exit:function() {
       this.$cookies.set("username", '', -1);
       this.$cookies.set("password", '', -1);
-      window.location.href = "/";
+      // window.location.href = "/";
+      location.reload();
+    },
+    Login() {
+      // var path = "/LoginPage?"+window.location.href;
+      window.location.href = "/LoginPage";
     }
   }
 }
