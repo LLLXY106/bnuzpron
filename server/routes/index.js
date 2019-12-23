@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var connection = require('../db/sql.js');
-
+var multer = require('multer');
 //终端显示信息
 var jsonWrite = function(res, ret) {
   if(typeof ret === 'undefined') {
