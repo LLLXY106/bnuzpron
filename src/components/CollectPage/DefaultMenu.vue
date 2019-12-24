@@ -17,7 +17,7 @@
 <style lang="stylus" scoped>
     .menu{
         width 190px
-        height 600px
+        height 800px
         border-right  1px #e7e7e7 solid
         border-radius 5px 0 0 0
     }

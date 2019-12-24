@@ -51,7 +51,8 @@
                 alert("你还没有登录没有个人信息的噢~")
             }else{
                 var url = "/api/showinfo";
-                this.$http.get(url, {
+                this.$http.post(url, {
+                    username: this.$cookies.get("username")
                 }, {}).then(function (data) {
                     // alert(data.body[0].username);
                     this.username=data.body[0].username;

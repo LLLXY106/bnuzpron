@@ -43,22 +43,34 @@
         },
 
         methods: {
-            modify(){
-                var url = "/api/modifyinfo";
-                var phone=this.modifyData.phone;
-                var email=this.modifyData.email;
-                var des=this.modifyData.des;
-                alert("保存成功！");
-                this.$http.post(url, {
-                    phone:phone,
-                    email:email,
-                    des:des
-                }, {}).then(function (data) {
+            modify() {
+                if (!this.isLogin) {
+                    alert("你还没有登录不能修改信息噢~")
+                } else {
+                    var url = "/api/modifyinfo";
+                    var phone = this.modifyData.phone;
+                    var email = this.modifyData.email;
+                    var des = this.modifyData.des;
                     alert("保存成功！");
-                    console.log(data);
-                }, function (response) {
-                    console.log(response);
-                })
+                    this.$http.post(url, {
+                        phone: phone,
+                        email: email,
+                        des: des,
+                        username: this.$cookies.get("username")
+                    }, {}).then(function (data) {
+                        alert("保存成功！");
+                        console.log(data);
+                    }, function (response) {
+                        console.log(response);
+                    })
+                }
+            }
+        },
+        mounted(){
+            if (this.$cookies.get("username") != null && this.$cookies.get("password") != null) {
+                // console.log(this.$cookies.get("username"), this.$cookies.get("password"));
+                //改变登录状态
+                this.isLogin = true;
             }
         }
     }
