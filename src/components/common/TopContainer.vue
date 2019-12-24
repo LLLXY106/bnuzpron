@@ -37,7 +37,7 @@
           <ul class="menu">
             <!-- 头像 -->
             <li id="userhead" class="u-i" v-show="isLogin">
-              <a class="t" href="/PersonlCenter">
+              <a class="t" href="/ShowInfo">
                 <div class="head">
                   <img v-if="isUser" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576341970432&di=a19fa702995041398ca145aa9d6f9868&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F-vo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F377adab44aed2e7356b283268401a18b87d6fa65.jpg" class="face">
                   <img v-if="isAdmin" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2513711717,3607386518&fm=26&gp=0.jpg" class="face">
@@ -56,7 +56,7 @@
             </li>
             <!-- 登录后样式  用v-if判断登录状态 -->
             <li class="u-i" style="display: list-item" v-show="isLogin">
-              <a id="i_menu_personalCenter" class="i-link" href="/PersonalCenter">
+              <a id="i_menu_personalCenter" class="i-link" href="/ShowInfo">
                 <span>个人中心</span>
               </a>
             </li>
@@ -76,7 +76,7 @@
               </a>
             </li>
             <li class="u-i b-post">
-              <a class="i-link" href="http://member.bilibili.com/v/video/submit.html" target="_blank" @mouseenter="isShowPostMenu = !isShowPostMenu" @mouseleave="isShowPostMenu = !isShowPostMenu">投稿</a>
+              <a class="i-link" href="/Contribute" target="_blank" @mouseenter="isShowPostMenu = !isShowPostMenu" @mouseleave="isShowPostMenu = !isShowPostMenu">投稿</a>
               <!-- <PostMaterial v-show="isShowPostMenu"></PostMaterial> -->
             </li>
           </ul>

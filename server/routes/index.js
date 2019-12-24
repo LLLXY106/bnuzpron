@@ -45,7 +45,9 @@ router.post('/register', function (req, res, next) {
 router.post('/checkUsername', function (req, res, next) {
   var params = req.body;
   connection.query("SELECT * FROM bnuzpron_usermsg WHERE username='${username}'", [params.username], function (error, results) {
-    if (error) throw error;
+      if (error) {
+          console.log(error);
+      }
     if (!results.length) {
       res.send({error_code: 1, reason: "用户名已存在"});
     } else {
@@ -286,3 +288,38 @@ router.post('/deleteUser', function (req, res, next) {
     }
   })
 });
+
+/*====================================Modifyphoto的接口开始====================================*/
+var uploadFolderphoto = '../public/photo/uploadPhoto';
+
+// var upload = multer({storage: storage});
+
+router.post('/ModifyPhoto', upload.single('file'), function (req, res, next) {
+    var file = req.file;
+    console.log(req.body);
+    console.log('文件类型：%s', file.mimetype);
+    console.log('原始文件名：%s', file.originalname);
+    console.log('文件大小：%s', file.size);
+    console.log('文件保存路径：%s', file.path);
+});
+
+/*====================================Modifyphoto的接口结束====================================*/
+
+/*====================================HistoryPage的接口开始====================================*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*====================================HistoryPage的接口结束====================================*/

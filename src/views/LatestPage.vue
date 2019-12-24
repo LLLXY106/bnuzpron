@@ -14,7 +14,7 @@
                 </div>
                 <div class="item2">
                     <div class="pic2"><a href="https://manga.bilibili.com/detail/mc27357?from=manga_serach"><img src="../assets/images/new_p2.jpg" style="max-height: 100%;max-width: 100%"/></a></div>
-                    <div class="words2"><p style="font-size: 14px">《Dimension》</p> <p style="text-align: left;line-height:16px;font-size: 12px; text-indent:2rem">故事发生在2072年，21世纪最大的发现与发明——次元间电磁诱导装置，通称【线圈】。通过线圈，人类获得了无穷无尽的能量。通过不断朝小型进化的线圈自由地获得电力已经成为可能，这个发明正推动着整个世界，开启了崭新的时代。</p></div>
+                    <div class="words2"><p style="font-size: 14px;">《Dimension》</p> <p style="text-align: left;line-height:16px;font-size: 12px; text-indent:2rem">故事发生在2072年，21世纪最大的发现与发明——次元间电磁诱导装置，通称【线圈】。通过线圈，人类获得了无穷无尽的能量。通过不断朝小型进化的线圈自由地获得电力已经成为可能，这个发明正推动着整个世界，开启了崭新的时代。</p></div>
                 </div>
                 <div class="item3">
                     <div class="words3"><p style="font-size: 14px">《碧蓝航线》</p><p style="text-align: left;line-height:16px;font-size: 12px; text-indent:2rem">将军武舰船等二次元少女拟人化之后，由玩家自由搭配操作完成的一款游戏。本作为各位画家，参考游戏《碧蓝航线》的世界观而创作的一些描述战舰们日常生活的小剧场。</p></div>
@@ -107,7 +107,7 @@
     }
     .pic2,.pic4{
         width 100%
-        height 70%
+        height 65%
         /*border 1px green solid*/
     }
 </style>

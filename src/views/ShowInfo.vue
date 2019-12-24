@@ -35,23 +35,35 @@
                 username:"",
                 birthday:"",
                 hobby:"",
-                des:""
+                des:"",
+                isLogin: false,
             }
         },
+
         mounted() {
-            var url = "/api/showinfo";
-            this.$http.get(url, {
-            }, {}).then(function (data) {
-                // alert(data.body[0].username);
-                this.username=data.body[0].username;
-                this.birthday=(data.body[0].birthday).substring(0,10);
-                this.hobby=data.body[0].hobby;
-                this.des=data.body[0].des;
-                // alert("修改成功！");
-                console.log(data.body);
-            }, function (response) {
-                console.log(response);
-            })
+
+            if (this.$cookies.get("username") != null && this.$cookies.get("password") != null) {
+                // console.log(this.$cookies.get("username"), this.$cookies.get("password"));
+                //改变登录状态
+                this.isLogin = true;
+            }
+            if(!this.isLogin){
+                alert("你还没有登录没有个人信息的噢~")
+            }else{
+                var url = "/api/showinfo";
+                this.$http.get(url, {
+                }, {}).then(function (data) {
+                    // alert(data.body[0].username);
+                    this.username=data.body[0].username;
+                    this.birthday=(data.body[0].birthday).substring(0,10);
+                    this.hobby=data.body[0].hobby;
+                    this.des=data.body[0].des;
+                    // alert("修改成功！");
+                    console.log(data.body);
+                }, function (response) {
+                    console.log(response);
+                })
+            }
         },
     }
 </script>

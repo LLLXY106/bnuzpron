@@ -81,7 +81,7 @@
     .v_video{
         width 100%
         height 100%
-        border: 1px green solid
+        /*border: 1px green solid*/
         margin 0 auto
     }
 </style>

@@ -29,29 +29,32 @@
         data() {
             return {
                 collect:[],
+                isLogin: false
             }
         },
-        created(){
-          this.collectlist();
-        },
-        mounted() {
+        mounted(){
+
         },
         methods: {
             collectlist(){
-                var url = "/api/collect";
-                this.$http.get(url, {
-                }, {}).then(function (data) {
-                    // this.vname = data.body[0].vname;
-                    // this.username = data.body[0].username;
-                    // this.type = data.body[0].type;
-                    this.collect=data.body;
-                    // alert(data.body[0].type);
-                    // alert(data.body[0].vname);
-                    // alert(data.body[0].username);
-                    console.log(data.body);
-                }, function (response) {
-                    console.log(response);
-                })
+                if(!this.isLogin){
+                    alert("你还没有登录不能查看收藏夹噢~")
+                }else{
+                    var url = "/api/collect";
+                    this.$http.get(url, {
+                    }, {}).then(function (data) {
+                        // this.vname = data.body[0].vname;
+                        // this.username = data.body[0].username;
+                        // this.type = data.body[0].type;
+                        this.collect=data.body;
+                        // alert(data.body[0].type);
+                        // alert(data.body[0].vname);
+                        // alert(data.body[0].username);
+                        console.log(data.body);
+                    }, function (response) {
+                        console.log(response);
+                    })
+                }
             },
             del(event){
                 var test = event.currentTarget.id;
@@ -72,7 +75,16 @@
                 else
                     return;
             }
-        }
+        },
+        created(){
+            //通过Cookies判断登录状态
+            if (this.$cookies.get("username") != null && this.$cookies.get("password") != null) {
+                // console.log(this.$cookies.get("username"), this.$cookies.get("password"));
+                //改变登录状态
+                this.isLogin = true;
+            }
+            this.collectlist();
+        },
 
     }
 </script>
