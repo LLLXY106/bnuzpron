@@ -13,7 +13,7 @@
                     <div style="margin: 15px auto;">
                         <a style="font-weight: bold">{{title}}</a>&nbsp;
                         <a>{{area}}&nbsp;>&nbsp;{{type}}</a>
-                        <button style="width:70px;height:18px;margin-left:30px;cursor:pointer;font-size: 12px;border:none;outline:none;border-radius:5px;background-color:#f59db4;color:#fff">点我收藏</button>
+                        <button @click="addCollect" style="width:70px;height:18px;margin-left:30px;cursor:pointer;font-size: 12px;border:none;outline:none;border-radius:5px;background-color:#f59db4;color:#fff">点我收藏</button>
                     </div>
                     <Video></Video>
                 </div>
@@ -140,6 +140,7 @@
                     console.log(response);
                 })
             },
+
             // 获取视频数据
             getVideo() {
                 var url = "/api/getVideo";
@@ -152,6 +153,7 @@
                     this.title = data.body[0].title;
                     this.area = data.body[0].area;
                     this.type = data.body[0].type;
+                    this.value = data.body[0].star;
                     this.introduce = data.body[0].introduce;
                 }, function (response) {
                     console.log(response);
@@ -187,7 +189,23 @@
                         window.location.reload();
                     })
                 }
+            },
+
+            // 添加收藏
+            addCollect() {
+              if (!this.isLogin) {
+                alert("你还没有登录不能添加收藏噢~")
+              } else {
+                var url = "/api/addCollect";
+                this.$http.post(url, {
+                  id: this.id,
+                  username: this.$cookies.get("username")
+                }, {}).then(function (data) {
+                  alert(data.body);
+                })
+              }
             }
+
 
             // //被遗弃的事件总线hhh
             // video1:function () {

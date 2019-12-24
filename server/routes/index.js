@@ -45,9 +45,9 @@ router.post('/register', function (req, res, next) {
 router.post('/checkUsername', function (req, res, next) {
   var params = req.body;
   connection.query("SELECT * FROM bnuzpron_usermsg WHERE username='${username}'", [params.username], function (error, results) {
-      if (error) {
-          console.log(error);
-      }
+    if (error) {
+      console.log(error);
+    }
     if (!results.length) {
       res.send({error_code: 1, reason: "用户名已存在"});
     } else {
@@ -203,16 +203,51 @@ router.post('/addVideoComment', function (req, res, next) {
       console.log('[SELECT ERROR] - ', error.message);
       return;
     }
-    var  maxfloor = results[0].maxfloor+1;
+    var maxfloor = results[0].maxfloor + 1;
     // console.log(maxfloor);
     connection.query("INSERT INTO videocomment(vid,floor,username,comment,comment_time,fatherfloor,isshow) VALUES(?,?,?,?,?,?,?)",
       [params.id, maxfloor, params.username, params.textarea, null, 0, 0], function (error, results) {
         if (error) throw error;
-        console.log("success");
+        console.log("add comment success");
         res.send("评论成功~");
       });
   });
 });
+
+//添加收藏
+router.post('/addCollect', function (req, res, next) {
+  var params = req.body;
+  var fsql = "SELECT COUNT(username) as num from bili_usercollect WHERE username=? and v_id=?";
+
+  connection.query(fsql,[params.username, params.id], function (error, results) {
+    if (error) {
+      console.log('[SELECT ERROR] - ', error.message);
+      return;
+    }
+    if(results[0].num > 0) {
+      res.send("你已经收藏过啦~")
+    } else {
+      var sql = "SELECT title, headsrc FROM videomsg WHERE vid=" + params.id;
+      connection.query(sql, function (error, results) {
+        if (error) {
+          console.log('[SELECT ERROR] - ', error.message);
+          return;
+        }
+        var title = results[0].title;
+        var headsrc = results[0].headsrc;
+        connection.query("INSERT INTO bili_usercollect(username, v_id, vname, type, v_pic) VALUES(?,?,?,?,?)",
+          [params.username, params.id, title, "公开", headsrc], function (error, results) {
+            if (error) throw error;
+            console.log("add collect success");
+            res.send("添加收藏成功~");
+          });
+      });
+    }
+  });
+
+
+});
+
 /*====================================VideoPage的接口结束====================================*/
 
 /*====================================RankingList的接口开始====================================*/
@@ -295,31 +330,17 @@ var uploadFolderphoto = '../public/photo/uploadPhoto';
 // var upload = multer({storage: storage});
 
 router.post('/ModifyPhoto', upload.single('file'), function (req, res, next) {
-    var file = req.file;
-    console.log(req.body);
-    console.log('文件类型：%s', file.mimetype);
-    console.log('原始文件名：%s', file.originalname);
-    console.log('文件大小：%s', file.size);
-    console.log('文件保存路径：%s', file.path);
+  var file = req.file;
+  console.log(req.body);
+  console.log('文件类型：%s', file.mimetype);
+  console.log('原始文件名：%s', file.originalname);
+  console.log('文件大小：%s', file.size);
+  console.log('文件保存路径：%s', file.path);
 });
 
 /*====================================Modifyphoto的接口结束====================================*/
 
 /*====================================HistoryPage的接口开始====================================*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*====================================HistoryPage的接口结束====================================*/
