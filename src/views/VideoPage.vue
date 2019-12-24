@@ -113,7 +113,7 @@
                 area: '',
                 type: '',
                 comment: [],
-                value: 3.4,
+                value: 3.5,
                 textarea: '',
                 isLogin: false
             }
@@ -225,11 +225,12 @@
     }
 
     .bg {
+        max-width 100%
+        max-height 100%
         width 100%
         height 170px
         position: relative;
-        background: url("../assets/images/video_bg.jpg") no-repeat top
-
+        background: url("../assets/images/v_bg1.jpg") no-repeat top
     }
 
     .dim {
