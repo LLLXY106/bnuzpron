@@ -55,7 +55,6 @@
         border 1px #e4e4e4 solid
         margin 10px auto
         width 1100px
-        height 600px
         border-radius 5px 5px 0 0
     }
 </style>

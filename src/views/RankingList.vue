@@ -6,17 +6,18 @@
                 排行榜</p>
                 <p STYLE="font-size:16px;letter-spacing:4px;">RANKINGLIST</p></div>
         </div>
-        <div class="rank_body">
+        <div class="rank_body" style="font-family: 幼圆">
             <div class="rank_head">
                 <img src="../assets/images/rank.png" style="margin-right: 20px"/>
                 <p style="line-height: 32px">热门视频排行榜</p>
+                <p style="line-height: 32px;margin-left: 630px;color: #dd6572">快来康康有哪些热门视频上榜了嗷</p>
             </div>
             <div class="item">
                 <div class="num" style="width: 6%;height: 100%;text-align: center"><img
                         src="../assets/images/gold.png"/></div>
                 <img :src="Video[0].headsrc" style="width: 188px;height: 119px;margin-right: 20px"/>
                 <div class="detail">
-                    <div style="margin-bottom:30px">视频标题：{{Video[0].title}}</div>
+                    <div style="margin-bottom:30px;font-size: 16px;font-weight: bold">视频标题：{{Video[0].title}}</div>
                     <div style="color: #fa5a57">总播放次数:{{Video[0].play}}</div>
                 </div>
             </div>
@@ -25,7 +26,7 @@
                         src="../assets/images/silver.png"/></div>
                 <img :src="Video[1].headsrc" style="width: 188px;height: 119px;margin-right: 20px"/>
                 <div class="detail">
-                    <div style="margin-bottom:30px">视频标题：{{Video[1].title}}</div>
+                    <div style="margin-bottom:30px;font-size: 16px;font-weight: bold">视频标题：{{Video[1].title}}</div>
                     <div style="color: #409EFF">总播放次数:{{Video[1].play}}</div>
                 </div>
             </div>
@@ -34,7 +35,7 @@
                         src="../assets/images/copper.png"/></div>
                 <img :src="Video[2].headsrc" style="width: 188px;height: 119px;margin-right: 20px"/>
                 <div class="detail">
-                    <div style="margin-bottom:30px">视频标题：{{Video[2].title}}</div>
+                    <div style="margin-bottom:30px;font-size: 16px;font-weight: bold">视频标题：{{Video[2].title}}</div>
                     <div style="color: #409EFF">总播放次数:{{Video[2].play}}</div>
                 </div>
             </div>
@@ -44,7 +45,7 @@
                 </div>
                 <img :src="items.headsrc" style="width: 188px;height: 119px;margin-right: 20px"/>
                 <div class="detail">
-                    <div style="margin-bottom:30px">视频标题：{{items.title}}</div>
+                    <div style="margin-bottom:30px;font-size: 16px;font-weight: bold">视频标题：{{items.title}}</div>
                     <div style="color: #409EFF">总播放次数:{{items.play}}</div>
                 </div>
             </div>
@@ -102,7 +103,7 @@
 <style lang="stylus" scoped>
     .hd {
         width 100%
-        height 160px
+        height 180px
         position: relative;
         background: url("../assets/images/r_bg.jpg") no-repeat top
 
@@ -110,7 +111,7 @@
 
     .dim {
         width 100%
-        height 160px
+        height 180px
         background-color: rgba(0, 0, 0, .6);
         color white
         font-family "微软雅黑", sans-serif
@@ -160,6 +161,7 @@
         margin 20px auto
         /*border 1px red solid*/
         width 80%
+        box-shadow: 0px 2px 3px 2px rgba(205, 205, 205, 0.64);
     }
     .detail{
         display flex
