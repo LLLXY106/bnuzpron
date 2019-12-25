@@ -324,6 +324,7 @@ router.post('/deleteUser', function (req, res, next) {
         }
     })
 });
+
 //管理员端 视频列表
 router.get('/videoList', function (req, res, next) {
     connection.query("SELECT * FROM videomsg", function (error, results, field) {
@@ -363,6 +364,18 @@ router.post('/deleteComment', function (req, res, next) {
         }
     });
 });
+
+//改变封面
+router.get('/getCover', function(req, res, next) {
+  var params = req.body;
+  connection.query("SELECT headsrc FROM videomsg WHERE id=?", [params.id],function(error, results) {
+    if(error) return error;
+    else{
+      jsonWrite(res, results);
+      res.end("over");
+    }
+  });
+})
 /*====================================Modifyphoto的接口开始====================================*/
 var storage2 = multer.diskStorage({
     destination: function (req, file, cb) {
