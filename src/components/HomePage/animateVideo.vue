@@ -33,15 +33,12 @@
 
   export default {
     name: 'AnimateVideo',
-    data() {
-    },
     methods: {
       toVideo(num) {
         window.location.href = 'VideoPage?id=' + num;
         // this.$router.push({name:'VideoPage',query: {id:'1'}})
       }
     }
-
   }
 </script>
 

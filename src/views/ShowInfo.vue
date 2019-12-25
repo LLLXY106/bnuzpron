@@ -48,7 +48,7 @@
                 this.isLogin = true;
             }
             if(!this.isLogin){
-                alert("你还没有登录没有个人信息的噢~")
+                alert("你还没有登录没有个人信息的噢~");
             }else{
                 var url = "/api/showinfo";
                 this.$http.get(url, {
