@@ -1,6 +1,6 @@
 <template>
 	<li class="m-i" :class="classes">
-		<a class="i-link" href="">
+		<a class="i-link" :id="forId(item.id)">
 			<em>{{item.title}}</em>
 			<div class="v-num" v-if="showNum">
 				<span class="addnew_1">{{item.num}}</span>
@@ -34,7 +34,12 @@ export default {
 			}
 			return true
 		}
-	}
+	},
+	methods: {
+		forId(id) {
+			return id;
+		}
+	},
 }
 </script>
 

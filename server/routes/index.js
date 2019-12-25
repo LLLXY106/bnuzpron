@@ -1,12 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var connection = require('../db/sql.js');
-<<<<<<< HEAD
-var multer = require('multer')
-
-=======
 var multer = require('multer');
->>>>>>> 6a66bc4a637858050a87e646338bc09cd6efd1e6
 //终端显示信息
 var jsonWrite = function (res, ret) {
   if (typeof ret === 'undefined') {
@@ -328,7 +323,6 @@ router.post('/deleteUser', function (req, res, next) {
   })
 });
 
-<<<<<<< HEAD
 //管理员端 视频列表
 router.get('/videoList', function(req, res, next) {
   connection.query("SELECT * FROM videomsg", function(error, results, field) {
@@ -368,7 +362,18 @@ router.post('/deleteComment', function(req, res, next) {
     }
   });
 });
-=======
+
+//改变封面
+router.get('/getCover', function(req, res, next) {
+  var params = req.body;
+  connection.query("SELECT headsrc FROM videomsg WHERE id=?", [params.id],function(error, results) {
+    if(error) return error;
+    else{
+      jsonWrite(res, results);
+      res.end("over");
+    }
+  });
+})
 /*====================================Modifyphoto的接口开始====================================*/
 var uploadFolderphoto = '../public/photo/uploadPhoto';
 
@@ -389,4 +394,3 @@ router.post('/ModifyPhoto', upload.single('file'), function (req, res, next) {
 
 
 /*====================================HistoryPage的接口结束====================================*/
->>>>>>> 6a66bc4a637858050a87e646338bc09cd6efd1e6

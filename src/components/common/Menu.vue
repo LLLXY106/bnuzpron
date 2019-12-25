@@ -21,64 +21,79 @@ export default {
 				{
 					title: '首页',
 					num: 0,
+					id: 1,
 					home: true
 				},
 				{
 					title: '动画',
-					num: 11
+					num: 11,
+					id: 2,
 				},
 				{
 					title: '番剧',
-					num: 22
+					num: 22,
+					id: 3,
 				},
 				{
 					title: '音乐',
-					num: 33
+					num: 33,
+					id: 4,
 				},
 				{
 					title: '舞蹈',
-					num: 44
+					num: 44,
+					id: 5,
 				},
 				{
 					title: '游戏',
-					num: 55
+					num: 55,
+					id: 6,
 				},
 				{
 					title: '科技',
-					num: 66
+					num: 66,
+					id: 7,
 				},
 				{
 					title: '生活',
-					num: 77
+					num: 77,
+					id: 8
 				},
 				{
 					title: '鬼畜',
-					num: 88
+					num: 88,
+					id: 9
 				},
 				{
 					title: '时尚',
-					num: 99
+					num: 99,
+					id: 10
 				},
 				{
 					title: '广告',
-					num: 111
+					num: 111,
+					id: 12
 				},
 				{
 					title: '娱乐',
-					num: 222
+					num: 222,
+					id: 13
 				},
 				{
 					title: '影视',
-					num: 333
+					num: 333,
+					id: 14
 				},  
 				{
 					title: '直播',
 					num: 444,
+					id: 15,
 					sequare: true
 				},
 				{
 					title: '广场',
 					num: 555,
+					id: 16,
 					live: true
 				}
 			]
@@ -86,7 +101,8 @@ export default {
 	},
 	components: {
 		MenuItem
-	}
+	},
+
 }
 </script>
 
