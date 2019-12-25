@@ -39,8 +39,8 @@
             <li id="userhead" class="u-i" v-show="isLogin">
               <a class="t" href="/PersonlCenter">
                 <div class="head">
-                  <img v-if="isUser" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576341970432&di=a19fa702995041398ca145aa9d6f9868&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F-vo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F377adab44aed2e7356b283268401a18b87d6fa65.jpg" class="face">
-                  <img v-if="isAdmin" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2513711717,3607386518&fm=26&gp=0.jpg" class="face">
+                  <img v-if="isUser" :src="iconimg" class="face">
+                  <img v-if="isAdmin" src="../../assets/images/admin_head2.png" class="face">
                 </div>
               </a>
             </li>
@@ -91,6 +91,7 @@ import PostMaterial from './PostMaterial'
 export default {
   data() {
     return {
+      iconimg: "",
       isShowPostMenu: false,
       isLogin: false,
       isUser: false,
@@ -119,6 +120,9 @@ export default {
     PostMaterial
   },
   methods: {
+    getIcon() {
+      
+    },
     showPostMenu() {
       this.isShowPostMenu = !this.isShowPostMenu
     },

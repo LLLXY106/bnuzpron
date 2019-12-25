@@ -23,7 +23,7 @@
 				<div class="sidebar">
 					<!-- 头像、名字、职位 -->
 					<div class="sidebar_head">
-						<img class="head_icon" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2513711717,3607386518&fm=26&gp=0.jpg" style="border-radius: 50%" width="70" height="70">
+						<img class="head_icon" src="../../assets/images/admin_head2.png" style="border-radius: 50%" width="70" height="70">
 						<div>
 								<p class="student_name">admin</p>
 								<p class="position">管理员</p>
@@ -39,14 +39,14 @@
 									</a>
 							</li>
 							<li class="treeview">
-									<a class="menu_item" href="#" data-toggle="treeview">
-											<i class="menu_icon fa fa-bar-chart"></i>
+									<a class="menu_item" href="/videoManagePage" data-toggle="treeview">
+											<i class="menu_icon fa fa-video-camera"></i>
 											<span class="menu_label">视频管理</span>
 											<i class="fa fa-angle-right"></i>
 									</a>
 							</li>
 							<li class="treeview" href="#" data-toggle="treeview">
-									<a class="menu_item" href="#">
+									<a class="menu_item" href="/commentManagePage">
 											<i class="menu_icon fa fa-commenting"></i>
 											<span class="menu_label">评论管理</span>
 											<i class="fa fa-angle-right"></i>
@@ -54,7 +54,6 @@
 							</li>
 					</ul>
 				</div>
-				<user-manage></user-manage>
 			</div>
 		</div>
   </div>

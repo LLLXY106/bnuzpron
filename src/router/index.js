@@ -14,17 +14,18 @@ import CompleteInfo from '../views/CompleteInfo'
 import ShowInfo from '../views/ShowInfo'
 import ModifyInfo from '../views/ModifyInfo'
 import ModifyPhoto from '../views/ModifyPhoto'
-
-Vue.use(VueRouter);
+import videoManagePage from '../views/videoManagePage'
 import Contribute from '../views/Contribute'
 import RankingList from '../views/RankingList'
 import Test from '../views/Test'
-import VueResource from 'vue-resource'
 import adminPage from '../views/adminPage'
+import commentManagePage from '../views/commentManagePage'
 
+
+import VueResource from 'vue-resource'
 Vue.use(VueRouter);
-Vue.use(VueResource)
-Vue.use(VueRouter)
+Vue.use(VueResource);
+Vue.use(VueRouter);
 
 
 const routes = [
@@ -113,8 +114,16 @@ const routes = [
         name: 'ModifyPhoto',
         component: ModifyPhoto
     },
-
-
+    {
+        path: '/videoManagePage',
+        name: 'videoManagePage',
+        component: videoManagePage
+    },
+    {
+        path: '/commentManagePage',
+        name: 'commentManagePage',
+        component: commentManagePage
+    }
 ];
 
 const router = new VueRouter({
@@ -123,4 +132,4 @@ const router = new VueRouter({
   routes
 });
 
-export default router
+export default router;

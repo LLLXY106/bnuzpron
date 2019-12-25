@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var connection = require('../db/sql.js');
+var multer = require('multer')
 
 //终端显示信息
 var jsonWrite = function(res, ret) {
@@ -242,8 +243,47 @@ router.post('/deleteUser', function(req, res, next) {
     if(error) return error;
     else{
       jsonWrite(res, results);
-      alert("删除成功");
       res.end("over");
     }
   })
-})
+});
+
+//管理员端 视频列表
+router.get('/videoList', function(req, res, next) {
+  connection.query("SELECT * FROM videomsg", function(error, results, field) {
+    console.log(results);
+    jsonWrite(res, results);
+  });
+});
+
+//管理员端 删除视频
+router.post('/deleteVideo', function(req, res, next) {
+  var params = req.body;
+  connection.query("DELETE FROM videomsg WHERE id=?", [params.id],function(error, results) {
+    if(error) return error;
+    else{
+      jsonWrite(res, results);
+      res.end("over");
+    }
+  });
+});
+
+//查看所有评论
+router.get('/commentList', function(req, res, next) {
+  connection.query("SELECT * FROM videocomment", function(error, results, field) {
+    console.log(results);
+    jsonWrite(res, results);
+  });
+});
+
+//管理员端 删除评论
+router.post('/deleteComment', function(req, res, next) {
+  var params = req.body;
+  connection.query("DELETE FROM videocomment WHERE id=?", [params.id],function(error, results) {
+    if(error) return error;
+    else{
+      jsonWrite(res, results);
+      res.end("over");
+    }
+  });
+});
