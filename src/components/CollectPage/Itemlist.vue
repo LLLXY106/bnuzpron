@@ -72,6 +72,7 @@
                 // console.log(test);
                 if (confirm("确定要删除此收藏内容吗？")) {
                     var url = "/api/delcollect";
+                    alert("删除成功！记得刷新页面噢~");
                     this.$http.get(url, {
                         params: {
                             id: test
@@ -81,7 +82,7 @@
                         console.log(data);
                     }, function (response) {
                         console.log(response);
-                    })
+                    });
                 }
                 else
                     return;

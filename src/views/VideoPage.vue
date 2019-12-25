@@ -75,19 +75,19 @@
                         <div style="margin:10px auto;font-size: 16px;font-weight: bolder">推荐视频</div>
                         <div class="item">
                             <ul class="menu">
-                                <li><img src="/img/PersonalCenter/1.jpg" style="width: 70%;height: 10%">
+                                <li><a href="/VideoPage?id=1"><img src="/img/PersonalCenter/1.jpg" style="width: 70%;height: 10%"></a>
                                     <div style="text-align: left;margin: 0 auto;width: 70%;color: #979797;font-size: 12px">
-                                        <p>【天气之子】新海诚新作天气之子（Weathering with you 天気の子） 的特别长剪</p>
+                                        <p>【猛男版】新 宝 岛</p>
                                     </div>
                                 </li>
-                                <li><img src="/img/PersonalCenter/2.jpg" style="width: 70%;height: 10%">
+                                <li><a href="/VideoPage?id=5"><img src="/img/PersonalCenter/2.jpg" style="width: 70%;height: 10%"></a>
                                     <div style="text-align: left;margin: 0 auto;width: 70%;color: #979797;font-size: 12px">
-                                        <p>看完天气之子，我被这首歌洗脑了！简直有毒！！</p>
+                                        <p>「新海诚系」如果以后能够 走得更稳更远了 就去见她吧</p>
                                     </div>
                                 </li>
-                                <li><img src="/img/PersonalCenter/3.jpg" style="width: 70%;height: 10%">
+                                <li><a href="/VideoPage?id=3"><img src="/img/PersonalCenter/3.jpg" style="width: 70%;height: 10%"></a>
                                     <div style="text-align: left;margin: 0 auto;width: 70%;color: #979797;font-size: 12px">
-                                        <p>【官方】《天气之子》主题曲《爱能做到的还有什么》MV（演唱：RADWIMPS）</p>
+                                        <p>火锅之神在此！如何优雅地吃一个撒尿牛丸？</p>
                                     </div>
                                 </li>
                             </ul>
@@ -113,7 +113,7 @@
                 area: '',
                 type: '',
                 comment: [],
-                value: 3.5,
+                value: this.star,
                 textarea: '',
                 isLogin: false
             }
@@ -155,6 +155,7 @@
                     this.type = data.body[0].type;
                     this.value = data.body[0].star;
                     this.introduce = data.body[0].introduce;
+                    this.star = data.body[0].star;
                 }, function (response) {
                     console.log(response);
                 })
