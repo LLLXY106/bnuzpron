@@ -107,4 +107,5 @@ button, select {
 
 button, input {
   overflow: visible;
+  outline: none;
 }

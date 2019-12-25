@@ -1,17 +1,17 @@
 <template>
   <div>
     <adminForm></adminForm>
-    <user-manage></user-manage>
+    <video-manage></video-manage>
   </div>
 </template>
 
 <script>
 import adminForm from '../components/adminPage/adminForm'
-import userManage from '../components/adminPage/userManage'
+import videoManage from '../components/adminPage/videoManage'
 export default {
   components: {
     adminForm,
-    userManage
+    videoManage
   }
 }
 </script>

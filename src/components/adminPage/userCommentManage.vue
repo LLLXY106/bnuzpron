@@ -4,8 +4,8 @@
       <!-- 标题 -->
       <div class="content-title">
         <span>
-          <i class="fa fa-users" aria-hidden="true"></i>
-          用户管理
+          <i class="fa fa-commenting" aria-hidden="true"></i>
+          评论管理
         </span>
       </div>
 
@@ -14,23 +14,18 @@
             <div class="tile">
                 <div class="tile-body">
                     <div class="panel-body">
-                        <table class="table table-striped" id="userMsg"> <!-- v-for="(item, index) in dataList" :key="index" -->
+                        <table class="table table-striped" id="commentMsg">
                             <thead>
                               <tr>
-                                  <th>用户Id</th>
+                                  <th>Id</th>
+                                  <th>楼层</th>
                                   <th>用户名</th>
-                                  <th>密码</th>
+                                  <th>评论</th>
+                                  <th>时间</th>
+                                  <th>父楼层</th>
                                   <th>&nbsp;&nbsp;操作</th>
                               </tr>
                             </thead>
-                            <!-- <thead>
-                              <tr>
-                                  <th>{{item.id}}</th>
-                                  <th>{{item.username}}</th>
-                                  <th>{{item.password}}</th>
-                                  <th>&nbsp;&nbsp;操作</th>
-                              </tr>
-                            </thead> -->
                             <tbody>
                             </tbody>
                         </table>
@@ -44,11 +39,10 @@
   </div>
 </template>
   
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 <script>
 import axios from 'axios';
 export default {
-  name: 'userManage',
+  name: 'commentManage',
   data() {
     return {
       id: '',
@@ -56,7 +50,7 @@ export default {
     }
   },
   created() {
-    var url = '/api/list';
+    var url = '/api/commentList';
     var result;
     this.$http.get(url).then(
       function(res) {
@@ -65,13 +59,18 @@ export default {
         $.each(result, function(i) {
           var str="<tr id='" + result[i].id + "'>"
           + "<td style='padding-top: 18px; text-align: center;'>" + result[i].id + "</td>"
+          +  "<td style='padding-top: 18px; text-align: center;'>"+ result[i].floor + "</td>"
           + "<td><input style=\"text-align:center;\" class=\"form-control input-sm\" type=\"text\" value='"
-          + result[i].username + "' size=\"15\" disabled></td>"
+          + result[i].username + "' size=\"5\" disabled></td>"
           + "<td><input style=\"text-align:center;\" class=\"form-control input-sm\" type=\"text\" value='"
-          + result[i].password + "' size=\"5\" disabled></td>"
+          + result[i].comment + "' size=\"5\" disabled></td>"
+          + "<td><input style=\"text-align:center;\" class=\"form-control input-sm\" type=\"text\" value='"
+          + result[i].comment_time + "' size=\"5\" disabled></td>"
+          + "<td><input style=\"text-align:center;\" class=\"form-control input-sm\" type=\"text\" value='"
+          + result[i].fatherfloor + "' size=\"5\" disabled></td>"
           + "<td><button title='删除' style='margin-left:5px;border-radius:50%;width:40px;height:40px' type=\"button\" id='" + result[i].id + "' class=\"btn btn-primary btn-xs btnMod\"><i class='fa fa-trash' aria-hidden='true'></i></button>"
             +"</td></tr>"
-            $("#userMsg tbody").append(str);
+            $("#commentMsg tbody").append(str);
         });
       }, function() {
         console.log("请求处理失败");
@@ -83,7 +82,7 @@ export default {
     $(document).on('click','button',function(){
         // alert(this.id);
         $.ajax({
-          url: '/api/deleteUser',
+          url: '/api/deleteComment',
           type: 'post',
           dataType: 'json',
           data: {
@@ -92,7 +91,7 @@ export default {
           success: function(response) {
             console.log(response);
             alert("删除成功");
-            window.location.href = "/videoManagePage";
+            window.location.href = "/commentManagePage";
           }
         })
     })

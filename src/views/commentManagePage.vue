@@ -1,17 +1,17 @@
 <template>
   <div>
     <adminForm></adminForm>
-    <user-manage></user-manage>
+    <userCommentManage></userCommentManage>
   </div>
 </template>
 
 <script>
 import adminForm from '../components/adminPage/adminForm'
-import userManage from '../components/adminPage/userManage'
+import userCommentManage from '../components/adminPage/userCommentManage'
 export default {
   components: {
     adminForm,
-    userManage
+    userCommentManage
   }
 }
 </script>

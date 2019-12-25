@@ -4,8 +4,8 @@
       <!-- 标题 -->
       <div class="content-title">
         <span>
-          <i class="fa fa-users" aria-hidden="true"></i>
-          用户管理
+          <i class="fa fa-video-camera" aria-hidden="true"></i>
+          视频管理
         </span>
       </div>
 
@@ -14,23 +14,17 @@
             <div class="tile">
                 <div class="tile-body">
                     <div class="panel-body">
-                        <table class="table table-striped" id="userMsg"> <!-- v-for="(item, index) in dataList" :key="index" -->
+                        <table class="table table-striped" id="videoMsg"> <!-- v-for="(item, index) in dataList" :key="index" -->
                             <thead>
                               <tr>
-                                  <th>用户Id</th>
-                                  <th>用户名</th>
-                                  <th>密码</th>
+                                  <th>视频Id</th>
+                                  <th>视频题目</th>
+                                  <th>分区</th>
+                                  <th>类型</th>
+                                  <th>播放次数</th>
                                   <th>&nbsp;&nbsp;操作</th>
                               </tr>
                             </thead>
-                            <!-- <thead>
-                              <tr>
-                                  <th>{{item.id}}</th>
-                                  <th>{{item.username}}</th>
-                                  <th>{{item.password}}</th>
-                                  <th>&nbsp;&nbsp;操作</th>
-                              </tr>
-                            </thead> -->
                             <tbody>
                             </tbody>
                         </table>
@@ -48,7 +42,7 @@
 <script>
 import axios from 'axios';
 export default {
-  name: 'userManage',
+  name: 'videoManage',
   data() {
     return {
       id: '',
@@ -56,34 +50,42 @@ export default {
     }
   },
   created() {
-    var url = '/api/list';
+    var url = '/api/videoList';
     var result;
     this.$http.get(url).then(
       function(res) {
         result = res.data;
         console.log(result);
+        
         $.each(result, function(i) {
+          var seq = i+1; //序号
           var str="<tr id='" + result[i].id + "'>"
           + "<td style='padding-top: 18px; text-align: center;'>" + result[i].id + "</td>"
           + "<td><input style=\"text-align:center;\" class=\"form-control input-sm\" type=\"text\" value='"
-          + result[i].username + "' size=\"15\" disabled></td>"
+          + result[i].title + "' size=\"15\" disabled></td>"
           + "<td><input style=\"text-align:center;\" class=\"form-control input-sm\" type=\"text\" value='"
-          + result[i].password + "' size=\"5\" disabled></td>"
-          + "<td><button title='删除' style='margin-left:5px;border-radius:50%;width:40px;height:40px' type=\"button\" id='" + result[i].id + "' class=\"btn btn-primary btn-xs btnMod\"><i class='fa fa-trash' aria-hidden='true'></i></button>"
-            +"</td></tr>"
-            $("#userMsg tbody").append(str);
+          + result[i].area + "' size=\"5\" disabled></td>"
+          + "<td><input style=\"text-align:center;\" class=\"form-control input-sm\" type=\"text\" value='"
+          + result[i].type + "' size=\"5\" disabled></td>"
+          + "<td><input style=\"text-align:center;\" class=\"form-control input-sm\" type=\"text\" value='"
+          + result[i].play + "' size=\"5\" disabled></td>"
+          + "<td><button title='删除' style='margin-left:5px;border-radius:50%;width:40px;height:40px' type=\"button\" id='"
+          + result[i].id + "' class=\"btn btn-primary btn-xs btnMod\"><i class='fa fa-trash' aria-hidden='true'></i></button>"
+          +"</td></tr>"
+            
+            $("#videoMsg tbody").append(str);
         });
       }, function() {
         console.log("请求处理失败");
       }
     )
   },
-  mounted: function() {
+  mounted: function(){
     //删除
     $(document).on('click','button',function(){
-        // alert(this.id);
+          // alert(this.id);
         $.ajax({
-          url: '/api/deleteUser',
+          url: '/api/deleteVideo',
           type: 'post',
           dataType: 'json',
           data: {
@@ -92,7 +94,7 @@ export default {
           success: function(response) {
             console.log(response);
             alert("删除成功");
-            window.location.href = "/videoManagePage";
+            window.location.href = "/adminPage";
           }
         })
     })
