@@ -3,22 +3,20 @@
         <TopContainer></TopContainer>
         <Tabs></Tabs>
         <!--<h1>修改头像</h1>-->
-        <div style="margin-top: 50px">
+        <div style="margin-top: 100px">
             <el-upload
+                    class="upload-demo"
+                    ref="upload"
                     action="/api/ModifyPhoto"
-                    list-type="picture-card"
-                    :on-preview="handlePictureCardPreview"
+                    :data="form"
+                    :on-preview="handlePreview"
                     :on-remove="handleRemove"
+                    :file-list="fileList"
                     :auto-upload="false">
-                <i class="el-icon-plus"></i>
+                <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+                <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
+                <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
             </el-upload>
-            <div slot="tip" class="el-upload__tip">只能上传jpg/png文件</div>
-            <el-dialog :visible.sync="dialogVisible">
-                <img width="100%" :src="dialogImageUrl" alt="">
-            </el-dialog>
-            <el-button style="margin-left: 10px;margin-top: 30px" size="small" type="success" @click="submitUpload">
-                上传头像
-            </el-button>
         </div>
     </div>
 </template>
@@ -32,32 +30,43 @@
         },
         data() {
             return {
-                dialogImageUrl: '',
-                dialogVisible: false
+                fileList: [
+                    {name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'},
+                    {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}
+                    ],
+                form: {
+                    username: this.$cookies.get("username")
+                }
             };
         },
         methods: {
-            beforeAvatarUpload(file) {
-                const isJPG = file.type === 'image/jpeg';
-                const isLt2M = file.size / 1024 / 1024 < 2;
-
-                if (!isJPG) {
-                    this.$message.error('上传头像图片只能是 JPG 格式!');
+            submitUpload() {
+                if (!this.isLogin) {
+                    alert("你还没有登录噢~")
+                } else {
+                    this.$refs.upload.submit();
                 }
-                if (!isLt2M) {
-                    this.$message.error('上传头像图片大小不能超过 2MB!');
-                }
-                return isJPG && isLt2M;
             },
             handleRemove(file, fileList) {
-                console.log(file, fileList);
+                if (!this.isLogin) {
+                    alert("你还没有登录噢~")
+                } else {
+                    console.log(file, fileList);
+                }
             },
-            handlePictureCardPreview(file) {
-                this.dialogImageUrl = file.url;
-                this.dialogVisible = true;
-            },
-            submitUpload() {
-                this.$refs.upload.submit();
+            handlePreview(file) {
+                if (!this.isLogin) {
+                    alert("你还没有登录噢~")
+                } else {
+                    console.log(file);
+                }
+            }
+        },
+        mounted(){
+            if (this.$cookies.get("username") != null && this.$cookies.get("password") != null) {
+                // console.log(this.$cookies.get("username"), this.$cookies.get("password"));
+                //改变登录状态
+                this.isLogin = true;
             }
         }
     }

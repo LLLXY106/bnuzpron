@@ -324,17 +324,36 @@ router.post('/deleteUser', function (req, res, next) {
 });
 
 /*====================================Modifyphoto的接口开始====================================*/
-var uploadFolderphoto = '../public/photo/uploadPhoto';
+var storage2 = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "../public/img/Imghead") // 保存的路径，备注：需要自己创建
+    },
+    filename: function (req, file, cb) {
+        var title = file.originalname;
+        cb(null, title);
+    }
+});
 
-// var upload = multer({storage: storage});
+var uploadheadimg=multer({storage:storage2});
 
-router.post('/ModifyPhoto', upload.single('file'), function (req, res, next) {
+router.post('/ModifyPhoto', uploadheadimg.single('file'), function(req, res){
     var file = req.file;
-    console.log(req.body);
-    console.log('文件类型：%s', file.mimetype);
-    console.log('原始文件名：%s', file.originalname);
-    console.log('文件大小：%s', file.size);
+
+    // console.log('文件类型：%s', file.mimetype);
+    // console.log('原始文件名：%s', file.originalname);
+    // console.log('文件大小：%s', file.size);
     console.log('文件保存路径：%s', file.path);
+    // var path1=file.path.substring(8);
+    // console.log(path1);
+    var sql = "UPDATE bili_userinfo SET photo = ? WHERE username = ?";
+    connection.query(sql, [file.path.substring(9,file.path.length),req.body.username], (error, result) => {
+        if (error) {
+            console.log('[UPDATE ERROR] - ', error.message);
+            return;
+        }
+        console.log("modify success");
+    });
+    // res.send({ret_code: '0'});
 });
 
 /*====================================Modifyphoto的接口结束====================================*/
