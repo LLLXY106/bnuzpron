@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="menu">
+        <div class="menu" style="font-family: 幼圆">
             <div class="title">我的创建</div>
             <ul class="itemlist">
                 <li>默认收藏夹</li>
@@ -35,6 +35,7 @@
         text-align center
         /*border: 1px solid orange*/
         margin 0 auto
+        font-weight bold
     }
     .itemlist li{
         list-style: none;

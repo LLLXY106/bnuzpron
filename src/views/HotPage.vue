@@ -7,7 +7,7 @@
         <Navbar></Navbar>
         <div class="main">
             <div class="title">—— 最热漫画 ——<br>Most hot Anime</div>
-            <div class="content">
+            <div class="content" style="font-family: 幼圆">
                 <div class="item1">
                     <div class="words1"><p style="font-size: 14px">{{cartoon[0].title}}</p><p style="text-align: left;line-height:16px;font-size: 12px; text-indent:2rem">{{cartoon[0].introduce}}</p></div>
                     <div class="pic1"><a href="https://manga.bilibili.com/detail/mc25717?from=manga_rank"><img :src="cartoon[0].img" style="max-height: 100%;max-width: 100%"/></a></div>

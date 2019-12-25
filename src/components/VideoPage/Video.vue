@@ -37,7 +37,7 @@
             src: '',
           }],
           // //视频封面图
-          // poster: "/img/PersonalCenter/1.jpg",
+          // poster: "/img/PersonalCenter/2.jpg",
           width: document.documentElement.clientWidth, // 默认视频全屏时的最大宽度
           notSupportedMessage: '此视频暂无法播放，请稍后再试', //允许覆盖Video.js无法播放媒体源时显示的默认信息。
           controlBar: {
@@ -58,7 +58,7 @@
       // msg.$on('id', function (m) {
       //   // _this.id = m;
       //   if (m === '1') {
-      //     // _this.poster='/img/PersonalCenter/1.jpg';
+      //     // _this.poster='/img/PersonalCenter/2.jpg';
       //     _this.playerOptions['sources'][0]['src'] = "/video/VideoPage/1.mp4";
       //   } else if (m === '2') {
       //     // _this.poster='/img/PersonalCenter/2.jpg';

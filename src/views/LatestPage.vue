@@ -7,7 +7,7 @@
         <Navbar></Navbar>
         <div class="main">
             <div class="title">—— 最新漫画 ——<br>Latest hot Anime</div>
-            <div class="content">
+            <div class="content" style="font-family: 幼圆">
                 <div class="item1">
                     <div class="words1"><p style="font-size: 14px">《虚构推理》</p><p style="text-align: left;line-height:16px;font-size: 12px; text-indent:2rem">成为“妖怪”们智慧之神的少女岩永琴子对樱川九郎一见钟情，而樱川九郎居然是一个连“妖怪”也畏惧三分的男人！？机缘巧合下两人成为恋人，一起探索这个城市里关于妖怪的故事。</p></div>
                     <div class="pic1"><a href="https://manga.bilibili.com/detail/mc26431?from=manga_rank"><img src="../assets/images/new_p1.jpg" style="max-height: 100%;max-width: 100%"/></a></div>

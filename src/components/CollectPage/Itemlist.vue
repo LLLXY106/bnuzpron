@@ -1,7 +1,7 @@
 <template id="default">
     <div>
         <!--<button @click="collectlist">test</button>-->
-        <div class="itemlist">
+        <div class="itemlist" style="font-family: 幼圆">
             <!--<div class="item" v-for="item in collect" :key="item">-->
             <div class="item" v-for="(items,i) in collect" :key="i">
                 <div class="imgcontainer">
