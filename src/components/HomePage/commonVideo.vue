@@ -2,7 +2,7 @@
   <div>
     <div class="recommend-video">
       <a v-bind="{href:'/VideoPage?id='+item.id}">
-        <img :title="forTitle(item.title)" @click="toVideo(item.id)" :src="forSrc(item.src)"  width="208" height="130">
+        <img :title="forTitle(item.title)" @click="toVideo(item.id)" :src="forSrc(item.headsrc)"  width="208" height="130">
         <div class="mark">
           <p :title="forTitle(item.title)" class="title">{{item.title}}</p>
         </div>
