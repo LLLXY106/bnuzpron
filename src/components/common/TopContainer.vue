@@ -37,7 +37,7 @@
           <ul class="menu">
             <!-- 头像 -->
             <li id="userhead" class="u-i" v-show="isLogin">
-              <a class="t" href="/PersonlCenter">
+              <a class="t" href="/ShowInfo">
                 <div class="head">
                   <img v-if="isUser" :src="iconimg" class="face">
                   <img v-if="isAdmin" src="../../assets/images/admin_head2.png" class="face">
@@ -46,7 +46,7 @@
             </li>
             <!-- 登录注册 -->
             <li id="i_menu_login_reg" guest="yes" class="u-i" style="display: list-item" v-show="!isLogin">
-              <a id="i_menu_login_btn" class="i-link login" href="/LoginPage">
+              <a id="i_menu_login_btn" class="i-link login" @click="Login">
                 <span>登录</span>
               </a>
               <i class="s-line"></i>
@@ -56,7 +56,7 @@
             </li>
             <!-- 登录后样式  用v-if判断登录状态 -->
             <li class="u-i" style="display: list-item" v-show="isLogin">
-              <a id="i_menu_personalCenter" class="i-link" href="/PersonalCenter">
+              <a id="i_menu_personalCenter" class="i-link" href="/ShowInfo">
                 <span>个人中心</span>
               </a>
             </li>
@@ -76,7 +76,7 @@
               </a>
             </li>
             <li class="u-i b-post">
-              <a class="i-link" href="http://member.bilibili.com/v/video/submit.html" target="_blank" @mouseenter="isShowPostMenu = !isShowPostMenu" @mouseleave="isShowPostMenu = !isShowPostMenu">投稿</a>
+              <a class="i-link" href="/Contribute" target="_blank" @mouseenter="isShowPostMenu = !isShowPostMenu" @mouseleave="isShowPostMenu = !isShowPostMenu">投稿</a>
               <!-- <PostMaterial v-show="isShowPostMenu"></PostMaterial> -->
             </li>
           </ul>
@@ -129,7 +129,12 @@ export default {
     exit:function() {
       this.$cookies.set("username", '', -1);
       this.$cookies.set("password", '', -1);
-      window.location.href = "/";
+      // window.location.href = "/";
+      location.reload();
+    },
+    Login() {
+      // var path = "/LoginPage?"+window.location.href;
+      window.location.href = "/LoginPage";
     }
   }
 }
