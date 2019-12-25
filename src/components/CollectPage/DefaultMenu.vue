@@ -4,20 +4,25 @@
             <div class="title">我的创建</div>
             <ul class="itemlist">
                 <li>默认收藏夹</li>
-                <li>图片收藏夹</li>
-                <li>视频收藏夹</li>
+                <li @click="cartoon">漫画收藏夹</li>
             </ul>
         </div>
     </div>
 
 </template>
 <script type="text/javascript">
-
+    export default {
+        methods:{
+            cartoon(){
+                alert(111);
+            }
+        }
+    }
 </script>
 <style lang="stylus" scoped>
     .menu{
         width 190px
-        height 600px
+        height 800px
         border-right  1px #e7e7e7 solid
         border-radius 5px 0 0 0
     }
