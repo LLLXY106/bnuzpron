@@ -35,19 +35,20 @@ export default {
       // this.$router.push({name:'VideoPage',query: {id:'1'}})
     }
   },
-  watch: {
-    // tempList: function(){
-    //   return this.Global.tempList
-    // }
-  },
+  // watch: {
+  //   tempList: function(){
+  //     return this.tempList
+  //   },
+  //   immediate: true
+  // },
   // computed: {
   //   get () {
-  //     return this.Global.tempList
+  //     return this.tempList
   //   },
   //   set (tempList) {
-  //     this.Global.tempList
+  //     this.tempList
   //   },tempList: function() {
-  //     return this.Global.tempList
+  //     return this.tempList
   //   }
   // }
 }
