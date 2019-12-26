@@ -1,6 +1,6 @@
 <template>
-	<li class="m-i" :class="classes">
-		<a class="i-link" :id="forId(item.id)">
+	<li class="m-i" :class="classes"  @click="changeCover(item.id)">
+		<a class="i-link" :id="item.id">
 			<em>{{item.title}}</em>
 			<div class="v-num" v-if="showNum">
 				<span class="addnew_1">{{item.num}}</span>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import Global from '../common/Global'
 export default {
 	data() {
 		return {
@@ -18,7 +19,8 @@ export default {
 				home: this.item.home,
 				sequare: this.item.sequare,
 				live: this.item.live
-			}
+			},
+			Global
 		}
 	},
 	props: {
@@ -36,8 +38,19 @@ export default {
 		}
 	},
 	methods: {
-		forId(id) {
-			return id;
+		changeCover(id) {
+			console.log(id);
+			if(id == 2){
+				this.Global.tempList = this.Global.animateList;
+				console.log(this.Global.tempList);
+			} else if(id == 3){
+				this.Global.tempList = this.Global.scienceList;
+			} else if(id == 4){
+				this.Global.tempList = this.Global.musicList;
+			} else if(id == 5){
+				this.Global.tempList = this.Global.gameList;
+			}
+			// this.$cookies.set("recId", id);
 		}
 	},
 }
@@ -105,6 +118,7 @@ export default {
 			width 100%
 			text-align center
 			span
+				line-height 10px
 				position static
 				display inline-block
 				vertical-align top

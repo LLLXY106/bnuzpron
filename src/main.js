@@ -16,12 +16,14 @@ import './plugins/element'
 import VueCookies from 'vue-cookies'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import gloabl from './components/common/Global'
 
 Vue.use(VueCookies);
 Vue.config.productionTip = false;
 Vue.use(VueAwesomeSwiper, /* { default global options } */);
 Vue.prototype.axios = axios;
 Vue.use(ElementUI);
+Vue.prototype.GLOBAL = global
 
 new Vue({
   router,

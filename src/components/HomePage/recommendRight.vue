@@ -1,39 +1,17 @@
 <template>
   <div id="recommend-right">
-    <commonVideo v-show="isdefault" v-for="(i,index) in tempList" :item="i" :key="index"></commonVideo>
+    <commonVideo v-for="(i,index) in tempList" :item="i" :key="index"></commonVideo>
   </div>
 </template>
 
 <script type="text/javascript">
 import commonVideo from './commonVideo'
+import Global from '../common/Global'
 export default {
   name: 'recommendRight',
   data(){
     return {
-      isdefault: true,
-      tempList:[],
-      dataList: [
-        {
-          title: '首页',
-          src: '/img/1.jpg'
-        },
-        {
-          title: '首页',
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577289121724&di=4294e5700483f480352f7efe9fa11578&imgtype=0&src=http%3A%2F%2Fwww.005.tv%2Fuploads%2Fallimg%2F160704%2F16-160F41A246208.png'
-        },
-        {
-          title: '首页',
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577289121724&di=4294e5700483f480352f7efe9fa11578&imgtype=0&src=http%3A%2F%2Fwww.005.tv%2Fuploads%2Fallimg%2F160704%2F16-160F41A246208.png'
-        },
-        {
-          title: '首页',
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577289121724&di=4294e5700483f480352f7efe9fa11578&imgtype=0&src=http%3A%2F%2Fwww.005.tv%2Fuploads%2Fallimg%2F160704%2F16-160F41A246208.png'
-        },
-        {
-          title: '首页',
-          src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577289798913&di=bd0dcd65954c577061156a82463f2d1d&imgtype=0&src=http%3A%2F%2Fpics1.baidu.com%2Ffeed%2Ffd039245d688d43f2b9ef37459037a1f0ef43b26.jpeg%3Ftoken%3D790b4a63424ff91158de106833f44ba6%26s%3D1DA4E8155E317A075CAD58D1030010B0'
-        }
-      ]
+      tempList:[]
     }
   },
   created() {
@@ -43,7 +21,6 @@ export default {
         var result = res.data;
         this.tempList = result;
         console.log(this.tempList);
-        // console.log(result);
       }, function() {
         console.log("请求处理失败");
       }
@@ -53,14 +30,26 @@ export default {
     commonVideo
   },
   methods:{
-    gethead() {
-
-    },
     toVideo(num) {
       window.location.href = 'VideoPage?id=' + num;
       // this.$router.push({name:'VideoPage',query: {id:'1'}})
     }
-  }
+  },
+  watch: {
+    // tempList: function(){
+    //   return this.Global.tempList
+    // }
+  },
+  // computed: {
+  //   get () {
+  //     return this.Global.tempList
+  //   },
+  //   set (tempList) {
+  //     this.Global.tempList
+  //   },tempList: function() {
+  //     return this.Global.tempList
+  //   }
+  // }
 }
 </script>
 

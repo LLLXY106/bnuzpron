@@ -91,7 +91,7 @@
                 .video-title
                     padding-top 8px
                     height 48px
-                    line-height 20px
+                    line-height 18px
                     color black
                     font-size 14px
                     word-wrap break-word
