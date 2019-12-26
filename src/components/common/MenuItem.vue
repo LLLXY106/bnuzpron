@@ -39,7 +39,9 @@ export default {
 	methods: {
 		changeCover(id) {
 			console.log(id);
-			if(id == 2){
+			if(id == 1){
+				this.$cookies.set("recId", 1);
+			} else if(id == 2){
 				this.$cookies.set("recId", 2);
 			} else if(id == 3){
 				this.$cookies.set("recId", 3);
