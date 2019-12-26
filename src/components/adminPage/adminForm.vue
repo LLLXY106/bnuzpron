@@ -176,7 +176,7 @@ body {
 }
 
 .sidebar {
-  width: 261px;
+  width: 230px;
   /* width: 15%; */
   height: 420px;
   display: block;
@@ -185,10 +185,8 @@ body {
   bottom: 0;
   left: 0;
   padding-top: 55px;
-  width: 230px;
   overflow: auto;
   z-index: 10;
-  box-shadow: 0 8px 17px rgba(0,0,0,0.2);
   transition: left .3s ease,width .3s ease;
   /* background-color: #fff; */
 }

@@ -73,6 +73,7 @@
                     this.des = data.body[0].des;
                     this.photo = data.body[0].photo;
                     this.email = data.body[0].email;
+                    this.$cookies.set("photo", this.photo);
                     // alert("修改成功！");
                     console.log(data.body);
                 }, function (response) {

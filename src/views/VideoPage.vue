@@ -75,17 +75,17 @@
                         <div style="margin:10px auto;font-size: 16px;font-weight: bolder">推荐视频</div>
                         <div class="item">
                             <ul class="menu">
-                                <li><a href="/VideoPage?id=1"><img src="/img/PersonalCenter/1.jpg" style="width: 70%;height: 10%"></a>
+                                <li><a href="/VideoPage?id=1"><img src="/img/Videohead/1.jpg" style="width: 70%;height: 10%"></a>
                                     <div style="text-align: left;margin: 0 auto;width: 70%;color: #979797;font-size: 12px">
                                         <p>【猛男版】新 宝 岛</p>
                                     </div>
                                 </li>
-                                <li><a href="/VideoPage?id=5"><img src="/img/PersonalCenter/2.jpg" style="width: 70%;height: 10%"></a>
+                                <li><a href="/VideoPage?id=5"><img src="/img/Videohead/5.jpg" style="width: 70%;height: 10%"></a>
                                     <div style="text-align: left;margin: 0 auto;width: 70%;color: #979797;font-size: 12px">
                                         <p>「新海诚系」如果以后能够 走得更稳更远了 就去见她吧</p>
                                     </div>
                                 </li>
-                                <li><a href="/VideoPage?id=3"><img src="/img/PersonalCenter/3.jpg" style="width: 70%;height: 10%"></a>
+                                <li><a href="/VideoPage?id=3"><img src="/img/Videohead/3.jpg" style="width: 70%;height: 10%"></a>
                                     <div style="text-align: left;margin: 0 auto;width: 70%;color: #979797;font-size: 12px">
                                         <p>火锅之神在此！如何优雅地吃一个撒尿牛丸？</p>
                                     </div>

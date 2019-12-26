@@ -320,7 +320,7 @@ module.exports = router;
 //管理员端 删除用户
 router.post('/deleteUser', function (req, res, next) {
   var params = req.body;
-  connection.query("DELETE FROM bnuzpron_userMsg WHERE id=?", [params.id], function (error, results) {
+  connection.query("DELETE FROM bnuzpron_usermsg WHERE id=?", [params.id], function (error, results) {
     if (error) return error;
     else {
       jsonWrite(res, results);
