@@ -11,7 +11,7 @@
       </div>
       <div class="title">
         请输入视频分区：
-        <el-input v-model="form.area" style="width: 10%;margin-bottom: 30px"></el-input><br/>
+        <el-input v-model="form.area" style="width: 10%;margin-bottom: 30px"></el-input>
         请输入视频类型：
         <el-input v-model="form.type" style="width: 10%;margin-bottom: 30px"></el-input>
       </div>

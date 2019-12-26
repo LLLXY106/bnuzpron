@@ -12,7 +12,7 @@
                 <p style="line-height: 32px">热门视频排行榜</p>
                 <p style="line-height: 32px;margin-left: 630px;color: #dd6572">快来康康有哪些热门视频上榜了嗷</p>
             </div>
-            <div class="item">
+            <div class="item" @click="toVideo(Video[0].id)">
                 <div class="num" style="width: 6%;height: 100%;text-align: center"><img
                         src="../assets/images/gold.png"/></div>
                 <img :src="Video[0].headsrc" style="width: 188px;height: 119px;margin-right: 20px"/>
@@ -21,7 +21,7 @@
                     <div style="color: #fa5a57">总播放次数:{{Video[0].play}}</div>
                 </div>
             </div>
-            <div class="item">
+            <div class="item" @click="toVideo(Video[1].id)">
                 <div class="num" style="width: 6%;height: 100%;text-align: center"><img
                         src="../assets/images/silver.png"/></div>
                 <img :src="Video[1].headsrc" style="width: 188px;height: 119px;margin-right: 20px"/>
@@ -30,7 +30,7 @@
                     <div style="color: #409EFF">总播放次数:{{Video[1].play}}</div>
                 </div>
             </div>
-            <div class="item">
+            <div class="item" @click="toVideo(Video[2].id)">
                 <div class="num" style="width: 6%;height: 100%;text-align: center"><img
                         src="../assets/images/copper.png"/></div>
                 <img :src="Video[2].headsrc" style="width: 188px;height: 119px;margin-right: 20px"/>
@@ -39,7 +39,7 @@
                     <div style="color: #409EFF">总播放次数:{{Video[2].play}}</div>
                 </div>
             </div>
-            <div class="item" v-for="(items,i) in sortVideo" v-if="i >= 3">
+            <div class="item" v-for="(items,i) in sortVideo" v-if="i >= 3" @click="toVideo(items.id)">
                 <div class="num" style="width: 6%;height: 100%;text-align: center;font-size: 24px;font-weight: bold">
                     {{i+1}}
                 </div>
@@ -83,6 +83,9 @@
             },
             show() {
                 console.log(this.Video);
+            },
+            toVideo(i) {
+                window.location.href="/VideoPage?id=" + i;
             }
         },
         mounted() {
@@ -163,7 +166,8 @@
         width 80%
         box-shadow: 0px 2px 3px 2px rgba(205, 205, 205, 0.64);
     }
-    .detail{
+
+    .detail {
         display flex
         flex-direction column
     }

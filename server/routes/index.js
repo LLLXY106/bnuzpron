@@ -284,9 +284,10 @@ var storage = multer.diskStorage({
       var num = parseInt(results[0].num) + 1;
       var getfiletype = file.originalname.split(".");
       var src = num + "." + getfiletype[getfiletype.length - 1];
+      var headsrc = "/img/Videohead/default.jpg";
       // var title = Date.now() + '-' + file.originalname;
       cb(null, src);
-      connection.query("INSERT INTO videomsg(title,vid,area,type,play,star) VALUES(?,?,?,?,0,?)", [title, num, req.body.area, req.body.type,5.0], function (error, results, field) {
+      connection.query("INSERT INTO videomsg(title,vid,area,type,headsrc,play,star) VALUES(?,?,?,?,?,0,?)", [title, num, req.body.area, req.body.type,headsrc,5.0], function (error, results, field) {
         if (error) {
           console.log(error);
         }

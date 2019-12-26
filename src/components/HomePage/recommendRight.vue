@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
 import commonVideo from './commonVideo'
 export default {
   name: 'recommendRight',
