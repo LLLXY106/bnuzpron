@@ -46,7 +46,7 @@
                                          :src="userhead"
                                          class="face">
                                     <img v-if="isAdmin"
-                                         src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2513711717,3607386518&fm=26&gp=0.jpg"
+                                         src="../../assets/images/admin_head2.png"
                                          class="face">
                                 </div>
                             </a>
@@ -118,11 +118,11 @@
                 },
             }
         },
-        created: function() {
-            if (this.$cookies.get("username") != null && this.$cookies.get("password") != null) {
+        // created: function() {
+        //     if (this.$cookies.get("username") != null && this.$cookies.get("password") != null) {
 
-            }
-        },
+        //     }
+        // },
         mounted: function () {
             //通过Cookies判断登录状态
             if (this.$cookies.get("username") != null && this.$cookies.get("password") != null) {

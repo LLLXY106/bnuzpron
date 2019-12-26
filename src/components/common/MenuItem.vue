@@ -20,7 +20,6 @@ export default {
 				sequare: this.item.sequare,
 				live: this.item.live
 			},
-			Global
 		}
 	},
 	props: {
@@ -40,17 +39,19 @@ export default {
 	methods: {
 		changeCover(id) {
 			console.log(id);
-			if(id == 2){
-				this.Global.tempList = this.Global.animateList;
-				console.log(this.Global.tempList);
+			if(id == 1){
+				this.$cookies.set("recId", 1);
+			} else if(id == 2){
+				this.$cookies.set("recId", 2);
 			} else if(id == 3){
-				this.Global.tempList = this.Global.scienceList;
+				this.$cookies.set("recId", 3);
 			} else if(id == 4){
-				this.Global.tempList = this.Global.musicList;
+				this.$cookies.set("recId", 4);
 			} else if(id == 5){
-				this.Global.tempList = this.Global.gameList;
+				this.$cookies.set("recId", 5);
 			}
 			// this.$cookies.set("recId", id);
+			window.location.href = '/';
 		}
 	},
 }
