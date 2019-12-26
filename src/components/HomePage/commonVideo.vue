@@ -2,7 +2,7 @@
   <div>
     <div class="recommend-video">
       <a v-bind="{href:'/VideoPage?id='+item.id}">
-        <img :title="item.title" @click="item.id" :src="item.headsrc"  width="208" height="130">
+        <img :title="item.title" :src="item.headsrc"  width="208" height="130">
         <div class="mark">
           <p :title="item.title" class="title">{{item.title}}</p>
         </div>
@@ -37,7 +37,7 @@ export default {
     float left
     margin 0 0 20px 40px
     border-radius 4px
-    background-color pink  //测试  显示位置
+    // background-color pink  //测试  显示位置
     .mark
       position absolute
       left 0

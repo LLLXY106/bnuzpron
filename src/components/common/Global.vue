@@ -4,7 +4,6 @@ export default {
   status,
   data() {
     return {
-      tempList:[],
       animateList:[
         {
           id: 5,
