@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import Vuex from 'vuex'
 import App from './App.vue';
 import router from './router';
 import VueVideoPlayer from "vue-video-player/src";
@@ -16,17 +17,17 @@ import './plugins/element'
 import VueCookies from 'vue-cookies'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import gloabl from './components/common/Global'
+import global from './components/common/Global'
 
 Vue.use(VueCookies);
+Vue.use(Vuex);
 Vue.config.productionTip = false;
 Vue.use(VueAwesomeSwiper, /* { default global options } */);
 Vue.prototype.axios = axios;
 Vue.use(ElementUI);
-Vue.prototype.GLOBAL = global
+Vue.prototype.$global = global;
 
 new Vue({
   router,
-  // store,
   render: h => h(App)
 }).$mount('#app')
