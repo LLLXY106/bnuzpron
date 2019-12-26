@@ -15,7 +15,7 @@ export default {
     }
   },
   created() {
-    var url = "/api/videoList"
+    var url = "/api/videoList";
     this.$http.get(url).then(
       function(res) {
         var result = res.data;
@@ -58,5 +58,5 @@ export default {
     height 280px
     position relative
     overflow hidden
-    
+
 </style>
