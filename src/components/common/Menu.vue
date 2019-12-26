@@ -2,7 +2,7 @@
 	<div class="menu">
 		<div class="menu-wrapper">
 			<ul class="nav-menu">
-				<MenuItem  v-for="(i,index) in classify" :item="i" :key="index"></MenuItem>
+				<MenuItem v-for="(i,index) in classify" :item="i" :key="index"></MenuItem>
 			</ul>
 			<div class="menu-r">
 				<a href="#"><div class="jump-gif"></div></a>
@@ -30,7 +30,7 @@ export default {
 					id: 2,
 				},
 				{
-					title: '番剧',
+					title: '科技',
 					num: 22,
 					id: 3,
 				},
@@ -40,17 +40,17 @@ export default {
 					id: 4,
 				},
 				{
-					title: '舞蹈',
+					title: '游戏',
 					num: 44,
 					id: 5,
 				},
 				{
-					title: '游戏',
+					title: '舞蹈',
 					num: 55,
 					id: 6,
 				},
 				{
-					title: '科技',
+					title: '番剧',
 					num: 66,
 					id: 7,
 				},

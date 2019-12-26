@@ -54,10 +54,13 @@
                 this.$http.get(url, {
                 }, {}).then(function (data) {
                     // alert(data.body[0].username);
-                    this.username=data.body[0].username;
-                    this.birthday=(data.body[0].birthday).substring(0,10);
-                    this.hobby=data.body[0].hobby;
-                    this.des=data.body[0].des;
+                    this.username = data.body[0].username;
+                    this.birthday = (data.body[0].birthday).substring(0, 10);
+                    this.hobby = data.body[0].hobby;
+                    this.des = data.body[0].des;
+                    this.photo = data.body[0].photo;
+                    this.email = data.body[0].email;
+                    this.$cookies.set("photo", this.photo);
                     // alert("修改成功！");
                     console.log(data.body);
                 }, function (response) {

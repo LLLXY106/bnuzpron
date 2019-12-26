@@ -438,3 +438,15 @@ router.get('/hot', function (req, res) {
     });
 });
 /*====================================HotPage的接口结束====================================*/
+
+//获取用户头像
+router.get('/getUserHead', function(req, res) {
+    var params = req.body;
+    connection.query("SELECT photo FROM bili_userinfo WHERE username=?", [params.username], function (error, results) {
+        if (error) return error;
+        else {
+            jsonWrite(res, results);
+            res.end("over");
+        }
+    });
+});

@@ -43,7 +43,7 @@
                             <a class="t" href="/ShowInfo">
                                 <div class="head">
                                     <img v-if="isUser"
-                                         src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576341970432&di=a19fa702995041398ca145aa9d6f9868&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F-vo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F377adab44aed2e7356b283268401a18b87d6fa65.jpg"
+                                         :src="userhead"
                                          class="face">
                                     <img v-if="isAdmin"
                                          src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2513711717,3607386518&fm=26&gp=0.jpg"
@@ -111,10 +111,16 @@
                 isUser: false,
                 isAdmin: false,
                 isInfo: false,
+                userhead: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576341970432&di=a19fa702995041398ca145aa9d6f9868&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F-vo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F377adab44aed2e7356b283268401a18b87d6fa65.jpg',
                 form: {
                     username: "",
                     password: "",
                 },
+            }
+        },
+        created: function() {
+            if (this.$cookies.get("username") != null && this.$cookies.get("password") != null) {
+
             }
         },
         mounted: function () {
@@ -123,6 +129,10 @@
                 console.log(this.$cookies.get("username"), this.$cookies.get("password"));
                 //改变登录状态
                 this.isLogin = true;
+                //判断用户是否有头像
+                if(this.$cookies.get("photo") != null && this.$cookies.get("photo") != " ") {
+                    this.userhead = this.$cookies.get("photo");
+                }
                 //判断是否是管理员
                 if (this.$cookies.get("username") == 'admin') {
                     this.isAdmin = true;
@@ -142,6 +152,7 @@
             exit: function () {
                 this.$cookies.set("username", '', -1);
                 this.$cookies.set("password", '', -1);
+                this.$cookies.set("photo", '', -1);
                 // window.location.href = "/";
                 location.reload();
             },
