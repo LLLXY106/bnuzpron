@@ -1,10 +1,10 @@
-<script>
-var status = 0;
 export default {
-  status,
+  animateList:[],
+  musicList:[],
+  scienceList:[],
+  gameList:[],
   data() {
     return {
-      tempList:[],
       animateList:[
         {
           id: 5,
@@ -96,4 +96,3 @@ export default {
     }
   }
 }
-</script>
