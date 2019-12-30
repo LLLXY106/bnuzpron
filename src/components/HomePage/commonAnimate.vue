@@ -22,7 +22,6 @@ export default {
   methods: {
     toVideo(num) {
       window.location.href = 'VideoPage?id=' + num;
-      // this.$router.push({name:'VideoPage',query: {id:'1'}})
     }
   }
 }
@@ -38,7 +37,6 @@ export default {
     overflow hidden
     float left
     border-radius 4px
-    // background-color pink  //测试  显示位置
 
     .video-title
         padding-top 8px

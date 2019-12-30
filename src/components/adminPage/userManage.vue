@@ -14,23 +14,15 @@
             <div class="tile">
                 <div class="tile-body">
                     <div class="panel-body">
-                        <table class="table table-striped" id="userMsg"> <!-- v-for="(item, index) in dataList" :key="index" -->
+                        <table class="table table-striped" id="userMsg">
                             <thead>
                               <tr>
-                                  <th>用户Id</th>
-                                  <th>用户名</th>
-                                  <th>密码</th>
-                                  <th>&nbsp;&nbsp;操作</th>
+                                <th>用户Id</th>
+                                <th>用户名</th>
+                                <th>密码</th>
+                                <th>&nbsp;&nbsp;操作</th>
                               </tr>
                             </thead>
-                            <!-- <thead>
-                              <tr>
-                                  <th>{{item.id}}</th>
-                                  <th>{{item.username}}</th>
-                                  <th>{{item.password}}</th>
-                                  <th>&nbsp;&nbsp;操作</th>
-                              </tr>
-                            </thead> -->
                             <tbody>
                             </tbody>
                         </table>

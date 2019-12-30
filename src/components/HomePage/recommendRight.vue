@@ -124,40 +124,18 @@ export default {
       ],
     }
   },
-  // created() {
-  //   var url = "/api/videoList";
-  //   this.$http.get(url).then(
-  //     function(res) {
-  //       var result = res.data;
-  //       this.tempList = result;
-  //       console.log(this.tempList);
-  //     }, function() {
-  //       console.log("请求处理失败");
-  //     }
-  //   )
-  // },
   components: {
     commonVideo
   },
   methods:{
     toVideo(num) {
       window.location.href = 'VideoPage?id=' + num;
-      // this.$router.push({name:'VideoPage',query: {id:'1'}})
     }
   },
+  created(){
+    this.$cookies.set("recId", 1);
+  },
   mounted() {
-    // var url = "/api/videoList";
-    //   this.$http.get(url).then(
-    //     function(res) {
-    //       var result = res.data;
-    //       if(this.$cookies.get("recId") == null || this.$cookies.get("recId") == " ") {
-    //         this.tempList = result;
-    //       }
-    //       console.log(this.tempList);
-    //     }, function() {
-    //       console.log("请求处理失败");
-    //     }
-    //   )
     if(this.$cookies.get("recId") == 1) {
       this.tempList = this.initList;
     } else if(this.$cookies.get("recId") == 2) {
