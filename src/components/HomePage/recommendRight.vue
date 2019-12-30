@@ -133,7 +133,10 @@ export default {
     }
   },
   created(){
-    this.$cookies.set("recId", 1);
+    console.log(this.$cookies.isKey("recId"));
+    if(this.$cookies.isKey("recId") == false || this.$cookies.get("recId") == undefined || this.$cookies.get("recId") == null) {
+      this.tempList = this.initList;
+    }
   },
   mounted() {
     if(this.$cookies.get("recId") == 1) {
