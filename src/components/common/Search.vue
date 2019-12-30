@@ -1,8 +1,8 @@
 <template>
 	<div class="search">
-		<form action="//search.bilibili.com/all" id="searchform">
-			<input name="keyword" type="text" class="search-keyword" id="search-keyword" autocomplete="off" accesskey="s" x-webkit-speech="" x-webkit-grammar="builtin:translate" placeholder="bnuzporn!！" data-recommend="av8509845">
-			<button type="submit" class="search-submit"></button>
+		<form id="searchform">
+			<input name="keyword" v-model="input1" type="text" class="search-keyword" id="search-keyword" autocomplete="off" accesskey="s" x-webkit-speech="" x-webkit-grammar="builtin:translate" placeholder="bnuzporn!！">
+			<button type="button" class="search-submit" @click="toVideo" ></button>
 		</form>
 		<a class="link-ranking" href="/RankingList" target="_blank">
 			<span>排行榜</span>
@@ -11,7 +11,22 @@
 </template>
 <script>
 	export default {
+		data(){
+		    return {
+		        input1:''
+			}
+		},
+		methods: {
+		    toVideo() {
+		        // console.log(this.to_id)
+                // var vid = this.$ref.input1.value;
+                // window.loaction.href="/VideoPage?id=" + this.input1;
+				console.log(this.input1);
+				this.$router.replace('/VideoPage?id=' + this.input1)
+			}
 
+
+		}
 	}
 </script>
 

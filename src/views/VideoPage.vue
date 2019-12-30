@@ -9,11 +9,15 @@
         <Navbar></Navbar>
         <div class="main">
             <div class="content">
-                <div class="video" style="text-align: left;font-size: 18px;box-shadow: 0px 2px 3px 2px rgba(205, 205, 205, 0.64);">
+                <div class="video"
+                     style="text-align: left;font-size: 18px;box-shadow: 0px 2px 3px 2px rgba(205, 205, 205, 0.64);">
                     <div style="margin: 15px auto;">
                         <a style="font-weight: bold">{{title}}</a>&nbsp;
                         <a>{{area}}&nbsp;>&nbsp;{{type}}</a>
-                        <button @click="addCollect" style="width:70px;height:18px;margin-left:30px;cursor:pointer;font-size: 12px;border:none;outline:none;border-radius:5px;background-color:#f59db4;color:#fff">点我收藏</button>
+                        <button @click="addCollect"
+                                style="width:70px;height:18px;margin-left:30px;cursor:pointer;font-size: 12px;border:none;outline:none;border-radius:5px;background-color:#f59db4;color:#fff">
+                            点我收藏
+                        </button>
                     </div>
                     <Video></Video>
                 </div>
@@ -32,9 +36,11 @@
                 <div class="other">
                     <div class="comment">
                         <div class="comment_head" style="font-size: 14px">
-                            <p style="margin: 20px 0px;font-size: 16px;color: #fa8580;font-weight: bold">{{this.comment.length}}评论</p>
+                            <p style="margin: 20px 0px;font-size: 16px;color: #fa8580;font-weight: bold">
+                                {{this.comment.length}}评论</p>
                             <span style="vertical-align: top">我的评论：</span>
-                            <textarea type="text" v-model="textarea" style="font-size: 14px;border:0;border-radius:5px;background-color:rgba(242,242,242,0.98);width: 100%;height: 60px;padding: 10px;resize: none;"></textarea>
+                            <textarea type="text" v-model="textarea"
+                                      style="font-size: 14px;border:0;border-radius:5px;background-color:rgba(242,242,242,0.98);width: 100%;height: 60px;padding: 10px;resize: none;"></textarea>
                             <button @click="submit">提交评论</button>
                             <!--<hr style="height:10px;border:none;border-top:10px groove skyblue; margin-top: 5px"/>-->
                             <hr>
@@ -44,7 +50,7 @@
                         <div class="comment_body" v-for="(items,index) in comment" v-if="items.fatherfloor==0">
                             <div class="left">
                                 <div class="head_img" style="margin: 10px 0">
-                                    <img src="/img/PersonalCenter/head.jpg" style="width: 50px;height: 50px"/>
+                                    <img :src="items.photo" style="width: 50px;height: 50px"/>
                                 </div>
                                 <div style="margin-bottom: 10px">{{items.username}}</div>
                             </div>
@@ -56,13 +62,18 @@
                                     <div>
                                         <i class="fa fa-commenting-o" aria-hidden="true"
                                            style="color:rgb(188,188,188);margin-right: 8px;cursor:pointer;"
-                                           @click="toggle(index)"><span style="margin-left: 10px;font-size: 12px;color: #409EFF">全部回复</span></i>
+                                           @click="toggle(index)"><span
+                                                style="margin-left: 10px;font-size: 12px;color: #409EFF">全部回复</span></i>
                                     </div>
                                 </div>
                                 <div>
                                     <transition name="fade">
                                         <div v-show="items.isshow" style="padding-left: 10px;">
-                                            <div v-for="i in comment" v-if="i.fatherfloor==1&&i.floor==items.floor" style="background-color: #f6f6f6;border-radius: 5px;margin-bottom: 10px;padding: 5px">
+                                            <input type="text" v-model="input1" style="width:80%;border: 1px solid #adadad;border-radius: 5px;margin-right: 10px;padding-left: 5px"/>
+                                            <button @click="submit2(items.floor)" style="font-size:12px;border:none;outline:none;border-radius:5px;background-color:#f59db4;color:#fff;width:70px;height:20px;margin-bottom: 10px">提交
+                                            </button><br>
+                                            <div v-for="i in comment" v-if="i.fatherfloor==1&&i.floor==items.floor"
+                                                 style="background-color: #f6f6f6;border-radius: 5px;margin-bottom: 10px;padding: 5px;">
                                                 <span style="color:#f57097">{{i.username}}</span> : {{i.comment}}
                                             </div>
                                         </div>
@@ -75,17 +86,20 @@
                         <div style="margin:10px auto;font-size: 16px;font-weight: bolder">推荐视频</div>
                         <div class="item">
                             <ul class="menu">
-                                <li><a href="/VideoPage?id=1"><img src="/img/Videohead/1.jpg" style="width: 70%;height: 10%"></a>
+                                <li><a href="/VideoPage?id=1"><img src="/img/Videohead/1.jpg"
+                                                                   style="width: 70%;height: 10%"></a>
                                     <div style="text-align: left;margin: 0 auto;width: 70%;color: #979797;font-size: 12px">
                                         <p>【猛男版】新 宝 岛</p>
                                     </div>
                                 </li>
-                                <li><a href="/VideoPage?id=5"><img src="/img/Videohead/5.jpg" style="width: 70%;height: 10%"></a>
+                                <li><a href="/VideoPage?id=5"><img src="/img/Videohead/5.jpg"
+                                                                   style="width: 70%;height: 10%"></a>
                                     <div style="text-align: left;margin: 0 auto;width: 70%;color: #979797;font-size: 12px">
                                         <p>「新海诚系」如果以后能够 走得更稳更远了 就去见她吧</p>
                                     </div>
                                 </li>
-                                <li><a href="/VideoPage?id=3"><img src="/img/Videohead/3.jpg" style="width: 70%;height: 10%"></a>
+                                <li><a href="/VideoPage?id=3"><img src="/img/Videohead/3.jpg"
+                                                                   style="width: 70%;height: 10%"></a>
                                     <div style="text-align: left;margin: 0 auto;width: 70%;color: #979797;font-size: 12px">
                                         <p>火锅之神在此！如何优雅地吃一个撒尿牛丸？</p>
                                     </div>
@@ -115,7 +129,8 @@
                 comment: [],
                 value: this.star,
                 textarea: '',
-                isLogin: false
+                isLogin: false,
+                input1: ''
             }
         },
 
@@ -192,19 +207,37 @@
                 }
             },
 
+            // 提交lzl评论
+            submit2(floor) {
+                // console.log(this.input1);
+                if (!this.isLogin) {
+                    alert("你还没有登录不能发布评论噢~")
+                } else {
+                    var url = "/api/addVideoComment2";
+                    this.$http.post(url, {
+                        id: this.id,
+                        username: this.$cookies.get("username"),
+                        textarea: this.input1,
+                        floor: floor
+                    }, {}).then(function (data) {
+                        alert(data.body);
+                        window.location.reload();
+                    })
+                }
+            },
             // 添加收藏
             addCollect() {
-              if (!this.isLogin) {
-                alert("你还没有登录不能添加收藏噢~")
-              } else {
-                var url = "/api/addCollect";
-                this.$http.post(url, {
-                  id: this.id,
-                  username: this.$cookies.get("username")
-                }, {}).then(function (data) {
-                  alert(data.body);
-                })
-              }
+                if (!this.isLogin) {
+                    alert("你还没有登录不能添加收藏噢~")
+                } else {
+                    var url = "/api/addCollect";
+                    this.$http.post(url, {
+                        id: this.id,
+                        username: this.$cookies.get("username")
+                    }, {}).then(function (data) {
+                        alert(data.body);
+                    })
+                }
             }
 
 
@@ -312,7 +345,7 @@
         /*border 1px yellow solid*/
         display flex
         flex-direction column
-        border-left  1px #f6f6f6 solid
+        border-left 1px #f6f6f6 solid
 
     }
 

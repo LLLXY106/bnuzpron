@@ -15,8 +15,8 @@ export default {
       initList: [
         {
           id: 1,
-          title: '「新海诚系」如果以后能够 走得更稳更远了 就去见她吧',
-          headsrc: '/img/Videohead/5.jpg'
+          title: '【猛男版】新 宝 岛',
+          headsrc: '/img/Videohead/1.jpg'
         },
         {
           id: 2,
