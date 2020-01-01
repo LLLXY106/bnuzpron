@@ -118,11 +118,6 @@
                 },
             }
         },
-        // created: function() {
-        //     if (this.$cookies.get("username") != null && this.$cookies.get("password") != null) {
-
-        //     }
-        // },
         mounted: function () {
             //通过Cookies判断登录状态
             if (this.$cookies.get("username") != null && this.$cookies.get("password") != null) {

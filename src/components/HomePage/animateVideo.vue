@@ -61,7 +61,6 @@ import commonAnimate from './commonAnimate'
     methods: {
       toVideo(num) {
         window.location.href = 'VideoPage?id=' + num;
-        // this.$router.push({name:'VideoPage',query: {id:'1'}})
       }
     }
   }
@@ -111,8 +110,6 @@ import commonAnimate from './commonAnimate'
                 overflow hidden
                 float left
                 border-radius 4px
-                // background-color pink  //测试  显示位置
-
                 .video-title
                     padding-top 8px
                     height 48px
@@ -123,10 +120,6 @@ import commonAnimate from './commonAnimate'
                     word-break break-all
                     overflow hidden
                     text-align left
-
-        // .video-title:hover
-        //   color blue
-
         .maybe-pic
             width 260px
             float right

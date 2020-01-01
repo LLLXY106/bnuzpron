@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// import HomeSwiper from './swiper'
 import AnimateVideo from './animateVideo'
 import RecommendVideo from './recommendVideo'
 export default {
