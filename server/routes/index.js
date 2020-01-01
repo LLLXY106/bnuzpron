@@ -123,7 +123,7 @@ router.post('/showinfo', function (req, res, next) {
 router.post('/modifyinfo', function (req, res, next) {
     var params = req.body;
     var sql = "UPDATE bili_userinfo SET phone = ?,email = ?,des = ? WHERE username = ?";
-    connection.query(sql, [params.phone, params.email, params.des, 'bnuz1701030073'], (error, result) => {
+    connection.query(sql, [params.phone, params.email, params.des, params.username], (error, result) => {
         if (error) {
             console.log('[UPDATE ERROR] - ', error.message);
             return;
